@@ -3,4 +3,5 @@
     <filter root="/apps/myproject"/>
     <filter root="/etc/designs/myproject"/>
     <filter root="/content/myproject"/>
+    <filter root="/content/dam/guxapamp"/>
 </workspaceFilter>
