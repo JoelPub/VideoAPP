@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>My Website</comment>
+<entry key="createdBy">ec2-user</entry>
+<entry key="name">mywebsite</entry>
+<entry key="created">2018-11-22T08:41:21.272+0000</entry>
+<entry key="groupId">my-group-id</entry>
+<entry key="version">1.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">My Company</entry>
+<entry key="description">My Website</entry>
+<entry key="artifactId">mywebsite</entry>
+<entry key="path">/etc/packages/My Company/mywebsite.zip</entry>
+</properties>
