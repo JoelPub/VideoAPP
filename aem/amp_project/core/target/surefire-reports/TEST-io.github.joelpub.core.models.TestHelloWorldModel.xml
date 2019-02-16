@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.joelpub.core.models.TestHelloWorldModel" time="0.39" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="io.github.joelpub.core.models.TestHelloWorldModel" time="0.341" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/java-1.8.0/jdk1.8.0_181/jre/lib/amd64"/>
@@ -24,7 +24,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
     <property name="classworlds.conf" value="/usr/lib/maven/maven-3.2.5/apache-maven-3.2.5/bin/m2.conf"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="sun.jnu.encoding" value="ANSI_X3.4-1968"/>
     <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
@@ -33,7 +33,7 @@
     <property name="user.home" value="/home/ec2-user"/>
     <property name="user.timezone" value="Zulu"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="ANSI_X3.4-1968"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="user.name" value="ec2-user"/>
     <property name="java.class.path" value="/usr/lib/maven/maven-3.2.5/apache-maven-3.2.5/boot/plexus-classworlds-2.5.2.jar"/>
@@ -57,5 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testGetMessage" classname="io.github.joelpub.core.models.TestHelloWorldModel" time="0.39"/>
+  <testcase name="testGetMessage" classname="io.github.joelpub.core.models.TestHelloWorldModel" time="0.341"/>
 </testsuite>

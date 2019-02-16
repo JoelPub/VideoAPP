@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1550218048938
+Bnd-LastModified: 1550285589696
 Build-Jdk: 1.8.0_181
 Built-By: ec2-user
 Bundle-Description: Core bundle for AMPProject
@@ -9,12 +9,12 @@ Bundle-SymbolicName: io.github.joelpub.amp_project.core
 Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: io.github.joelpub.core;version="1.0",io.github.joelpub.c
- ore.servlets;uses:="javax.servlet,org.apache.sling.api,org.apache.sling
- .api.servlets";version="1.0.0",io.github.joelpub.core.listeners;uses:="
- org.osgi.service.event";version="1.0.0",io.github.joelpub.core.filters;
- uses:="javax.servlet";version="1.0.0",io.github.joelpub.core.models;use
- s:="javax.annotation,javax.inject,org.apache.sling.api.resource,org.apa
- che.sling.models.annotations";version="1.0.0",io.github.joelpub.core.sc
+ ore.servlets;version="1.0.0";uses:="javax.servlet,org.apache.sling.api,
+ org.apache.sling.api.servlets",io.github.joelpub.core.listeners;version
+ ="1.0.0";uses:="org.osgi.service.event",io.github.joelpub.core.filters;
+ version="1.0.0";uses:="javax.servlet",io.github.joelpub.core.models;ver
+ sion="1.0.0";uses:="javax.annotation,javax.inject,org.apache.sling.api.
+ resource,org.apache.sling.models.annotations",io.github.joelpub.core.sc
  hedulers;version="1.0.0"
 Import-Package: javax.annotation,javax.inject;version="[0.0,1)",javax.se
  rvlet,org.apache.sling.api;version="[2.3,3)",org.apache.sling.api.reque
