@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Template for AMP."
-    jcr:primaryType="cq:Template"
-    jcr:title="AMP Home Page Template"
-    allowedPaths="[/content/amp_pages/.+,/content/amp_pages]"
-    ranking="{Long}100">
+    jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2019-02-22T10:14:54.407Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/amp_app/templates/ampPageTemplate"
         jcr:primaryType="cq:PageContent"
+        jcr:title="amp"
         sling:resourceType="amp_app/renderers/ampPageRenderer"/>
 </jcr:root>
