@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3749fe7e-2b71-4497-a04c-9e3549e7135f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/content/amp_pages/amp/.content.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/content/amp_pages/amp/.content.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3749fe7e-2b71-4497-a04c-9e3549e7135f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/ui.content/target/" />
     <ignored path="$PROJECT_DIR$/ui.apps/target/" />
@@ -28,31 +26,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="vlt" value="1" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/META-INF/vault/filter.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="90">
+              <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/content/amp_pages/amp/.content.xml">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -173,100 +166,7 @@
               <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
               <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="amp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
               <item name="en" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-              <item name="_jcr_content" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-              <item name="_jcr_content" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-              <item name="_jcr_content" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-              <item name="file.dir" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="fr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="fr" type="462c0819:PsiDirectoryNode" />
-              <item name="_jcr_content" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="amp_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-              <item name="amp_pages" type="462c0819:PsiDirectoryNode" />
-              <item name="fr" type="462c0819:PsiDirectoryNode" />
-              <item name="_jcr_content" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="amp_project" type="b2602c69:ProjectViewProjectNode" />
@@ -487,13 +387,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/META-INF/vault/filter.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="90">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/content/amp_pages/amp/.content.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
