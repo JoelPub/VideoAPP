@@ -5,5 +5,4 @@
     </filter>
     <filter root="/apps/sling" />
     <filter root="/etc/designs/amp_app"/>
-    <filter root="/content/amp_pages"/>
 </workspaceFilter>
