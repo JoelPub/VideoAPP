@@ -1,6 +1,0 @@
-io/github/joelpub/core/package-info.class
-io/github/joelpub/core/listeners/SimpleResourceListener.class
-io/github/joelpub/core/models/HelloWorldModel.class
-io/github/joelpub/core/schedulers/SimpleScheduledTask.class
-io/github/joelpub/core/servlets/SimpleServlet.class
-io/github/joelpub/core/filters/LoggingFilter.class
