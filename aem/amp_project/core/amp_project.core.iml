@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.adobe.aem:uber-jar:obfuscated-apis:6.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.felix:org.apache.felix.scr:1.6.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.felix:org.apache.felix.scr.annotations:1.9.6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: biz.aQute:bndlib:1.50.0" level="project" />
