@@ -19,3 +19,8 @@
 HelloWorldModel say:
 ${hello.message}
 </pre>
+<p>This is your AEM HTML Template Language component:</p>
+<div data-sly-use.heroTextObject="io.github.joelpub.core.HeroTextComponent" data-sly-test="${heroTextObject}">
+       <h1>${heroTextObject.heroTextBean.headingText}</h1>
+       <p>${heroTextObject.heroTextBean.description}</p>    
+</div>
