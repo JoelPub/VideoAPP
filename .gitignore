@@ -11,3 +11,8 @@ wp-content/languages/admin-en_GB.mo
 .htaccess
 .htaccess
 .vlt
+/aem/amp_project/ui.content/target
+/aem/amp_project/ui.apps/target
+/aem/amp_project/it.tests/target
+/aem/amp_project/it.launcher/target
+/aem/amp_project/core/target
