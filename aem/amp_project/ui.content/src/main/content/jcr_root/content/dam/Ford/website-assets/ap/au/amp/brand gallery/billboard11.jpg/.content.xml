@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ea2882e0-5e05-4216-8888-c7befdbe1f18">
+    <jcr:content
+        cq:name="billboard11.jpg"
+        cq:parentPath="/content/dam/Ford/website-assets/ap/au/amp/brand gallery"
+        jcr:lastModified="{Date}2019-03-21T18:24:42.260+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-03-21T18:24:40.635+08:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}150"
+            dam:Physicalheightininches="{Decimal}2.6666667461395264"
+            dam:Physicalwidthindpi="{Long}150"
+            dam:Physicalwidthininches="{Decimal}3.200000047683716"
+            dam:Progressive="no"
+            dam:sha1="96de832b622f588925f6c369c689cce1fd74d2f1"
+            dam:size="{Long}61268"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-14T05:46:44.264-04:00"
+            jcr:lastModified="{Date}2019-03-21T18:24:42.166+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}400"
+            tiff:ImageWidth="{Long}480"
+            tiff:Orientation="{Long}1"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

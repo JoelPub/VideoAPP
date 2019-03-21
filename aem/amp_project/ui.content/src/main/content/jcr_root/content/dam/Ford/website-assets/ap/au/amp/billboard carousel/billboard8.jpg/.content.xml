@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="12265bda-bce2-4f17-93ee-4461b3f67839">
+    <jcr:content
+        cq:name="billboard8.jpg"
+        cq:parentPath="/content/dam/Ford/website-assets/ap/au/amp/billboard carousel"
+        jcr:lastModified="{Date}2019-03-21T18:24:43.854+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-03-21T18:24:39.725+08:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="e10f6a22a7e77775da63ddaf6bdba090b980c016"
+            dam:size="{Long}48044"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-14T05:46:45.580-04:00"
+            jcr:lastModified="{Date}2019-03-21T18:24:43.784+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}565"
+            tiff:ImageWidth="{Long}375"
+            xmp:CreatorTool="Adobe Photoshop CC 2018 (Macintosh)"
+            xmpMM:DocumentID="xmp.did:B96B6F01729811E893E08488CCD6CD8D"
+            xmpMM:InstanceID="xmp.iid:B96B6F00729811E893E08488CCD6CD8D"
+            xmpMM:OriginalDocumentID="xmp.did:ae891f6a-ab15-4e8f-87da-1a820420458f">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="adobe:docid:photoshop:f7104e1c-2e1e-bc4f-92ab-de2193d0016c"
+                stRef:instanceID="xmp.iid:48079ece-1cfa-48a0-ab00-6ee74e07a946"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

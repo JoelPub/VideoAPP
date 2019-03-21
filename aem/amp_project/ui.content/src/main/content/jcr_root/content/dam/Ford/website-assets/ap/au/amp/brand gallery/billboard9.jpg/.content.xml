@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="e585df3d-9635-4a48-80a6-d7a7ac33430a">
+    <jcr:content
+        cq:name="billboard9.jpg"
+        cq:parentPath="/content/dam/Ford/website-assets/ap/au/amp/brand gallery"
+        jcr:lastModified="{Date}2019-03-21T18:24:41.942+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-03-21T18:24:41.439+08:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="c9bb92717c0243308a379cf69972c4b1cec0a01f"
+            dam:size="{Long}98672"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2019-03-14T05:46:43.527-04:00"
+            jcr:lastModified="{Date}2019-03-21T18:24:41.864+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}400"
+            tiff:ImageWidth="{Long}480"
+            xmp:CreatorTool="Adobe Photoshop CS6 Windows"
+            xmpMM:DocumentID="xmp.did:F9E7101D207E11E98D30A3593C912A4E"
+            xmpMM:InstanceID="xmp.iid:F9E7101C207E11E98D30A3593C912A4E">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="C9413E2525C82A8D9DF9EFC32695A981"
+                stRef:instanceID="C9413E2525C82A8D9DF9EFC32695A981"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

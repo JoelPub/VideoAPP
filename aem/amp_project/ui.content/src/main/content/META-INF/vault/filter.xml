@@ -3,4 +3,5 @@
     <filter root="/content/amp_pages"/>
     <filter root="/content/dam/amp_pages"/>
     <filter root="/content/dam/guxapamp"/>
+    <filter root="/content/dam/Ford"/>
 </workspaceFilter>
