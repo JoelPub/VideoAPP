@@ -1,0 +1,27 @@
+<!--/*Do not move this. Its for IE11 document mode*/-->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<sly data-sly-include="/libs/wcm/core/components/init/init.jsp" data-sly-unwrap/>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap/>
+<title>${properties.jcr:title}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<link rel="canonical" href="${properties.canonical}">
+${properties.headmeta @context='unsafe'}
+<script async="" src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+${properties.headScript @context='unsafe'}
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async=""></script>
+<script custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async=""></script>
+<script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CLora%7CLato" rel="stylesheet">
+${properties.ampstyle @context='unsafe'}
+<style>
+#CQ .cq-editrollover-highlight-bottom,#CQ .cq-editrollover-highlight-right,#CQ .cq-editrollover-highlight-left,#CQ .cq-editrollover-highlight-top{
+position:fixed;
+}
+</style>
