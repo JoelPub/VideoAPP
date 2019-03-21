@@ -33,7 +33,7 @@
                     xtype="cqinclude"/>
                 <configurtion
                     jcr:primaryType="cq:Widget"
-                    path="/apps/guxfoap/core/renderers/ampPageRenderer/configuration.infinity.json"
+                    path="/apps/amp_app/renderers/ampPageRenderer/configuration.infinity.json"
                     xtype="cqinclude"/>
             </items>
         </tabs>

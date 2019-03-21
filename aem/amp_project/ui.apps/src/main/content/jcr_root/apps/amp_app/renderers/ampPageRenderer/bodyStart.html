@@ -1,0 +1,11 @@
+<!-- Start Navbar -->
+<header id="main" class="ampstart-headerbar flex justify-center items-center pt1">
+    <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger hamburg_panel blue_txt pr2">☰
+    </div>
+    <div class="mx-auto">
+        <a href="${properties.logurl}">
+            <amp-img src="${properties.logimg}" width="90" height="58.5" layout="fixed" alt="logo"></amp-img>
+        </a>
+    </div>
+</header>
+<amp-sidebar id="header-sidebar" class="ampstart-sidebar" layout="nodisplay">${properties.navScript @context='unsafe'}</amp-sidebar>

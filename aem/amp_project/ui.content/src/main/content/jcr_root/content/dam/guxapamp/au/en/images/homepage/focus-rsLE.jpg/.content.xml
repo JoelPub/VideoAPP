@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="d20d1a72-80f7-44ad-a44e-bcca2dc0da2a">
+    <jcr:content
+        cq:lastReplicated="{Date}2019-03-07T22:31:27.964-05:00"
+        cq:lastReplicatedBy="HFIAZ"
+        cq:lastReplicationAction="Activate"
+        cq:name="focus-rsLE.jpg"
+        cq:parentPath="/content/dam/guxapamp/au/en/images/homepage"
+        jcr:lastModified="{Date}2019-03-21T12:41:10.319+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-03-21T12:41:09.813+08:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="yes"
+            dam:sha1="e17f16abebd8a1e397355a19fb9e73afe029e5f0"
+            dam:size="{Long}10563"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2018-11-27T04:47:36.949-05:00"
+            jcr:lastModified="{Date}2019-03-21T12:41:06.673+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}180"
+            tiff:ImageWidth="{Long}360"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

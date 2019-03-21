@@ -2,4 +2,5 @@
 <workspaceFilter version="1.0">
     <filter root="/content/amp_pages"/>
     <filter root="/content/dam/amp_pages"/>
+    <filter root="/content/dam/guxapamp"/>
 </workspaceFilter>

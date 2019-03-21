@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="09b3d93d-3983-481a-916f-957ea3419d7d">
+    <jcr:content
+        cq:lastReplicated="{Date}2019-03-07T22:31:28.945-05:00"
+        cq:lastReplicatedBy="HFIAZ"
+        cq:lastReplicationAction="Activate"
+        cq:name="Raptor.jpg"
+        cq:parentPath="/content/dam/guxapamp/au/en/images/homepage"
+        jcr:lastModified="{Date}2019-03-21T12:41:14.409+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2019-03-21T12:41:12.682+08:00"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}96"
+            dam:Physicalheightininches="{Decimal}1.875"
+            dam:Physicalwidthindpi="{Long}96"
+            dam:Physicalwidthininches="{Decimal}3.75"
+            dam:Progressive="yes"
+            dam:sha1="0c1f228239a2a785f5b2e28de17a1a45123fe2db"
+            dam:size="{Long}11413"
+            dc:format="image/jpeg"
+            dc:modified="{Date}2018-11-27T04:47:40.720-05:00"
+            jcr:lastModified="{Date}2019-03-21T12:41:14.293+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}180"
+            tiff:ImageWidth="{Long}360"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
