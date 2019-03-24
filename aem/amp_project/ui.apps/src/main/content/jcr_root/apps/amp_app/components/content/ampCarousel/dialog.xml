@@ -2,7 +2,7 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
     height="420"
-    title="AMP  img"
+    title="AMP  carousel"
     width="700"
     xtype="dialog">
     <items jcr:primaryType="cq:WidgetCollection">
@@ -16,29 +16,23 @@
                     fieldLabel="imgclass"
                     name="./imgclass"
                     xtype="textfield"/>
-                <banner
-                    jcr:primaryType="cq:Widget"
-                    fieldLabel="isbanner"
-                    name="./isbanner"
-                    xtype="checkbox"/>
                 <imgpath
                     jcr:primaryType="cq:Widget"
                     allowBlank="true"
                     fieldLabel="imgpath"
                     name="./imgpath"
                     xtype="pathfield"/>
-                <desc1
+                <headingText
                     jcr:primaryType="cq:Widget"
-                    allowBlank="true"
-                    fieldLabel="Image URL"
-                    name="./description1"
-                    xtype="richtext"/>
-                <desc2
+                    fieldLabel="Heading Text"
+                    hideLabel="{Boolean}false"
+                    name="./headingText"
+                    xtype="textfield"/>
+                <description
                     jcr:primaryType="cq:Widget"
-                    allowBlank="true"
-                    fieldLabel="Title"
-                    name="./description2"
-                    xtype="richtext"/>
+                    fieldLabel="Description"
+                    name="./description"
+                    xtype="textarea"/>
             </items>
         </tab1>
     </items>

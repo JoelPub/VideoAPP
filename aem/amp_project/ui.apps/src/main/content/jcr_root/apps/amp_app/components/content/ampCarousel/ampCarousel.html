@@ -1,0 +1,14 @@
+
+
+<sly
+	data-sly-use.heroTextObject="io.github.joelpub.core.AMPImageModel" data-sly-test="${heroTextObject}"
+ 	data-sly-unwrap>
+             <amp-carousel class="carousel_wrap" width="360" height="400" layout="responsive" type="slides" autoplay delay="200000" controls loop>
+                    <div>
+                        <amp-img src="${heroTextObject.headingText @ context = 'uri'}" width="360" height="400" alt="federal" layout="responsive"></amp-img>
+                    </div>
+                    <div>
+                        <amp-img src="${heroTextObject.description @ context = 'uri'}" width="360" height="400" alt="federal" layout="responsive"></amp-img>
+                    </div>
+            </amp-carousel>
+</sly>
