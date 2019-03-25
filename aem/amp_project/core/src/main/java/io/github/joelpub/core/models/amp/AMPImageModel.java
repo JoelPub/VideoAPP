@@ -1,4 +1,4 @@
-package io.github.joelpub.core;
+package io.github.joelpub.core.models.amp;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -14,21 +14,21 @@ public class AMPImageModel {
 
 
     @Inject
-    private String headingText;
+    private String description;
 
     @Inject
-    private String description;
+    private List<String> featureGroups;
 
     @PostConstruct
     private void init(){
 
     }
 
-    public String getHeadingText() {
-        return headingText;
-    }
-
     public String getDescription() {
         return description;
+    }
+
+    public List<String> getFeatureGroups() {
+        return featureGroups;
     }
 }
