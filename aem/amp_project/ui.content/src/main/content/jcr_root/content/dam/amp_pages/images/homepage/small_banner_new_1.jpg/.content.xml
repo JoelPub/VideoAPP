@@ -7,12 +7,12 @@
     <jcr:content
         cq:name="small_banner_new_1.jpg"
         cq:parentPath="/content/dam/amp_pages/images/homepage"
-        jcr:lastModified="{Date}2019-03-30T09:15:57.152+08:00"
+        jcr:lastModified="{Date}2019-03-30T09:37:20.122+08:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
-            dam:extracted="{Date}2019-03-30T09:15:56.358+08:00"
+            dam:extracted="{Date}2019-03-30T09:37:18.611+08:00"
             dam:Fileformat="JPEG"
             dam:MIMEtype="image/jpeg"
             dam:Numberofimages="{Long}1"
@@ -26,7 +26,7 @@
             dam:size="{Long}33018"
             dc:format="image/jpeg"
             dc:modified="{Date}2018-11-27T04:47:40.749-05:00"
-            jcr:lastModified="{Date}2019-03-30T09:15:53.700+08:00"
+            jcr:lastModified="{Date}2019-03-30T09:37:20.090+08:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"

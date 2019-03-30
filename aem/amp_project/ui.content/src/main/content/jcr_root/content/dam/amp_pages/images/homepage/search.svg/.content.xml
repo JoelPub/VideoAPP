@@ -5,17 +5,17 @@
         cq:lastReplicated="{Date}2019-03-07T22:31:26.758-05:00"
         cq:lastReplicatedBy="HFIAZ"
         cq:lastReplicationAction="Activate"
-        jcr:lastModified="{Date}2019-03-30T09:15:59.599+08:00"
+        jcr:lastModified="{Date}2019-03-30T09:37:20.770+08:00"
         jcr:lastModifiedBy="admin"
         jcr:mixinTypes="[cq:ReplicationStatus]"
         jcr:primaryType="dam:AssetContent">
         <metadata
-            dam:extracted="{Date}2019-03-30T09:15:59.125+08:00"
+            dam:extracted="{Date}2019-03-30T09:37:20.434+08:00"
             dam:sha1="48e94d915dcbf95a141e391bdfab8abd1c549e0c"
             dam:size="{Long}551"
             dc:format="image/svg+xml"
             dc:modified="{Date}2018-11-27T04:47:41.364-05:00"
-            jcr:lastModified="{Date}2019-03-30T09:15:57.486+08:00"
+            jcr:lastModified="{Date}2019-03-30T09:37:19.769+08:00"
             jcr:lastModifiedBy="admin"
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"/>
