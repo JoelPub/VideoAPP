@@ -5,12 +5,12 @@
         cq:lastReplicated="{Date}2019-03-07T22:31:26.819-05:00"
         cq:lastReplicatedBy="HFIAZ"
         cq:lastReplicationAction="Activate"
-        jcr:lastModified="{Date}2019-03-30T09:37:21.146+08:00"
+        jcr:lastModified="{Date}2019-03-30T09:48:11.866+08:00"
         jcr:lastModifiedBy="admin"
         jcr:mixinTypes="[cq:ReplicationStatus]"
         jcr:primaryType="dam:AssetContent">
         <metadata
-            dam:extracted="{Date}2019-03-30T09:37:20.856+08:00"
+            dam:extracted="{Date}2019-03-30T09:48:11.720+08:00"
             dam:sha1="b48756af489c7bd10411bd2e5ec98fde4adc1fe1"
             dam:size="{Long}493"
             dc:format="image/svg+xml"

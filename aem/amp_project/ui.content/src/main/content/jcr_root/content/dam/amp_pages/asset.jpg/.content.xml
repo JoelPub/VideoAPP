@@ -7,14 +7,14 @@
     <jcr:content
         cq:name="asset.jpg"
         cq:parentPath="/content/dam/amp_pages"
-        jcr:lastModified="{Date}2019-03-30T09:37:21.305+08:00"
+        jcr:lastModified="{Date}2019-03-30T09:48:12.220+08:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent">
         <metadata
             dam:Bitsperpixel="{Long}24"
             dam:ColorSpace="{Long}-1"
             dam:ExifOffset="{Long}232"
-            dam:extracted="{Date}2019-03-30T09:37:20.906+08:00"
+            dam:extracted="{Date}2019-03-30T09:48:11.947+08:00"
             dam:Fileformat="JPEG"
             dam:JpgFromRawLength="{Long}988"
             dam:JpgFromRawStart="{Long}382"
@@ -39,7 +39,7 @@
             jcr:mixinTypes="[cq:Taggable]"
             jcr:primaryType="nt:unstructured"
             photoshop:ColorMode="{Long}3"
-            tiff:BitsPerSample="\[S@55ec0696"
+            tiff:BitsPerSample="\[S@65e258bc"
             tiff:Compression="{Long}6"
             tiff:ImageLength="{Long}51"
             tiff:ImageWidth="{Long}940"
