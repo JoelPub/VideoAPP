@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="f2309812-2404-4648-ba5b-834fe8667ff9">
+    <jcr:content
+        cq:lastReplicated="{Date}2019-03-07T22:31:27.637-05:00"
+        cq:lastReplicatedBy="HFIAZ"
+        cq:lastReplicationAction="Activate"
+        cq:name="focus.jpeg"
+        cq:parentPath="/content/dam/amp_pages/images/homepage"
+        jcr:lastModified="{Date}2019-03-30T09:17:01.174+08:00"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dc:format="image/jpeg"
+            jcr:lastModified="{Date}2019-03-30T09:17:00.991+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
