@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .remind {
+            width: 300px;
+            background: #64d6caab;
+            /* background: #8bdc90ab; */
+            border-radius: 7px;
+            position: relative;
+        }
+
+        .remind .header {
+            position: relative;
+            padding: 16px 0;
+            text-align: center;
+            border-bottom: 1px dashed black;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            font-size: 19px;
+        }
+
+        .remind .header .logo {
+            padding: 0 20px 0 10px;
+            width: 30px;
+        }
+
+        .remind .header #keyword {
+            color: #c51414;
+        }
+
+        .remind .ctrl {
+            width: 29px;
+            position: absolute;
+            bottom: -14px;
+            left: 126px;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .remind .close {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            width: 17px;
+        }
+
+        .remind .main {
+            /* padding: 5px */
+        }
+
+        .remind .main div {
+            padding: 10px 20px;
+        }
+
+        .remind .bot {
+            width: 0;
+            height: 0;
+            font-size: 0;
+            overflow: hidden;
+            position: absolute;
+            border-width: 20px;
+            border-style: solid dashed dashed;
+            border-color: #64d6caab transparent transparent;
+            left: 121px;
+            bottom: -40px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="remind">
+        <header class="header">
+            电动车的电量足够支持您往返5次
+            <img src="./assets/minus.svg" alt="" class="ctrl">
+        </header>
+        <main class="main">
+            <div class="origin">
+                起点：上海
+            </div>
+            <div class="destination">
+                终点：苏州
+            </div>
+            <div class="distance">
+                路程：15公里
+            </div>
+        </main>
+        <footer class="bot"></footer>
+    </section>
+
+    <br>
+
+    <section class="remind">
+        <header class="header">
+            <img src="./assets/warning1.svg" alt="" class="logo">
+            <span>请在<span id="keyword" style="color:blue">30</span>公里内充电</span>
+            <img src="./assets/minus.svg" alt="" class="ctrl">
+        </header>
+        <!-- <aside class="close">
+                <img src="./assets/close.svg" alt="">
+            </aside> -->
+        <main class="main">
+            <div class="origin">
+                起点：上海
+            </div>
+            <div class="destination">
+                终点：苏州
+            </div>
+            <div class="distance">
+                路程：15公里
+            </div>
+        </main>
+        <footer class="bot"></footer>
+    </section>
+
+    <script>
+        let ctrlFlag = true
+        const remind = document.querySelector('.remind')
+        const ctrl = document.querySelector('.ctrl')
+        const header = document.querySelector('.header')
+        const main = document.querySelector('.main')
+
+        ctrl.addEventListener('click', () => {
+            if (ctrlFlag) {
+                console.log('A')
+                main.style.display = 'none'
+                header.style.borderBottom = 'none'
+                ctrl.src = './assets/add.svg'
+                ctrlFlag = false
+            } else {
+                console.log('B')
+                main.style.display = 'block'
+                header.style.borderBottom = '1px dashed black'
+                ctrl.src = './assets/minus.svg'
+                ctrlFlag = true
+            }
+        })
+
+        close.addEventListener('click', () => {
+            remind.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>

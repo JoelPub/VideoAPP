@@ -1,0 +1,9 @@
+applications:
+  - name: ttt-iphonex
+    routes:
+      # - route: project-e-china-experiment.apps.cl-east-dev02.cf.ford.com
+      # - route: project-e-china-experiment.apps.cl-cn-north-preprod01.cf.ford.com
+      - route: ttt-iphonex.apps.cl-cn-north-preprod01.cf.ford.com
+    buildpack: https://github.com/cloudfoundry/staticfile-buildpack#v1.4.16
+    memory: 128M
+    path: ./dist

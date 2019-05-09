@@ -21,3 +21,4 @@ wp-content/languages/admin-en_GB.mo
 *.base
 *.mine
 *.theirs
+.DS_Store
