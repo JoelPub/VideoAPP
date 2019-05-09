@@ -22,3 +22,6 @@ wp-content/languages/admin-en_GB.mo
 *.mine
 *.theirs
 .DS_Store
+/works/Try-The-Tech/TTT-Map/node_modules
+/works/Try-The-Tech/TTT-Map/npm-debug.log
+/works/Try-The-Tech/TTT-Map/.idea
