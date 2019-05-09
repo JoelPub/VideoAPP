@@ -34,21 +34,89 @@ driving.setPolylinesSetCallback(function (lines) {
    let results = driving.getResults(); // 获取路线规划结果
    // getDistance(true) 获取距离 getDuration(true) 获取时间
    if (driving.getStatus() == BMAP_STATUS_SUCCESS){
-      let journey = results.getPlan(0).getDistance(true);
-      console.log(journey); //得到距离
-      changeRouteWeight(lines);
+        let journey = results.getPlan(0).getDistance(true);
+        console.log(journey); //得到距离
+        changeRouteWeight(lines);
+
+
    }
 })
 driving.search(p1, p2);
+
+  var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
+    scale: 0.6,//图标缩放大小
+    strokeColor:'#fff',//设置矢量图标的线填充颜色
+    strokeWeight: '2',//设置线宽
+});
+var icons = new BMap.IconSequence(sy, '10', '30');
 //更改地铁线路宽度及透明度
 function changeRouteWeight ( lines ) {
 
-	//linesMap.push(lines);
+	<!--linesMap.push(lines);-->
 
-	for ( var line in lines ) {
-		lines[line].getPolyline().setStrokeWeight( lineWeight[ map.getZoom() ] );
-		lines[line].getPolyline().setStrokeOpacity( 0.2 );
-	}
+	<!--for ( var line in lines ) {-->
+		<!--lines[line].getPolyline().setStrokeWeight( lineWeight[ map.getZoom() ] );-->
+		<!--lines[line].getPolyline().setStrokeOpacity( 0.2 );-->
+	<!--}-->
+        lines[0].getPolyline().setStrokeOpacity(0.0001);//隐藏默认路线
+    // 创建polyline对象
+    var pois1 = [
+        new BMap.Point(121.464007,31.249602),
+        new BMap.Point(120.820537,31.049991)
+    ];
+    var polyline1 =new BMap.Polyline(pois1, {
+       enableEditing: false,//是否启用线编辑，默认为false
+       enableClicking: true,//是否响应点击事件，默认为true
+       icons:[icons],
+       strokeWeight:'8',//折线的宽度，以像素为单位
+       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+       strokeColor:"#18a45b" //折线颜色
+    });
+
+
+    setTimeout(function(){
+        //lines[0].getPolyline().setStrokeColor("green");
+        map.addOverlay(polyline1);          //增加折线
+    },1000);
+
+    // 创建polyline对象2
+    var pois2 = [
+        new BMap.Point(120.820537,31.049991),
+        new BMap.Point(120.128339,30.927151)
+    ];
+    var polyline2 =new BMap.Polyline(pois2, {
+       enableEditing: false,//是否启用线编辑，默认为false
+       enableClicking: true,//是否响应点击事件，默认为true
+       icons:[icons],
+       strokeWeight:'8',//折线的宽度，以像素为单位
+       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+       strokeColor:"#18a45b" //折线颜色
+    });
+
+
+    setTimeout(function(){
+        //lines[0].getPolyline().setStrokeColor("green");
+        map.addOverlay(polyline2);          //增加折线
+    },2000);
+    // 创建polyline对象
+    var pois3 = [
+        new BMap.Point(120.128339,30.927151),
+        new BMap.Point(119.644592,30.637464)
+    ];
+    var polyline3 =new BMap.Polyline(pois3, {
+       enableEditing: false,//是否启用线编辑，默认为false
+       enableClicking: true,//是否响应点击事件，默认为true
+       icons:[icons],
+       strokeWeight:'8',//折线的宽度，以像素为单位
+       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+       strokeColor:"#18a45b" //折线颜色
+    });
+
+
+    setTimeout(function(){
+        //lines[0].getPolyline().setStrokeColor("green");
+        map.addOverlay(polyline3);          //增加折线
+    },3000);
 
 }
 </script>
