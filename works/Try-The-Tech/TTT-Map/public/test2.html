@@ -20,6 +20,16 @@ map.centerAndZoom(new BMap.Point(121.464007,31.249602), 11);
 
 var p1 = new BMap.Point(121.464007,31.249602);
 var p2 = new BMap.Point(119.644592,30.637464);
+var local =  new BMap.LocalSearch(p1, {renderOptions: {map: map, autoViewport: false}});
+local.setMarkersSetCallback(function(pois){
+    setTimeout(function(){
+         for(var i=0;i<pois.length;i++){
+             map.removeOverlay(pois[i].marker);
+         }
+    },1000);
+ })
+local.searchNearby('充电站',p1,1000);
+
 
 var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
 //driving.disableAutoViewport();
@@ -45,12 +55,9 @@ driving.setPolylinesSetCallback(function (lines) {
         let journey = results.getPlan(0).getDistance(true);//得到距离
         console.log(journey);
         lines[0].getPolyline().setStrokeOpacity(0.0001);//隐藏默认路线
-        //创建小狐狸
-        var pt = new BMap.Point(121.464007,31.249602);
-        var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
-        var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
-        map.addOverlay(marker2);              // 将标注添加到地图中
-        marker2.setAnimation(BMAP_ANIMATION_DROP);
+        //使用自定义的起点
+        changestartimg();
+        //画路线
         changeRouteWeight(lines);
 
 
@@ -87,11 +94,19 @@ function changeRouteWeight ( lines ) {
        strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
        strokeColor:"#18a45b" //折线颜色
     });
-
-
+    var po1 = new BMap.Point(120.820537,31.049991);
     setTimeout(function(){
         //lines[0].getPolyline().setStrokeColor("green");
         map.addOverlay(polyline1);          //增加折线
+        var local1 =  new BMap.LocalSearch(po1, {renderOptions: {map: map, autoViewport: false}});
+        local1.setMarkersSetCallback(function(pois){
+            setTimeout(function(){
+                 for(var i=0;i<pois.length;i++){
+                     map.removeOverlay(pois[i].marker);
+                 }
+            },1000);
+         })
+        local1.searchNearby('充电站',po1,5000);
     },1000);
 
     // 创建polyline对象2
@@ -109,9 +124,19 @@ function changeRouteWeight ( lines ) {
     });
 
 
+    var po2 = new BMap.Point(120.128339,30.927151);
     setTimeout(function(){
         //lines[0].getPolyline().setStrokeColor("green");
         map.addOverlay(polyline2);          //增加折线
+        var local2 =  new BMap.LocalSearch(po2, {renderOptions: {map: map, autoViewport: false}});
+        local2.setMarkersSetCallback(function(pois){
+            setTimeout(function(){
+                 for(var i=0;i<pois.length;i++){
+                     map.removeOverlay(pois[i].marker);
+                 }
+            },1000);
+         })
+        local2.searchNearby('充电站',po2,5000);
     },2000);
     // 创建polyline对象
     var pois3 = [
@@ -128,10 +153,110 @@ function changeRouteWeight ( lines ) {
     });
 
 
+
+
     setTimeout(function(){
         //lines[0].getPolyline().setStrokeColor("green");
         map.addOverlay(polyline3);          //增加折线
+        var po3 = new BMap.Point(119.644592,30.637464);
+        var local3 =  new BMap.LocalSearch(po3, {renderOptions: {map: map, autoViewport: false}});
+        local3.setMarkersSetCallback(function(pois){
+            setTimeout(function(){
+                 for(var i=0;i<pois.length;i++){
+                     map.removeOverlay(pois[i].marker);
+                 }
+            },1000);
+         })
+        local3.searchNearby('充电站',po3,5000);
     },3000);
 
+    //创建小狐狸 没什么用
+    setTimeout(function(){
+        var pt = new BMap.Point(119.644592,30.637464);
+        var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+        var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+        map.addOverlay(marker2);              // 将标注添加到地图中
+        marker2.setAnimation(BMAP_ANIMATION_DROP);
+    },4000);
+
+
+}
+
+function changestartimg() {
+        function ComplexCustomOverlay(point, text, mouseoverText){
+              this._point = point;
+              this._text = text;
+              this._overText = mouseoverText;
+        }
+        ComplexCustomOverlay.prototype = new BMap.Overlay();
+        ComplexCustomOverlay.prototype.initialize = function(map){
+          this._map = map;
+          var div = this._div = document.createElement("div");
+          div.style.position = "absolute";
+          div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+          div.style.backgroundColor = "#EE5D5B";
+          div.style.border = "1px solid #BC3B3A";
+          div.style.color = "white";
+          div.style.height = "18px";
+          div.style.padding = "2px";
+          div.style.lineHeight = "18px";
+          div.style.whiteSpace = "nowrap";
+          div.style.MozUserSelect = "none";
+          div.style.fontSize = "12px";
+          div.style.opacity= "0";
+          div.style.transition="all 5.0s ease-in-out";
+          var span = this._span = document.createElement("span");
+          div.appendChild(span);
+          span.appendChild(document.createTextNode(this._text));
+          var that = this;
+
+          var arrow = this._arrow = document.createElement("div");
+          arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
+          arrow.style.position = "absolute";
+          arrow.style.width = "11px";
+          arrow.style.height = "100px";
+          arrow.style.top = "22px";
+          arrow.style.left = "10px";
+          arrow.style.overflow = "hidden";
+          div.appendChild(arrow);
+
+          div.onmouseover = function(){
+            this.style.backgroundColor = "#6BADCA";
+            this.style.borderColor = "#0000ff";
+            this.getElementsByTagName("span")[0].innerHTML = that._overText;
+            arrow.style.backgroundPosition = "0px -20px";
+          }
+
+          div.onmouseout = function(){
+            this.style.backgroundColor = "#EE5D5B";
+            this.style.borderColor = "#BC3B3A";
+            this.getElementsByTagName("span")[0].innerHTML = that._text;
+            arrow.style.backgroundPosition = "0px 0px";
+          }
+          map.getPanes().labelPane.appendChild(div);
+
+          return div;
+        }
+        ComplexCustomOverlay.prototype.draw = function(){
+          var map = this._map;
+          var pixel = map.pointToOverlayPixel(this._point);
+          this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
+          this._div.style.top  = pixel.y - 30 + "px";
+        }
+        <!--ComplexCustomOverlay.prototype.addEventListener("click", function(){-->
+            <!--console.log('hi');-->
+        <!--});-->
+        var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
+
+        var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(121.464007,31.249602), "银湖海岸城",mouseoverTxt);
+
+        map.addOverlay(myCompOverlay);
+
+        var event = new Event('build');
+        myCompOverlay.addEventListener('build', function (event) {
+            this._div.style.opacity= "1";
+            console.log(event)
+        }, false);
+        myCompOverlay.dispatchEvent(event);
 }
 </script>
