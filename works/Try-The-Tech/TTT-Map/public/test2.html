@@ -17,29 +17,22 @@ body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-fami
 // 百度地图API功能
 var map = new BMap.Map("allmap");
 map.centerAndZoom(new BMap.Point(121.464007,31.249602), 11);
+var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM});
+map.addControl(top_right_navigation);  //添加缩放按钮
 
 var p1 = new BMap.Point(121.464007,31.249602);
 var p2 = new BMap.Point(119.644592,30.637464);
-var local =  new BMap.LocalSearch(p1, {renderOptions: {map: map, autoViewport: false}});
-local.setMarkersSetCallback(function(pois){
-    setTimeout(function(){
-         for(var i=0;i<pois.length;i++){
-             map.removeOverlay(pois[i].marker);
-         }
-    },1000);
- })
-local.searchNearby('充电站',p1,1000);
 
 
 var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
 //driving.disableAutoViewport();
-driving.setSearchCompleteCallback(function(results){//没什么用
-            if(driving.getStatus() !== BMAP_STATUS_SUCCESS){
-                alert("无结果");
-            } else {
-			     console.log(results.taxiFare.distance);
-			 }
-        });
+// driving.setSearchCompleteCallback(function(results){//没什么用
+//             if(driving.getStatus() !== BMAP_STATUS_SUCCESS){
+//                 alert("无结果");
+//             } else {
+// 			     console.log(results.taxiFare.distance);
+// 			 }
+//         });
 driving.setMarkersSetCallback(function(routes){//去掉默认起点和终点以及沿途的覆盖物？
     map.removeOverlay(routes[0].marker);
     map.removeOverlay(routes[routes.length-1].marker);
@@ -64,7 +57,11 @@ driving.setPolylinesSetCallback(function (lines) {
    }
 })
 driving.search(p1, p2);
+map.addEventListener("zoomstart", function(evt){　　map.clearOverlays();});
 
+map.addEventListener("zoomend", function(evt){　　
+  driving.search(p1, p2);
+});
 var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
     scale: 0.6,//图标缩放大小
     strokeColor:'#fff',//设置矢量图标的线填充颜色
@@ -94,6 +91,17 @@ function changeRouteWeight ( lines ) {
        strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
        strokeColor:"#18a45b" //折线颜色
     });
+    var p = new BMap.Point(121.464007,31.249602);
+    var local =  new BMap.LocalSearch(p, {renderOptions: {map: map, autoViewport: false}});
+    local.setMarkersSetCallback(function(pois){
+        setTimeout(function(){
+             for(var i=0;i<pois.length;i++){
+                 map.removeOverlay(pois[i].marker);
+             }
+        },1000);
+     })
+    local.searchNearby('充电站',p,1000);
+
     var po1 = new BMap.Point(120.820537,31.049991);
     setTimeout(function(){
         //lines[0].getPolyline().setStrokeColor("green");
