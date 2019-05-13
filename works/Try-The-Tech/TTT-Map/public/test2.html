@@ -16,13 +16,14 @@ body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-fami
 
 // 百度地图API功能
 var map = new BMap.Map("allmap");
-map.centerAndZoom(new BMap.Point(121.464007,31.249602), 11);
+map.centerAndZoom(new BMap.Point(121.464007,31.249602), 9);  
+//map.centerAndZoom("new BMap.Point(120.401999,30.857734), 4");
 var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM});
 map.addControl(top_right_navigation);  //添加缩放按钮
 
 var p1 = new BMap.Point(121.464007,31.249602);
 var p2 = new BMap.Point(119.644592,30.637464);
-
+var autoAdjust = false; 
 
 var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
 //driving.disableAutoViewport();
@@ -42,6 +43,7 @@ driving.setMarkersSetCallback(function(routes){//去掉默认起点和终点以�
     }
 }) 
 driving.setPolylinesSetCallback(function (lines) {
+   //map.panto(center);
    let results = driving.getResults(); // 获取路线规划结果
    // getDistance(true) 获取距离 getDuration(true) 获取时间
    if (driving.getStatus() == BMAP_STATUS_SUCCESS){
@@ -57,10 +59,14 @@ driving.setPolylinesSetCallback(function (lines) {
    }
 })
 driving.search(p1, p2);
-map.addEventListener("zoomstart", function(evt){　　map.clearOverlays();});
+map.addEventListener("zoomstart", function(evt){　　
+  map.clearOverlays();
+});
 
 map.addEventListener("zoomend", function(evt){　　
-  driving.search(p1, p2);
+  if(!autoAdjust) {
+    driving.search(p1, p2);
+  }
 });
 var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
     scale: 0.6,//图标缩放大小
@@ -178,13 +184,29 @@ function changeRouteWeight ( lines ) {
         local3.searchNearby('充电站',po3,5000);
     },3000);
 
-    //创建小狐狸 没什么用
     setTimeout(function(){
+        //调整地图缩放-1
+        var bPoints = new Array();
+        bPoints = [
+              new BMap.Point(121.464007,31.249602),
+              new BMap.Point(120.820537,31.049991),
+              new BMap.Point(120.128339,30.927151),
+              new BMap.Point(119.644592,30.637464)
+          ]; 
+        var view = map.getViewport(eval(bPoints));  
+        var mapZoom = view.zoom;  
+        var centerPoint = view.center; 
+        if(mapZoom-1!==map.getZoom() ) {
+          autoAdjust = true;
+          map.centerAndZoom(centerPoint, mapZoom-1); 
+        }
+        //创建小狐狸 没什么用
         var pt = new BMap.Point(119.644592,30.637464);
         var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
         var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
         map.addOverlay(marker2);              // 将标注添加到地图中
         marker2.setAnimation(BMAP_ANIMATION_DROP);
+
     },4000);
 
 
