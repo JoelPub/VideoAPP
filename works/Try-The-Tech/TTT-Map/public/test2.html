@@ -50,25 +50,6 @@ driving.setPolylinesSetCallback(function (lines) {
         let journey = results.getPlan(0).getDistance(true);//得到距离
         console.log(journey);
         lines[0].getPolyline().setStrokeOpacity(0.0001);//隐藏默认路线
-        //绘制阴影
-        var pois5=[];
-        var stepsnum1=lines[0].getNumSteps();
-        for(var p=0;p<stepsnum1;p++){//关键点2
-          var pp=lines[0].getStep(p).getPosition();
-          console.log(map.pointToPixel(pp));
-          pixelX=map.pointToPixel(pp).x+5;
-          pixelY=map.pointToPixel(pp).y+10;
-          pois5[p]=map.pixelToPoint(new BMap.Pixel(pixelX,pixelY));
-        }
-        var polyline5 =new BMap.Polyline(pois5, {
-           enableEditing: false,//是否启用线编辑，默认为false
-           enableClicking: true,//是否响应点击事件，默认为true
-           icons:[icons],
-           strokeWeight:'8',//折线的宽度，以像素为单位
-           strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
-           strokeColor:"#000" //折线颜色
-        });
-        map.addOverlay(polyline5);
         //使用自定义的起点
         changestartimg();
         //画路线
@@ -103,6 +84,25 @@ function changeRouteWeight ( lines ) {
 		<!--lines[line].getPolyline().setStrokeOpacity( 0.2 );-->
 	<!--}-->
 
+        //绘制阴影
+        var pois5=[];
+        var stepsnum1=lines[0].getNumSteps();
+        for(var p=0;p<stepsnum1;p++){//关键点2
+          var pp=lines[0].getStep(p).getPosition();
+          console.log(map.pointToPixel(pp));
+          pixelX=map.pointToPixel(pp).x+5;
+          pixelY=map.pointToPixel(pp).y+10;
+          pois5[p]=map.pixelToPoint(new BMap.Pixel(pixelX,pixelY));
+        }
+        var polyline5 =new BMap.Polyline(pois5, {
+           enableEditing: false,//是否启用线编辑，默认为false
+           enableClicking: true,//是否响应点击事件，默认为true
+           icons:[icons],
+           strokeWeight:'8',//折线的宽度，以像素为单位
+           strokeOpacity: 0.01,//折线的透明度，取值范围0 - 1
+           strokeColor:"#000" //折线颜色
+        });
+        map.addOverlay(polyline5);
     // 创建polyline对象
     var pois1 = [
         new BMap.Point(121.464007,31.249602),
@@ -113,7 +113,7 @@ function changeRouteWeight ( lines ) {
        enableClicking: true,//是否响应点击事件，默认为true
        icons:[icons],
        strokeWeight:'8',//折线的宽度，以像素为单位
-       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+       strokeOpacity: 1,//折线的透明度，取值范围0 - 1
        strokeColor:"#18a45b" //折线颜色
     });
     var p = new BMap.Point(121.464007,31.249602);
@@ -141,6 +141,7 @@ function changeRouteWeight ( lines ) {
          })
         local1.searchNearby('充电站',po1,5000);
         lines[0].getPolyline().setStrokeOpacity(0.2);
+        polyline5.setStrokeOpacity(0.2);
     },1000);
 
     // 创建polyline对象2
@@ -172,6 +173,7 @@ function changeRouteWeight ( lines ) {
          })
         local2.searchNearby('充电站',po2,5000);
         lines[0].getPolyline().setStrokeOpacity(0.4);
+        polyline5.setStrokeOpacity(0.4);
     },2000);
     // 创建polyline对象
     var pois3 = [
@@ -204,6 +206,7 @@ function changeRouteWeight ( lines ) {
          })
         local3.searchNearby('充电站',po3,5000);
         lines[0].getPolyline().setStrokeOpacity(0.6);
+        polyline5.setStrokeOpacity(0.6);
     },3000);
 
     setTimeout(function(){
@@ -230,6 +233,7 @@ function changeRouteWeight ( lines ) {
         marker2.setAnimation(BMAP_ANIMATION_DROP);
         //返回路线完全显示
         lines[0].getPolyline().setStrokeOpacity(1);
+        polyline5.setStrokeOpacity(1);
         //绘制路线
         // 创建polyline对象
         var pois4 = [];
