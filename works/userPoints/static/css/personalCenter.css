@@ -1,0 +1,180 @@
+.ownerCertification {
+    text-align: center;
+    padding: 40px 0px 70px 0px;
+    background: #ffffff;
+    vertical-align: middle;
+}
+
+.ownerCertification li {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.ownerCertification img {
+    width: 54px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.ownerCertification span {
+    display: inline-block;
+    width: 62px;
+    height: 18px;
+    border-radius: 9px;
+    margin-bottom: 5px;
+    background: #9f9f9f;
+    font-size: 10px;
+    color: #ffffff;
+    text-align: center;
+    margin-left: -75px;
+    line-height: 18px;
+}
+
+.centerTopBg {
+    width: 100%;
+    background: rgba(2, 118, 179, 1);
+    padding: 15px;
+    height: 167px;
+}
+
+.centerList {
+    padding: 60px 10px 20px 10px;
+    color: #8B8B8B;
+    margin-right: 10px;
+    background: #f9f9f9;
+}
+
+.viewAll {
+    width: 100%;
+    text-align: right;
+    height: 26px;
+    line-height: 26px;
+    color: #333333;
+}
+
+.centerList img {
+    width: 28px;
+    display: inline-block;
+    height: 28px;
+}
+
+.centerListRow {
+    padding: 15px 0;
+    text-align: center;
+    color: #333333;
+}
+
+.centerListRow:last-child {
+    border-top: 1px solid #e5e5e5;
+}
+
+.centerCard {
+    width: 90%;
+    height: 164px;
+    background: #ffffff;
+    position: absolute;
+    left: 5%;
+    padding: 15px 10px;
+    top: 50px;
+    box-shadow: 0px 10px 10px 1px rgba(193, 193, 193, 0.15);
+    border-radius: 10px;
+}
+
+.centerCardTop button {
+    width: 71px;
+    height: 27px;
+    text-align: center;
+    outline: none;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 1);
+    color: #ffffff;
+    margin-top: 13px;
+    border: none;
+    background: rgba(2, 118, 179, 1);
+    border-radius: 7px;
+}
+
+.alreadyCheck {
+    background: #8B8B8B !important;
+}
+
+.alreadyCheck img {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.centerCardTop p {
+    color: #8b8b8b;
+    font-size: 10px;
+}
+
+.centerCardTop {
+    padding: 10px 0px 15px 0px;
+    position: relative;
+    /* vertical-align: middle; */
+}
+
+.centerCardTop li {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.centerCardTop li:last-child span {
+    color: #333333;
+    font-weight: bold;
+}
+
+.centerCardTopAvatar {
+    width: 49px;
+    height: 49px;
+    border: 1px solid rgba(2, 118, 179, 1);
+    display: inline-block;
+    border-radius: 49px;
+}
+
+.CertificationTop {
+    
+    width: 23px;
+    height: 13px;
+    display: inline-block;
+    left: 46%;
+    top: 9px;
+}
+
+.centerCardBottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+.centerCardBottom span {
+    color: #999999;
+    font-size: 12px;
+}
+
+.centerCardBottom p {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.centerTopBg span {
+    color: #FFFFFF;
+    font-size: 8px;
+}
+
+.centerTopBg img {
+    display: inline-block;
+    height: 20px;
+}
+
+.centerCardTopCenter span:first-child {
+    color: #333333;
+    font-size: 13px;
+}
+
+.Certified {
+    background: #F6B159 !important;
+}

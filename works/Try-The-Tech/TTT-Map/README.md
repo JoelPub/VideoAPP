@@ -1,3 +1,4 @@
+npm v11.2.0
 # my-app
 
 ## Project setup

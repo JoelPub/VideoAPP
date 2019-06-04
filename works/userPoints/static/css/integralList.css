@@ -1,0 +1,99 @@
+li {
+    list-style: none;
+}
+
+.integralTop {
+    height: 130px;
+    background: #2C95CC;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 38px;
+}
+
+.integralTop img {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.integralTop li:last-child {
+    font-size: 28px;
+}
+
+.activeTab {
+    color: #0276B3 !important;
+}
+
+.integralList {
+    padding: 0px 15px;
+    background: #f9f9f9;
+}
+
+.integralTab {
+    width: 100%;
+    height: 40px;
+    color: #333333;
+    background: #ffffff;
+}
+
+.integralTab span {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+}
+
+.integralList li {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.integralList img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.integralList li span:last-child {
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.integralList span:nth-last-of-type(3) {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
+
+.integralTitle {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.integralTitle img {
+    width: 20px;
+    height: 20px;
+}
+
+.integralList li span {
+    margin-left: 10px;
+}
+
+.emptyLsit {
+    width: 87px;
+    height: 87px;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+    margin-left: -43px;
+    margin-top: -43px;
+    position: absolute;
+}

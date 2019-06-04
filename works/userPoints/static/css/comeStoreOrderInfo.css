@@ -1,0 +1,79 @@
+.comeStoreTitle {
+    color: #333333;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-weight: bold;
+}
+
+.comeStoreNavigation {
+    height: 50px;
+    line-height: 50px;
+    color: #333333;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.comeStoreNavigation img {
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.comeStoreNavigation img:last-child {
+    float: right;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.comeStoreNavigation img:first-child {
+    margin-right: 7px;
+}
+
+li {
+    list-style: none;
+}
+
+.record {
+    padding: 0px 10px;
+}
+
+.recordUl>li {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.recordUl img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.recordUlLeft li:first-child {
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+}
+
+.recordUlLeft li:nth-of-type(3) {
+    color: #2d96cd;
+    margin-top: 7px;
+}
+
+.recordUlLeft span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: #ccc;
+    color: #fff;
+    position: absolute;
+    right: -71px;
+    top: -17px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+}

@@ -1,0 +1,30 @@
+.configInfo {
+    background: #ffffff;
+    padding: 0px 10px;
+}
+
+.configInfo li {
+    border-bottom: 1px solid #e6e6e6;
+    height: 50px;
+    line-height: 50px;
+}
+
+.configInfo img {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+}
+
+.loginOut {
+    width: 40%;
+    border: none;
+    color: #ffffff;
+    background: rgba(2, 118, 179, 1);
+    height: 30px;
+    border-radius: 30px;
+    margin-left: 30%;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}

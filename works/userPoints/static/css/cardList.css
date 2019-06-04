@@ -1,0 +1,103 @@
+li {
+    list-style: none;
+}
+
+.tabSelect {
+    background: #fff;
+    text-align: center;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    top: 0;
+    line-height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.emptyLsit {
+    width: 87px;
+    height: 87px;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+    margin-left: -43px;
+    margin-top: -43px;
+    position: absolute;
+}
+
+.active {
+    border-bottom: 2px solid #0276B3;
+    color: #0276B3;
+    height: 49px;
+}
+
+.cardList {
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.cardInfoImg {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+.cardInfo {
+    margin-bottom: 15px;
+    background: #fff;
+    position: relative;
+}
+
+.cardImg {
+    display: inline-block;
+    width: 90px;
+    margin-right: 7px;
+    height: 90px;
+    padding-top: 14px;
+    color: #fff;
+    text-align: center;
+    background: url('../img/yellow.png');
+    vertical-align: middle;
+}
+
+.cardImg span:first-child {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 47px;
+}
+
+.cardImg span:last-child {
+    display: inline-block;
+    width: 10px;
+    vertical-align: middle;
+    line-height: 13px;
+    font-size: 12px;
+}
+
+.cardInfoLeft {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cardInfoLeft span {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cardInfoLeft li:first-child {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px dashed #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.cardInfoRight {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 2px 12px;
+    background: #0276B3;
+    margin-top: 40px;
+    border-radius: 10px;
+    color: #fff;
+}

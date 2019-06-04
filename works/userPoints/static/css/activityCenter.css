@@ -1,0 +1,125 @@
+li {
+    list-style: none;
+}
+
+.activityCenterTop li {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+}
+
+.activityCenterTop {
+    /* padding: 15px; */
+    padding: 15px 0;
+    border-bottom: 1px solid #e6e6e6;
+    background: #ffffff;
+}
+
+.activityCenterTop img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.collection {
+    display: inline-block !important;
+    width: 21px !important;
+    border: none;
+    float: right;
+    border: none !important;
+    height: 21px !important;
+}
+
+.share {
+    display: inline-block !important;
+    width: 23px !important;
+    border: none;
+    margin-left: 5px;
+    float: right;
+    border: none !important;
+    height: 23px !important;
+}
+
+.activityCenterMain>img {
+    width: 100%;
+    border-radius: 5px;
+    height: 200px;
+    border: 1px solid #e6e6e6;
+}
+
+.activityCenterMain {
+    margin-top: 15px;
+    background: #ffffff;
+}
+
+.favoIcon {
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-bottom: -4px;
+    display: inline-block;
+}
+
+.activityCenterMainUl {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0 7px 0;
+}
+
+.activityCenterMain>div {}
+
+.activityCenterMain span {
+    color: #9f9f9f;
+    margin-top: 5px;
+    font-size: 10px;
+    display: inline-block;
+}
+
+.activityCenterMain p {
+    margin: 8px 0;
+    color: #333;
+}
+
+.tabSelect {
+    background: #fff;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.tabSelect div span {
+    width: 70%;
+}
+
+.active {
+    border-bottom: 2px solid #0276B3;
+    color: #0276B3;
+    height: 49px;
+}
+
+.drawerLi li {
+    list-style: none;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 0;
+    padding-left: 10px;
+}
+
+.drawerLi li img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.activityCenterMain img {
+    width: 100%;
+    height: 176px;
+}
+
+.Topping {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 14px !important;
+}

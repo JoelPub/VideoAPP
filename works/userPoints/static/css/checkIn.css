@@ -1,0 +1,79 @@
+.checkInTop {
+    background: #2C95CC;
+    height: 200px;
+    width: 100%;
+    padding-top: 45px;
+    text-align: center;
+}
+
+.checkInTop>span {
+    display: inline-block;
+    width: 132px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.checkInTop p {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.calendar {
+    width: 94%;
+    background: #fff;
+    height: auto;
+    left: 3%;
+    border-radius: 10px;
+    position: absolute;
+    padding-bottom: 10px;
+    top: 153px;
+    border: 1px solid #e6e6e6;
+}
+
+.calendarTitle li {
+    width: 14.2%;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.calendarTitle span {
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    display: inline-block;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.calendarTime {
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.mark {
+    margin-top: 339px;
+    display: block;
+    font-size: 10px !important;
+    width: 85%;
+    margin-left: 8%;
+}
+
+.checkInActive {
+    display: inline-block;
+    background: red;
+    display: inline-block;
+    border-radius: 30px !important;
+    color: #fff;
+}
