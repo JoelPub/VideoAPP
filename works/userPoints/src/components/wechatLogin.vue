@@ -132,8 +132,8 @@
         // //  window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxca895002b23a333f&redirect_uri='+  _this.redirectUrl+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
         // //     return
         // }
-        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxca895002b23a333f&redirect_uri=https%3a%2f%2ftdpfe.apps.pp01.cneast.cf.ford.com.cn%2f%23%2findexPage&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-
+        //window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxca895002b23a333f&redirect_uri=https%3a%2f%2ftdpfe.apps.pp01.cneast.cf.ford.com.cn%2f%23%2findexPage&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+        window.location.href = window.location.origin + "?code=061ixGhm0yRh7s1RwKjm0Tm1im0ixGhl&state=STATE#/"
       }
 
 

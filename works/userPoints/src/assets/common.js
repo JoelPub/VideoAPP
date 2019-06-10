@@ -44,7 +44,7 @@ export const getTokenCom=()=>{
   };
   this.$http(
     {
-      method: 'post',
+      method: 'get',
       url: url,
       data: JSON.stringify(jsonData),
       headers: {
@@ -71,7 +71,7 @@ export const wxShareCom=()=>{
   };
   this.$http(
     {
-      method: 'post',
+      method: 'get',
       url: url,
       data: JSON.stringify(jsonData),
       headers: {

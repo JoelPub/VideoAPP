@@ -97,7 +97,7 @@
         };
         this.$http(
           {
-            method: 'post',
+            method: 'get',
             url: url,
             data: JSON.stringify(jsonData),
             headers: {
@@ -125,7 +125,7 @@
         };
         this.$http(
           {
-            method: 'post',
+            method: 'get',
             url: url,
             data: JSON.stringify(jsonData),
             headers: {
