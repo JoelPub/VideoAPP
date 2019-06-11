@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff
+
+#redirect rc.local log to rc.local.log file
+exec 1>/tmp/rc.local.log 2>&1
+set -x
+
+whoami
+
+#echo "Start up AEM"
+cd /home/ec2-user
+./aem_start_script.sh
+#echo "running  /etc/rc.local"
+#touch /var/lock/subsys/local
+
+
+#echo "Start up User Points"
+cd /home/ec2-user
+sleep 1m
+./userpoints_start_script.sh
+
+cd /home/ec2-user
+sleep 1m
+./ttt_start_script.sh
+
