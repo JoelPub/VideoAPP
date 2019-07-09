@@ -25,3 +25,10 @@ wp-content/languages/admin-en_GB.mo
 /works/Try-The-Tech/TTT-Map/node_modules
 /works/Try-The-Tech/TTT-Map/npm-debug.log
 /works/Try-The-Tech/TTT-Map/.idea
+.brackets.json
+/.idea
+/rc
+/works/.idea
+/works/Try-The-Tech/.idea
+/works/userPoints/package-lock.json
+/works/Try-The-Tech/TTT-Map/package-lock.json
