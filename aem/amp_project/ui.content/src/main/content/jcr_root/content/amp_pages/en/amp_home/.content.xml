@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-07-10T19:57:06.104+08:00"
+        cq:lastModified="{Date}2019-07-10T20:45:55.782+08:00"
         cq:lastModifiedBy="admin"
         cq:template="/apps/amp_app/templates/ampPageTemplate"
         jcr:mixinTypes="[]"
@@ -24,22 +24,22 @@
             <electricvehiclemap
                 jcr:created="{Date}2019-07-10T14:12:54.470+08:00"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2019-07-10T19:57:06.097+08:00"
+                jcr:lastModified="{Date}2019-07-10T20:45:55.777+08:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="amp_app/components/content/electricVehicleMap"
-                arrowImage="https://i.imgur.com/ogpnKNp.png"
+                arrowImage="/content/dam/amp_pages/images/homepage/arrow.png"
                 baiduId="P39PpXRcSvYIugAGG4HKCiB3GVNncaKA"
                 daoLabel="到"
-                destinyImage="https://i.imgur.com/hBs60xk.png"
+                destinyImage="/content/dam/amp_pages/images/homepage/group-5.png"
                 kmLabel="km"
                 miLabel="米"
                 startCord="121.464007,31.249602"
-                startImage="https://i.imgur.com/NRaA8M7.png"
-                stationImage="https://i.imgur.com/ynjJtYZ.png"
-                stationLabel="stationLabel"
+                startImage="/content/dam/amp_pages/images/homepage/group-15.png"
+                stationImage="/content/dam/amp_pages/images/homepage/combined-shape-2.png"
+                stationLabel="充电站"
                 stationName="充电桩"
-                stationTimeLabel="stationTimeLabel"/>
+                stationTimeLabel="次"/>
             <ampcarousel
                 jcr:created="{Date}2019-03-26T15:51:48.985+08:00"
                 jcr:createdBy="admin"
