@@ -4,6 +4,7 @@
     <jcr:content
         cq:designPath="/etc/designs/amp_app"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        jcr:mixinTypes="[]"
         jcr:primaryType="nt:unstructured"
         jcr:title="amp_site"
         sling:redirect="{Boolean}true"

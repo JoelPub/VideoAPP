@@ -3,6 +3,7 @@
     jcr:primaryType="sling:OrderedFolder">
     <asset.jpg/>
     <jcr:content
+        jcr:mixinTypes="[]"
         jcr:primaryType="nt:unstructured"
         jcr:title="amp_site">
         <folderThumbnail/>
