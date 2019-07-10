@@ -146,7 +146,7 @@ $(function($){
                     $rootScope.startName = '上海' ;
                     $rootScope.destinyName = '杭州' ;
                     $rootScope.range = 5000 ;
-                    $rootScope.offside = 200000 ;
+                    $rootScope.offside = 200 ;
                     $rootScope.tinyStn = true ;
                     $rootScope.$broadcast('filtersApplyed'); 
                 },3000)
