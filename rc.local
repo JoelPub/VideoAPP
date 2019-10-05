@@ -18,11 +18,12 @@ cd /home/ec2-user
 
 
 #echo "Start up User Points"
-cd /home/ec2-user
-sleep 1m
-./userpoints_start_script.sh
+#cd /home/ec2-user
+#sleep 1m
+#./userpoints_start_script.sh
 
-cd /home/ec2-user
-sleep 1m
-./ttt_start_script.sh
+#echo "Start up TTT"
+#cd /home/ec2-user
+#sleep 1m
+#./ttt_start_script.sh
 
