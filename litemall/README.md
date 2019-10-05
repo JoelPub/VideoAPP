@@ -68,6 +68,13 @@
 4. 启动管理后台前端
 
     打开命令行，输入以下命令
+    1.首选npm
+    ```bash
+    cd litemall/litemall-admin
+    npm install
+    npm run dev
+    ```
+    2.使用npm淘宝镜像
     ```bash
     npm install -g cnpm --registry=https://registry.npm.taobao.org
     cd litemall/litemall-admin
