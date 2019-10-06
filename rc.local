@@ -10,19 +10,25 @@ set -x
 
 whoami
 
-#echo "Start up AEM"
+echo "Start up AEM">  /home/ec2-user/serverstart.log
 cd /home/ec2-user
 ./aem_start_script.sh
-#echo "running  /etc/rc.local"
+
+#echo "running  /etc/rc.local">  /home/ec2-user/serverstart.log
 #touch /var/lock/subsys/local
 
 
-#echo "Start up User Points"
-#cd /home/ec2-user
-#sleep 1m
-#./userpoints_start_script.sh
+echo "Start up Lite Mall">  /home/ec2-user/serverstart.log
+cd /home/ec2-user
+sleep 1m
+./litemall_start_script.sh
 
-#echo "Start up TTT"
+echo "Start up User Points">  /home/ec2-user/serverstart.log
+cd /home/ec2-user
+sleep 1m
+./userpoints_start_script.sh
+
+#echo "Start up TTT">  /home/ec2-user/serverstart.log
 #cd /home/ec2-user
 #sleep 1m
 #./ttt_start_script.sh
