@@ -354,9 +354,6 @@ IncludeOptional conf.d/*.conf
 
 
 # Apache HTTP Server As Reverse-Proxy Using mod_proxy
-LoadModule proxy_module modules/mod_proxy.so
-LoadModule proxy_connect_module modules/mod_proxy_connect.so
-LoadModule proxy_http_module modules/mod_proxy_http.so
 LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
 ProxyPass /litemallsl http://localhost:8080/
 ProxyPassReverse /litemallsl http://localhost:8080/
