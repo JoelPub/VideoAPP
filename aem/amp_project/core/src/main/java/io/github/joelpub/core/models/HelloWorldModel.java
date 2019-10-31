@@ -24,6 +24,13 @@ import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.settings.SlingSettingsService;
 
+import com.adobe.granite.license.ProductInfo;
+import com.adobe.granite.license.ProductInfoService;
+import com.adobe.granite.license.ProductInfoProvider;
+import com.adobe.granite.license.License;
+import org.apache.felix.scr.annotations.Reference;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+
 @Model(adaptables=Resource.class)
 public class HelloWorldModel {
 
@@ -35,11 +42,40 @@ public class HelloWorldModel {
 
     private String message;
 
+    @Reference
+    private ProductInfoService productInfoService;
+    @OSGiService
+    private ProductInfoProvider productInfoProvider;
+    private License license;
     @PostConstruct
     protected void init() {
         message = "\tHello World!\n";
         message += "\tThis is instance: " + settings.getSlingId() + "\n";
         message += "\tResource type is: " + resourceType + "\n";
+        if(license==null ){
+            message += "\tlicense is: null\n";
+        }
+        else {
+            message += license.getCustomerName();
+        }
+        if(productInfoService==null ){
+            message += "\tproductInfoService is: null\n";
+        }
+        else {
+            message += productInfoService.getInfos();
+        }
+        if(productInfoProvider==null ){
+            message += "\tproductInfoProvider is: null\n";
+        }
+        else if(productInfoProvider.getProductInfo()==null ){
+            message += "\tproductInfoProvider.getProductInfo() is: null\n";
+        }
+        else if(productInfoProvider.getProductInfo().getProperties()==null ){
+            message += "\tproductInfoProvider.getProductInfo().getProperties() is: null\n";
+        }
+        else {
+            message += productInfoProvider.getProductInfo().getProperties();
+        }
     }
 
     public String getMessage() {
