@@ -62,7 +62,7 @@ public class HelloWorldModel {
             message += "\tproductInfoService is: null\n";
         }
         else {
-            message += productInfoService.getInfos();
+            message += productInfoService.getLicense();
         }
         if(productInfoProvider==null ){
             message += "\tproductInfoProvider is: null\n";
