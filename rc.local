@@ -10,10 +10,19 @@ set -x
 
 whoami
 
-echo "Start up AEM">  /home/ec2-user/serverstart.log
-cd /home/ec2-user
-./aem_start_script.sh
+#节省内存start
+#echo "Start up AEM">  /home/ec2-user/serverstart.log
+#cd /home/ec2-user
+#./aem_start_script.sh
 
+#cd /var/www/html/litemall/litemall-all
+#mvn spring-boot:run
+
+#echo "Start up User Points">>  /home/ec2-user/serverstart.log
+#cd /home/ec2-user
+#sleep 1m
+#./userpoints_start_script.sh
+#节省内存end
 
 #echo "running  /etc/rc.local">>  /home/ec2-user/serverstart.log
 #touch /var/lock/subsys/local
@@ -24,12 +33,8 @@ cd /home/ec2-user
 #sleep 1m
 #./litemall_start_script.sh
 
-echo "Start up User Points">>  /home/ec2-user/serverstart.log
-cd /home/ec2-user
-sleep 1m
-./userpoints_start_script.sh
-
 #echo "Start up TTT">>  /home/ec2-user/serverstart.log
 #cd /home/ec2-user
 #sleep 1m
 #./ttt_start_script.sh
+
