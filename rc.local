@@ -15,6 +15,10 @@ cd /home/ec2-user
 ./aem_start_script.sh
 
 #节省内存start
+sleep 3m
+/var/www/html/litemall/deploy/litemall/litemall.jar start
+
+
 #echo "Start up User Points">>  /home/ec2-user/serverstart.log
 #cd /home/ec2-user
 #sleep 1m
@@ -34,5 +38,3 @@ cd /home/ec2-user
 #cd /home/ec2-user
 #sleep 1m
 #./ttt_start_script.sh
-
-
