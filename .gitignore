@@ -32,3 +32,8 @@ wp-content/languages/admin-en_GB.mo
 /works/Try-The-Tech/.idea
 /works/userPoints/package-lock.json
 /works/Try-The-Tech/TTT-Map/package-lock.json
+/aem/hd_project/core/target
+/aem/hd_project/it.launcher/target
+/aem/hd_project/it.tests/target
+/aem/hd_project/ui.apps/target
+/aem/hd_project/ui.content/target
