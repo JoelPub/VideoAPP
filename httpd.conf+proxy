@@ -357,3 +357,6 @@ IncludeOptional conf.d/*.conf
 LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
 ProxyPass /litemallsl http://localhost:8080/
 ProxyPassReverse /litemallsl http://localhost:8080/
+
+ProxyPass /static http://localhost:8080/static
+ProxyPassReverse /static http://localhost:8080/static

@@ -358,6 +358,9 @@ IncludeOptional conf.d/*.conf
 ProxyPass /litemallsl http://localhost:8080/
 ProxyPassReverse /litemallsl http://localhost:8080/
 
+ProxyPass /static http://localhost:8080/static
+ProxyPassReverse /static http://localhost:8080/static
+
 LoadModule dispatcher_module /etc/httpd/modules/mod_dispatcher.so
 <IfModule disp_apache2.c>
  DispatcherConfig conf/dispatcher.any
