@@ -7,7 +7,7 @@
 //var WxApiRoot = 'http://www.lincolnmall.com.cn/litemallsl/wx/';
 // 云平台上线时使用
 //var WxApiRoot = 'https://www.evw.wiki/litemallsl/wx/';
- var WxApiRoot = 'https://haidanmm.com/litemallsl/wx/';
+ var WxApiRoot = 'https://www.haidanmm.com/litemallsl/wx/';
 
 module.exports = {
   IndexUrl: WxApiRoot + 'home/index', //首页数据接口
