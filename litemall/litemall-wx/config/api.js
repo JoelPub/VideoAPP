@@ -1,13 +1,15 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-//var WxApiRoot = 'http://18.215.228.3:8080/wx/';
+//var WxApiRoot = 'http://localhost:8080/wx/';
 //var WxApiRoot = 'http://121.41.43.76/litemallsl/wx/';
 // 云平台部署时使用
+//var WxApiRoot = 'http://18.215.228.3:8080/wx/';
+//var WxApiRoot = 'http://121.41.43.76/litemallsl/wx/';
 //var WxApiRoot = 'http://www.evw.wiki:8080/wx/';
 //var WxApiRoot = 'http://www.lincolnmall.com.cn/litemallsl/wx/';
 // 云平台上线时使用
 //var WxApiRoot = 'https://www.evw.wiki/litemallsl/wx/';
- var WxApiRoot = 'https://www.haidanmm.com/litemallsl/wx/';
+var WxApiRoot = 'https://www.haidanmm.com/litemallsl/wx/';
 
 module.exports = {
   IndexUrl: WxApiRoot + 'home/index', //首页数据接口
