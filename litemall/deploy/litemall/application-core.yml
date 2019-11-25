@@ -5,7 +5,7 @@ litemall:
     app-secret: a281a7482a0c7c39637271195c2575ca
     mch-id: 1564731251
     mch-key: haidanmmhaidanmmhaidanmmhaidanmm
-    notify-url: http://118.24.0.153:8080/wx/order/pay-notify
+    notify-url: https://www.haidanmm.com/litemallsl/wx/order/pay-notify
     # 商户证书文件路径
     # 请参考“商户证书”一节 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
     key-path: xxxxx
