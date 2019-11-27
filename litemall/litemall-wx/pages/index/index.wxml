@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-<view class="search">
+<view class="search hide">
     <navigator url="/pages/search/search" class="input">
       <image class="icon"></image>
       <text class="txt">商品搜索, 共{{goodsCount}}款好物</text>
@@ -20,7 +20,7 @@
     </navigator>
   </view>
 
-  <view class="a-section a-coupon" wx:if="{{coupon.length > 0}}">
+  <view class="a-section a-coupon hide" wx:if="{{coupon.length > 0}}">
     <view class="h">
       <view class="title">
         <view>
@@ -49,7 +49,7 @@
     </view>
   </view>
 
-  <view class="a-section a-groupon" wx:if="{{groupons.length > 0}}">
+  <view class="a-section a-groupon hide" wx:if="{{groupons.length > 0}}">
     <view class="h">
       <view class="title">
         <view>
@@ -83,7 +83,7 @@
     </view>
   </view>
 
-  <view class="a-section a-brand">
+  <view class="a-section a-brand hide">
     <view class="h">
       <navigator url="../brand/brand">
         <text class="txt">品牌制造商直供</text>
@@ -104,7 +104,7 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
+  <view class="a-section a-new hide" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../newGoods/newGoods">
@@ -123,7 +123,7 @@
     </view>
   </view>
 
-  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
+  <view class="a-section a-popular hide" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../hotGoods/hotGoods">
@@ -147,7 +147,7 @@
     </view>
   </view>
 
-  <view class="a-section a-topic" wx:if="topics.length > 0">
+  <view class="a-section a-topic hide" wx:if="topics.length > 0">
     <view class="h">
       <view>
         <navigator url="/pages/topic/topic">
