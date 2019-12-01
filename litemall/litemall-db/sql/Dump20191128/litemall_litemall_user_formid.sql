@@ -1,0 +1,58 @@
+-- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
+--
+-- Host: localhost    Database: litemall
+-- ------------------------------------------------------
+-- Server version	5.5.62
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `litemall_user_formid`
+--
+
+DROP TABLE IF EXISTS `litemall_user_formid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `litemall_user_formid` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `formId` varchar(63) NOT NULL COMMENT '缓存的FormId',
+  `isprepay` tinyint(1) NOT NULL COMMENT '是FormId还是prepayId',
+  `useAmount` int(2) NOT NULL COMMENT '可用次数，fromId为1，prepay为3，用1次减1',
+  `expire_time` datetime NOT NULL COMMENT '过期时间，腾讯规定为7天',
+  `openId` varchar(63) NOT NULL COMMENT '微信登录openid',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `litemall_user_formid`
+--
+
+LOCK TABLES `litemall_user_formid` WRITE;
+/*!40000 ALTER TABLE `litemall_user_formid` DISABLE KEYS */;
+INSERT INTO `litemall_user_formid` VALUES (1,'wx281448412117695d624a7dcc1799714200',1,3,'2019-12-05 06:48:41','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 06:48:41','2019-11-28 06:48:41',0),(2,'wx28145005209091ff1cf7b7221459392800',1,3,'2019-12-05 06:50:05','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 06:50:05','2019-11-28 06:50:05',0),(3,'wx28150915189781ddb9de2e311127276700',1,3,'2019-12-05 07:09:15','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 07:09:15','2019-11-28 07:09:15',0),(4,'wx281518536228653bd60bf39c1030863000',1,3,'2019-12-05 07:18:53','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 07:18:53','2019-11-28 07:18:53',0),(5,'wx2815250944010972c4ba20021952417900',1,3,'2019-12-05 07:25:09','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 07:25:09','2019-11-28 07:25:09',0),(6,'wx2815350241666479b79ebde51472468300',1,3,'2019-12-05 07:35:02','omHkp4_4kL32EHQ147qiEgbcVfQE','2019-11-28 07:35:02','2019-11-28 07:35:02',0);
+/*!40000 ALTER TABLE `litemall_user_formid` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-11-28 15:40:15
