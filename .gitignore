@@ -37,3 +37,5 @@ wp-content/languages/admin-en_GB.mo
 /aem/hd_project/it.tests/target
 /aem/hd_project/ui.apps/target
 /aem/hd_project/ui.content/target
+litemall/litemall.iml
+litemall/.idea
