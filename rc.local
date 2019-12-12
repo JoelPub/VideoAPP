@@ -25,16 +25,9 @@ sleep 3m
 #./userpoints_start_script.sh
 #节省内存end
 
-#echo "running  /etc/rc.local">>  /home/ec2-user/serverstart.log
-#touch /var/lock/subsys/local
-
-
-#echo "Start up Lite Mall">>  /home/ec2-user/serverstart.log
-#cd /home/ec2-user
-#sleep 1m
-#./litemall_start_script.sh
 
 #echo "Start up TTT">>  /home/ec2-user/serverstart.log
 #cd /home/ec2-user
 #sleep 1m
 #./ttt_start_script.sh
+
