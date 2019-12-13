@@ -11,7 +11,7 @@ set -x
 whoami
 
 echo "Start up AEM">  /home/ec2-user/serverstart.log
-cd /home/ec2-user
+cd /var/www/html/scripts/apps
 ./aem_start_script.sh
 
 echo "Start up Litemall Service">>  /home/ec2-user/serverstart.log
@@ -27,5 +27,3 @@ echo "Start up User Points">>  /home/ec2-user/serverstart.log
 sleep 1m
 cd /var/www/html/works/userPoints
 npm run dev
-
-

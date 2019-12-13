@@ -28,7 +28,7 @@
                 sling:resourceType="hd_app/components/content/helloworld"/>
             <title_1
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Lorem ipsum"
+                jcr:title="Lorem ipsum1"
                 type="h2"
                 sling:resourceType="hd_app/components/content/title"/>
             <text
