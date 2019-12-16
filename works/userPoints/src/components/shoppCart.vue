@@ -4,13 +4,13 @@
       <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
       <ul class="tabr">
         <li @click="activeFlag=1" :class="{tabActive:activeFlag==1}">
-          <img src="../../upresource/img/kdps2.png" v-if="activeFlag==1">
-          <img src="../../upresource/img/kdps.png" v-else>
+          <img src="../../static/img/kdps2.png" v-if="activeFlag==1">
+          <img src="../../static/img/kdps.png" v-else>
           <span>快递配送</span>
         </li>
         <li @click="disabled" :class="{tabActive:activeFlag==2}">
-          <img src="../../upresource/img/ddzt.png" v-if="activeFlag==2">
-          <img src="../../upresource/img/ddzt2.png" v-else>
+          <img src="../../static/img/ddzt.png" v-if="activeFlag==2">
+          <img src="../../static/img/ddzt2.png" v-else>
           <span>到店自取</span>
         </li>
       </ul>
@@ -20,7 +20,7 @@
       <Row class-name="address" v-if="defaultAddress">
         <Col span="24" style="padding-top:10px;">
           <div style="width:10%; display:inline-block;">
-            <img src="../../upresource/img/dizhi.png">
+            <img src="../../static/img/dizhi.png">
           </div>
           <ul>
             <li v-if="activeFlag==2">提货门店 : 数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据</li>
@@ -34,14 +34,14 @@
             <li v-if="activeFlag==2" style=" color: #0BA0DD;">021-8384772727</li>
           </ul>
           <div style="width:10%; display: inline-block;text-align:center" @click="goAddressList">
-            <img src="../../upresource/img/add.png">
+            <img src="../../static/img/add.png">
           </div>
         </Col>
       </Row>
       <Row class-name="emptyAddress" v-else>
         <ul>
           <li>
-            <img src="../../upresource/img/empty.png">
+            <img src="../../static/img/empty.png">
           </li>
           <li>
             <span>你还没有添加收货地址</span>
@@ -111,10 +111,10 @@
 
 
 
-<script  src="../../upresource/js/shoppCart.js">
+<script  src="../../static/js/shoppCart.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/shoppCart.css";
+@import "../../static/css/shoppCart.css";
 </style>

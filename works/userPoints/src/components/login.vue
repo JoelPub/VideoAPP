@@ -2,7 +2,7 @@
   <div class="loginBox">
     <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
     <div class="loginTitle">
-      <img src="../../upresource/img/fordlogo.png">
+      <img src="../../static/img/fordlogo.png">
     </div>
     <ul class="loginBoxUl">
       <li>
@@ -167,5 +167,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/login.css";
+@import "../../static/css/login.css";
 </style>

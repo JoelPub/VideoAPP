@@ -4,7 +4,7 @@
     style="margin-top:0px;position:absolute; left:0; top:0; width:100%; height:100%;"
   >
     <div class="address" v-if="orderInfo.shippingAddressInfo">
-      <img src="../../upresource/img/wuliu.png">
+      <img src="../../static/img/wuliu.png">
       <ul>
         <li>
           <span>收货人:{{orderInfo.shippingAddressInfo.contactPerson}}</span>
@@ -44,12 +44,12 @@
 </template>
 
 
-<script  src="../../upresource/js/pendingOrderInfo.js">
+<script  src="../../static/js/pendingOrderInfo.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/logisticsStatus.css";
+@import "../../static/css/logisticsStatus.css";
 </style>
 
 

@@ -1,6 +1,6 @@
 <template>
   <div class="record">
-    <img src="../../upresource/img/emptyList.png" class="emptyLsit" v-if="testDriveList.length==0">
+    <img src="../../static/img/emptyList.png" class="emptyLsit" v-if="testDriveList.length==0">
     <ul class="recordUl" v-else>
       <li v-for="  item in testDriveList">
         <Row>
@@ -13,7 +13,7 @@
             </ul>
           </Col>
           <!-- <Col span="4">
-            <img src="../../upresource/img/iphone.jpg">
+            <img src="../../static/img/iphone.jpg">
           </Col>-->
         </Row>
       </li>
@@ -22,11 +22,11 @@
 </template>
 
 
-<script  src="../../upresource/js/testDriveRecord.js">
+<script  src="../../static/js/testDriveRecord.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/testDriveRecord.css";
+@import "../../static/css/testDriveRecord.css";
 </style>
 

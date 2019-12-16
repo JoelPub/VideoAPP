@@ -13,7 +13,7 @@
       </Col>
     </Row>
     <div class="cardList" v-if="activeFlag==1">
-      <img src="../../upresource/img/emptyList.png" class="emptyLsit">
+      <img src="../../static/img/emptyList.png" class="emptyLsit">
       <!-- <Row v-for="(item,index) in checkBoxArr" class-name="cardInfo">
         <Col span="19">
           <div class="cardImg">
@@ -34,18 +34,18 @@
       </Row>-->
     </div>
     <div class="cardList" v-if="activeFlag==2">
-      <img src="../../upresource/img/emptyList.png" class="emptyLsit">
+      <img src="../../static/img/emptyList.png" class="emptyLsit">
     </div>
     <div class="cardList" v-if="activeFlag==3">
-      <img src="../../upresource/img/emptyList.png" class="emptyLsit">
+      <img src="../../static/img/emptyList.png" class="emptyLsit">
     </div>
   </div>
 </template>
 
-<script  src="../../upresource/js/cardList.js">
+<script  src="../../static/js/cardList.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/cardList.css";
+@import "../../static/css/cardList.css";
 </style>

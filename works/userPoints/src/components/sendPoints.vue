@@ -23,11 +23,11 @@
   </div>
 </template>
 
-<script  src="../../upresource/js/sendPoints.js">
+<script  src="../../static/js/sendPoints.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/sendPoints.css";
+@import "../../static/css/sendPoints.css";
 </style>
    
