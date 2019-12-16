@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img src="../static/img/loading.gif" class="loading" v-if="loadingFlag">
+    <img src="../upresource/img/loading.gif" class="loading" v-if="loadingFlag">
 
     <ul class="tabSwitch" v-if="tabShowFlag">
       <!-- <li :class="{activeTab:pageName=='indexPage'}">
         <router-link :to="{name:'indexPage'}">
-          <img src="../static/img/index2.png" v-if="pageName=='indexPage'">
-          <img src="../static/img/index.png" v-else>
+          <img src="../upresource/img/index2.png" v-if="pageName=='indexPage'">
+          <img src="../upresource/img/index.png" v-else>
           <br>
           <span :class="{activeColor:pageName=='indexPage'}">首页</span>
         </router-link>
       </li>-->
       <li :class="{activeTab:pageName=='activityCenter'}">
         <router-link :to="{name:'activityCenter'}">
-          <img src="../static/img/qizi2.png" v-if="pageName=='activityCenter'">
-          <img src="../static/img/qizi.png" v-else>
+          <img src="../upresource/img/qizi2.png" v-if="pageName=='activityCenter'">
+          <img src="../upresource/img/qizi.png" v-else>
           <br>
           <span :class="{activeColor:pageName=='activityCenter'}">活动中心</span>
         </router-link>
       </li>
       <li :class="{activeTab:pageName=='Redeem'}">
         <router-link :to="{name:'Redeem'}">
-          <img src="../static/img/liwu2.png" v-if="pageName=='Redeem'">
-          <img src="../static/img/liwu1.png" v-else>
+          <img src="../upresource/img/liwu2.png" v-if="pageName=='Redeem'">
+          <img src="../upresource/img/liwu1.png" v-else>
           <br>
           <span :class="{activeColor:pageName=='activityCenter'}">积分换礼</span>
         </router-link>
@@ -30,8 +30,8 @@
 
       <li :class="{activeTab:pageName=='PersonalCenter'}">
         <router-link :to="{name:'PersonalCenter'}">
-          <img src="../static/img/my2.png" v-if="pageName=='PersonalCenter'">
-          <img src="../static/img/my1.png" v-else>
+          <img src="../upresource/img/my2.png" v-if="pageName=='PersonalCenter'">
+          <img src="../upresource/img/my1.png" v-else>
           <br>
           <span :class="{activeColor:pageName=='PersonalCenter'}">我的</span>
         </router-link>

@@ -70,10 +70,10 @@
   </div>
 </template>
 
-<script  src="../../static/js/expressStatus.js">
+<script  src="../../upresource/js/expressStatus.js">
 </script>
 
 <style >
-@import "../../static/css/expressStatus.css";
+@import "../../upresource/css/expressStatus.css";
 </style>
 

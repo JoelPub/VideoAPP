@@ -38,10 +38,10 @@
   </div>
 </template>
 
-<script  src="../../static/js/testDrive.js">
+<script  src="../../upresource/js/testDrive.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../static/css/testDrive.css";
+@import "../../upresource/css/testDrive.css";
 </style>

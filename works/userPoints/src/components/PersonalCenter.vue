@@ -5,10 +5,10 @@
       <div>
         <Row>
           <Col span="12">
-            <img src="../../static/img/fordlogo.png">
+            <img src="../../upresource/img/fordlogo.png">
           </Col>
           <Col span="12" style="text-align:right;">
-            <img src="../../static/img/config.png" @click="goPage('/configInfo')">
+            <img src="../../upresource/img/config.png" @click="goPage('/configInfo')">
           </Col>
         </Row>
       </div>
@@ -17,44 +17,44 @@
       <div class="viewAll" @click="goPage('/logisticsStatus','5')">查看全部 >></div>
       <Row class-name="centerListRow">
         <Col span="6">
-          <img src="../../static/img/daiduihuan.png" @click="goPage('/logisticsStatus','1')">
+          <img src="../../upresource/img/daiduihuan.png" @click="goPage('/logisticsStatus','1')">
           <br>
           <span @click="goPage('/logisticsStatus','1')">待兑换</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/fahuo.png" @click="goPage('/logisticsStatus','2')">
+          <img src="../../upresource/img/fahuo.png" @click="goPage('/logisticsStatus','2')">
           <br>
           <span @click="goPage('/logisticsStatus','1')">待发货</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/shouhuo.png" @click="goPage('/logisticsStatus','3')">
+          <img src="../../upresource/img/shouhuo.png" @click="goPage('/logisticsStatus','3')">
           <br>
           <span @click="goPage('/logisticsStatus','1')">待收货</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/end.png" @click="goPage('/logisticsStatus','4')">
+          <img src="../../upresource/img/end.png" @click="goPage('/logisticsStatus','4')">
           <br>
           <span @click="goPage('/logisticsStatus','1')">已完成</span>
         </Col>
       </Row>
       <Row class-name="centerListRow">
         <Col span="6">
-          <img src="../../static/img/shop.png" @click="goPage('/dealer')">
+          <img src="../../upresource/img/shop.png" @click="goPage('/dealer')">
           <br>
           <span @click="goPage('/dealer')">附近门店</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/cart.png" @click="goPage('/testDriveRecord')">
+          <img src="../../upresource/img/cart.png" @click="goPage('/testDriveRecord')">
           <br>
           <span @click="goPage('/testDriveRecord')">试驾记录</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/yaoqinghui3.svg">
+          <img src="../../upresource/img/yaoqinghui3.svg">
           <br>
           <span>邀请记录</span>
         </Col>
         <Col span="6">
-          <img src="../../static/img/vip.png">
+          <img src="../../upresource/img/vip.png">
           <br>
           <span>车主特权</span>
         </Col>
@@ -70,8 +70,8 @@
             <li>
               <span>{{detailInfo.nickName}}</span>
 
-              <img src="../../static/img/renzhen.png" class="CertificationTop" v-if="!owner">
-              <img src="../../static/img/renzhentrue.png" class="CertificationTop" v-if="owner">
+              <img src="../../upresource/img/renzhen.png" class="CertificationTop" v-if="!owner">
+              <img src="../../upresource/img/renzhentrue.png" class="CertificationTop" v-if="owner">
               <p>{{detailInfo.country}}</p>
             </li>
           </ul>
@@ -81,7 +81,7 @@
           <button @click="checkIn" v-if="!checkInFlag">签到</button>
           <button class="alreadyCheck" v-if="checkInFlag" @click="goPage('/checkIn')">
             已签到
-            <img src="../../static/img/checkInEnd.png">
+            <img src="../../upresource/img/checkInEnd.png">
           </button>
         </Col>
       </Row>
@@ -108,7 +108,7 @@
 <!--    <div class="ownerCertification" v-if="owner">-->
 <!--      <ul>-->
 <!--        <li>-->
-<!--          <img src="../../static/img/renzhen2.png">-->
+<!--          <img src="../../upresource/img/renzhen2.png">-->
 <!--        </li>-->
 <!--        <li>-->
 <!--          <span style="background:#FAD273;">您是车主</span>-->
@@ -119,7 +119,7 @@
     <div class="ownerCertification">
       <ul>
         <li>
-          <img src="../../static/img/renzhen1.png">
+          <img src="../../upresource/img/renzhen1.png">
         </li>
         <li>
 <!--      <span class="Certified">车主认证</span>-->
@@ -131,10 +131,10 @@
   </div>
 </template>
 
-<script  src="../../static/js/PersonalCenter.js">
+<script  src="../../upresource/js/PersonalCenter.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../static/css/personalCenter.css";
+@import "../../upresource/css/personalCenter.css";
 </style>

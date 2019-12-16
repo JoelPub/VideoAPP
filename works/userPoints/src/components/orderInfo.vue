@@ -2,7 +2,7 @@
   <div class="orderInfo">
     <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
     <!-- <div class="Logistics">
-      <img src="../../static/img/gouwuche.png">
+      <img src="../../upresource/img/gouwuche.png">
       <ul>
         <li>
           数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据数据
@@ -12,7 +12,7 @@
       </ul>
     </div>-->
     <div class="address" v-if="orderInfo.shippingAddressInfo">
-      <img src="../../static/img/dizhi.png">
+      <img src="../../upresource/img/dizhi.png">
       <ul>
         <li>
           <span>收货人 :{{orderInfo.shippingAddressInfo.contactPerson}}</span>
@@ -93,9 +93,9 @@
 </template>
 
 
-<script  src="../../static/js/orderInfo.js">
+<script  src="../../upresource/js/orderInfo.js">
 </script>
 <style scoped>
-@import "../../static/css/logisticsStatus.css";
-@import "../../static/css/orderInfo.css";
+@import "../../upresource/css/logisticsStatus.css";
+@import "../../upresource/css/orderInfo.css";
 </style>

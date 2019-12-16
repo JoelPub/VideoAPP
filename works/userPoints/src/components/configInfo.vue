@@ -280,8 +280,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style   scoped>
 @import "../../upresource/css/reset.css";
-@import "../../static/css/login.css";
-@import "../../static/css/configInfo.css";
+@import "../../upresource/css/login.css";
+@import "../../upresource/css/configInfo.css";
 .bind-tit {
   font-size: 18px;
   margin-bottom: 20px;

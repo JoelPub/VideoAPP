@@ -1,12 +1,12 @@
 <template>
   <div class="invitation">
     <div class="shareModal" v-if="shareModalFlag" @click="closeModal">
-      <img src="../../static/img/sharetishi.png">
+      <img src="../../upresource/img/sharetishi.png">
       <br>
       <span>{{shareMsg}}</span>
     </div>
     <div class="logo">
-      <img src="../../static/img/fordlogo.png" alt="">
+      <img src="../../upresource/img/fordlogo.png" alt="">
     </div>
     <div class="register">
       <div class="register-info">
@@ -21,20 +21,20 @@
         </div>
       </div>
       <div class="big-img">
-        <img src="../../static/img/invitation-bg.png" alt="">
+        <img src="../../upresource/img/invitation-bg.png" alt="">
       </div>
       <div class="icons">
         <ul class="icons-ul">
           <li>
-           <img src="../../static/img/integration.png" alt="">
+           <img src="../../upresource/img/integration.png" alt="">
             <div class="icon-text">赢积分</div>
           </li>
           <li>
-            <img src="../../static/img/register-gift.png" alt="">
+            <img src="../../upresource/img/register-gift.png" alt="">
             <div class="icon-text">换礼品</div>
           </li>
           <li>
-            <img src="../../static/img/privilege.png" alt="">
+            <img src="../../upresource/img/privilege.png" alt="">
             <div class="icon-text">享特权</div>
           </li>
         </ul>
@@ -55,7 +55,7 @@
     data(){
       return{
         nickName:"",
-        profileImg:require("../../static/img/profile-pic.png"),
+        profileImg:require("../../upresource/img/profile-pic.png"),
         welcomeTip:'邀请您加入福特领界积分平台',
         btnText:'立即注册',
         shareMsg: '',
@@ -95,7 +95,7 @@
               this.nickName=ret.data.nickName
             }
             else{
-              this.profileImg=require("../../static/img/profile-pic.png")
+              this.profileImg=require("../../upresource/img/profile-pic.png")
             }
           }).catch((error) =>{
             console.log(error)
@@ -341,6 +341,6 @@
   }
 </script>
 <style scoped>
-  @import "../../static/css/reset.css";
-  @import "../../static/css/invitation.css";
+  @import "../../upresource/css/reset.css";
+  @import "../../upresource/css/invitation.css";
 </style>

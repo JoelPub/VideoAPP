@@ -10,27 +10,27 @@
     车子已经开了个月了，作为“老司机”的我，也已经开的相当上手了。
     这不，春暖花开的季节，正好开去赏赏花。
     <img
-      src="../../static/img/hua1 (1).jpg"
+      src="../../upresource/img/hua1 (1).jpg"
     >
-    <img src="../../static/img/hua1 (2).jpg">
-    <img src="../../static/img/hua1 (3).jpg">
+    <img src="../../upresource/img/hua1 (2).jpg">
+    <img src="../../upresource/img/hua1 (3).jpg">
     樱花漫天，难休息天，出来逛逛，放松了很。
     桃花也开的很好
     欣赏完漂亮的花，该欣赏我家的新成员了。
     <img
-      src="../../static/img/hua1 (9).jpg"
+      src="../../upresource/img/hua1 (9).jpg"
     >
-    <img src="../../static/img/hua1 (4).jpg">
+    <img src="../../upresource/img/hua1 (4).jpg">
     外形比较霸气，看车的时候眼就相中了。家里还是老公开的，又不喜欢满大街的白色，所以挑了个棕色的，还是挺耐看的。
     福特别的车不太一样的格栅，看起来还是不错的。
     <img
-      src="../../static/img/hua1 (5).jpg"
+      src="../../upresource/img/hua1 (5).jpg"
     >
     后面排英文字母，看起来还是比较端的
     LED的前大灯，晚上开车，亮了很。
     18寸轮毂。轮胎的外形比较普通了。
     <img
-      src="../../static/img/hua1 (6).jpg"
+      src="../../upresource/img/hua1 (6).jpg"
     >
     外后视镜
     LED的后尾灯
@@ -39,9 +39,9 @@
     侧门。
     后排的出风口，还有个USB接口。
     <img
-      src="../../static/img/hua1 (7).jpg"
+      src="../../upresource/img/hua1 (7).jpg"
     >
-    <img src="../../static/img/hua1 (8).jpg">
+    <img src="../../upresource/img/hua1 (8).jpg">
     前排的内饰。木纹感觉也挺大上的。
     最喜欢的就是这个档位了。很科技，还有这些按钮，
     键启动的。因为家里也有辆键启动的轿车，所以这个按钮在这里，还是有些不太习惯。

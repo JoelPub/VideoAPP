@@ -35,5 +35,5 @@ import { getUrlParam } from '@/common/js/utils/utils.js';
   }
 </script>
 <style scoped>
-  @import "../../static/css/invitation.css";
+  @import "../../upresource/css/invitation.css";
 </style>

@@ -38,7 +38,7 @@
       <span>
         <img src="../../upresource/img/shouchang.png" @click="favorite(true)" v-if="!favoriteFlag">
         <img src="../../upresource/img/shouchang2.png" v-if="favoriteFlag" @click="favorite(false)">
-        <img src="../../static/img/share.png" class="shareImg" @click="shareProduct">
+        <img src="../../upresource/img/share.png" class="shareImg" @click="shareProduct">
       </span>
     </div>
     <div class="productDetailsTwo">
@@ -55,11 +55,11 @@
 
     <Row class-name="tabBottom" type="flex" justify="end">
       <Col span="5">
-        <img src="../../static/img/goIndex.png" @click="goPage('/indexPage')">
+        <img src="../../upresource/img/goIndex.png" @click="goPage('/indexPage')">
         <p @click="goPage('/indexPage')">首页</p>
       </Col>
       <Col span="5" class-name="shopCartImg">
-        <img src="../../static/img/cartInfo.png" @click="goPage('/shoppCart')">
+        <img src="../../upresource/img/cartInfo.png" @click="goPage('/shoppCart')">
         <span>{{shopCartArrLength}}</span>
         <p @click="goPage('/shoppCart')">购物车</p>
       </Col>
@@ -115,12 +115,12 @@
   </div>
 </template>
 
-<script  src="../../static/js/productInfo.js">
+<script  src="../../upresource/js/productInfo.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-@import "../../static/css/productInfo.css";
+@import "../../upresource/css/productInfo.css";
 </style>
 
 
