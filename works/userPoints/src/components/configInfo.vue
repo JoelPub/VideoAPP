@@ -7,31 +7,31 @@
         <div style="display:inline-block">
            <img style="display:inline-block;float:left" :src="logoPicture" alt>
         </div>
-        <!--<img src="../../upresource/img/jiantou.png">-->
+        <!--<img src="../../static/img/jiantou.png">-->
       </li>
       <li>
         昵称:
         <span>{{nickName}}</span>
-         <!--<img src="../../upresource/img/jiantou.png">-->
+         <!--<img src="../../static/img/jiantou.png">-->
       </li>
       <!--<li>
         密码:
-        <img src="../../upresource/img/jiantou.png">
+        <img src="../../static/img/jiantou.png">
       </li>
       <li>
         <span>生日:</span>
         <span>{{brithday}}</span>
-        <img src="../../upresource/img/jiantou.png">
+        <img src="../../static/img/jiantou.png">
       </li>-->
       <li @click="goAddress">
         收货地址
-        <img src="../../upresource/img/jiantou.png">
+        <img src="../../static/img/jiantou.png">
       </li>
       <li @click="showbindModel">
         <span v-show="apiPhoneNumber!=null && apiPhoneNumber!==''&& apiPhoneNumber!==undefined">绑定手机：{{apiPhoneNumber}}</span>
         <div v-show="apiPhoneNumber==null||''||undefined">
           <span >绑定手机号</span>
-          <img src="../../upresource/img/jiantou.png">
+          <img src="../../static/img/jiantou.png">
         </div>
       </li>
     </ul>
@@ -279,7 +279,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style   scoped>
-@import "../../upresource/css/reset.css";
+@import "../../static/css/reset.css";
 @import "../../static/css/login.css";
 @import "../../static/css/configInfo.css";
 .bind-tit {

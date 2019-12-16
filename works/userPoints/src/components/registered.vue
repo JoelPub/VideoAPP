@@ -2,7 +2,7 @@
   <div class="loginBox">
     <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
     <div class="loginTitle">
-      <img src="../../upresource/img/fordlogo.png">
+      <img src="../../static/img/fordlogo.png">
     </div>
     <ul class="loginBoxUl">
       <li>
@@ -35,8 +35,8 @@
           v-validate="'required'"
           @blur="inputblur('passwordNew')"
         >
-        <img src="../../upresource/img/biyan.png" @click="showPw" v-if="this.pwType=='password'">
-        <img src="../../upresource/img/zhenyan.png" @click="showPw" v-if="this.pwType=='text'">
+        <img src="../../static/img/biyan.png" @click="showPw" v-if="this.pwType=='password'">
+        <img src="../../static/img/zhenyan.png" @click="showPw" v-if="this.pwType=='text'">
       </li>
     </ul>
     <button class="submitButton" @click="creatAccount">注册</button>
@@ -48,10 +48,10 @@
   </div>
 </template>
 
-<script  src="../../upresource/js/registered.js">
+<script  src="../../static/js/registered.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  scoped>
-@import "../../upresource/css/passwordLogin.css";
+@import "../../static/css/passwordLogin.css";
 </style>

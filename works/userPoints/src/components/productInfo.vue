@@ -2,7 +2,7 @@
   <div>
     <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
     <div class="shareModal" v-if="shareModalFlag" @click="shareModalFlag=false">
-      <img src="../../upresource/img/sharetishi.png">
+      <img src="../../static/img/sharetishi.png">
       <br>
       <span>点击右上角就可以将喜欢的产品分享给好友啦~</span>
     </div>
@@ -36,8 +36,8 @@
       <p>{{productInfo.name}}</p>
       <span>积分 : {{productInfo.price}}</span>
       <span>
-        <img src="../../upresource/img/shouchang.png" @click="favorite(true)" v-if="!favoriteFlag">
-        <img src="../../upresource/img/shouchang2.png" v-if="favoriteFlag" @click="favorite(false)">
+        <img src="../../static/img/shouchang.png" @click="favorite(true)" v-if="!favoriteFlag">
+        <img src="../../static/img/shouchang2.png" v-if="favoriteFlag" @click="favorite(false)">
         <img src="../../static/img/share.png" class="shareImg" @click="shareProduct">
       </span>
     </div>

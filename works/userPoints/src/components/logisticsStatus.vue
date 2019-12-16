@@ -19,7 +19,7 @@
       <!-- </Col> -->
     </div>
     <div class="statusMain" v-if="activeFlag==5">
-      <!-- <img src="../../upresource/img/emptyList.png" class="emptyLsit" v-if="orderList.length==0"> -->
+      <!-- <img src="../../static/img/emptyList.png" class="emptyLsit" v-if="orderList.length==0"> -->
       <div @click="goPage(item.orderId,item.statusId,5)" v-for="item  in  orderList">
         <Row class-name="productInfo endProductInfo">
           <Col span="6" v-if="item.imageList&&item.imageList[0]">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="statusMain" v-if="activeFlag==1">
-      <!-- <img src="../../upresource/img/emptyList.png" class="emptyLsit" v-if="orderList.length==0"> -->
+      <!-- <img src="../../static/img/emptyList.png" class="emptyLsit" v-if="orderList.length==0"> -->
       <div
         @click="goPage(item.orderId,item.statusId,1)"
         v-if="item.statusId==1"
@@ -181,11 +181,11 @@
   </div>
 </template>
 
-<script  src="../../upresource/js/logisticsStatus.js">
+<script  src="../../static/js/logisticsStatus.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/logisticsStatus.css";
+@import "../../static/css/logisticsStatus.css";
 </style>
 

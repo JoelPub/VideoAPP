@@ -1,14 +1,14 @@
 <template>
   <div class="dealer">
     <div class="dealerTop">
-      <img src="../../upresource/img/dingwei.png">
+      <img src="../../static/img/dingwei.png">
       <span>{{currentCity}}</span>
       <span @click="getCurrentPosition()">使用我的确切位置</span>
       <span></span>
     </div>
     <div class="dealerSearch">
       <input readonly="readonly" placeholder="请输入经销商名称" @click="select" >
-      <img src="../../upresource/img/chaxun.png">
+      <img src="../../static/img/chaxun.png">
     </div>
     <yz-select @cancel='cancel' @getCityLocation='getCityLocation(arguments)' v-if="show" :ref="show" @changeValue='isShow' :province='province' :city='city' :dealer='dealer' :selectedData='selectedData'></yz-select>
    <div class="totalDealer">为您找到{{totalDealer}}个经销商</div>
@@ -24,13 +24,13 @@
                       <span class="dealerAdress">{{selectedDealer._address}}</span>
                       <br>
                       <p class="phone" v-if="selectedDealer.SalesPhoneNumber">
-                      <img src="/upresource/img/icon-phone.jpg" >
+                      <img src="/static/img/icon-phone.jpg" >
                         <a :href="'tel:销售:' + selectedDealer.SalesPhoneNumber" class="ng-binding">
                         <span class="icon-phone"></span>销售:{{selectedDealer.SalesPhoneNumber}}
                         </a>
                       </p>
                       <p class="phone" v-if="selectedDealer.ServicePhoneNumber">
-                      <img src="/upresource/img/icon-phone.jpg" >
+                      <img src="/static/img/icon-phone.jpg" >
                         <a :href= "'tel:服务:' + selectedDealer.ServicePhoneNumber" class="ng-binding">
                         <span class="icon-phone"></span>服务:{{selectedDealer.ServicePhoneNumber}}
                         </a>
@@ -51,11 +51,11 @@
 </template>
 
 
-<script  src="../../upresource/js/dealer.js">
+<script  src="../../static/js/dealer.js">
 </script>
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/dealer.css";
+@import "../../static/css/dealer.css";
 </style>

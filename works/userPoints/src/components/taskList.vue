@@ -6,7 +6,7 @@
         <li>总积分</li>
         <li>
           {{totalPoints}}
-          <img src="../../upresource/img/jinbi.png">
+          <img src="../../static/img/jinbi.png">
         </li>
       </ul>
       <button @click="goPage('/integralList')">积分明细</button>
@@ -19,12 +19,12 @@
         </div>
 
         <li v-for="item in  singleTask" v-if="item.activityName!='手机注册'">
-          <img src="../../upresource/img/phone.png">
+          <img src="../../static/img/phone.png">
           <span>{{item.activityName}}</span>
 
           <button @click="goPage(item.activityPath)" v-if="item.numOfCompleted==0">去完成</button>
           <button v-else class="alreadyCheck">
-            <img src="../../upresource/img/checkInEnd.png" @click="goPage(item.activityPath)">已完成
+            <img src="../../static/img/checkInEnd.png" @click="goPage(item.activityPath)">已完成
           </button>
         </li>
       </ul>
@@ -36,15 +36,15 @@
         </div>
 
         <li v-for="item in usuallyTask">
-          <img src="../../upresource/img/phone.png">
+          <img src="../../static/img/phone.png">
           <span>{{item.activityName}}</span>
           <button @click="goPage(item.activityPath)" v-if="item.numOfCompleted==0">去完成</button>
           <button v-else class="alreadyCheck" @click="goPage(item.activityPath)">
-            <img src="../../upresource/img/checkInEnd.png">已完成
+            <img src="../../static/img/checkInEnd.png">已完成
           </button>
         </li>
         <!-- <li>
-          <img src="../../upresource/img/phone.png">
+          <img src="../../static/img/phone.png">
           <span>幸运大转盘</span>
 
           <button @click="goPage('/turntableDraw')">去体验</button>
@@ -119,10 +119,10 @@
 </template>
 
 
-<script  src="../../upresource/js/taskList.js">
+<script  src="../../static/js/taskList.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/taskList.css";
+@import "../../static/css/taskList.css";
 </style>

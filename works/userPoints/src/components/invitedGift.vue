@@ -3,8 +3,8 @@
 
     <div style="padding:0px 15px;">
       <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
-      <img src="../../upresource/img/share1.png" @click="goshare('register')">
-      <img src="../../upresource/img/share2.png" @click="goshare('drive')">
+      <img src="../../static/img/share1.png" @click="goshare('register')">
+      <img src="../../static/img/share2.png" @click="goshare('drive')">
     </div>
   </div>
 </template>
@@ -44,6 +44,6 @@ import {apiAll} from '../request/api'
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/invitedGift.css";
+@import "../../static/css/invitedGift.css";
 </style>
 

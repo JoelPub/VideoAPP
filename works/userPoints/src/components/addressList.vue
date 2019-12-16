@@ -17,8 +17,8 @@
             </ul>
           </Col>
           <Col span="5" style="text-align:right;">
-            <img src="../../upresource/img/bianji.png" @click="editAddres(item)">
-            <img src="../../upresource/img/del.png" @click="delAddres(item.addressId)">
+            <img src="../../static/img/bianji.png" @click="editAddres(item)">
+            <img src="../../static/img/del.png" @click="delAddres(item.addressId)">
           </Col>
         </Row>
       </div>
@@ -67,11 +67,11 @@
   </div>
 </template>
 
-<script  src="../../upresource/js/addressList.js">
+<script  src="../../static/js/addressList.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../upresource/css/addressList.css";
+@import "../../static/css/addressList.css";
 </style>
 
