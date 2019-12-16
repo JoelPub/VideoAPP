@@ -11,7 +11,7 @@
           <li>
             <Row>
               <Col span="4">
-                <img src="../../static/img/iphone.jpg">
+                <img src="../../upresource/img/iphone.jpg">
               </Col>
               <Col span="20">
                 <ul class="recordUlLeft" style="padding-left:10px;">
@@ -25,13 +25,13 @@
         </ul>
       </div>
       <div class="comeStoreNavigation" @click="goNavigation">
-        <img src="../../static/img/dingwei.png">
+        <img src="../../upresource/img/dingwei.png">
         <span>导航去门店</span>
-        <img src="../../static/img/jiantou.png">
+        <img src="../../upresource/img/jiantou.png">
       </div>
       <Row class-name="productInfo">
         <Col span="6">
-          <img src="../../static/img/iphone.jpg">
+          <img src="../../upresource/img/iphone.jpg">
           <img src>
         </Col>
         <Col span="18">
@@ -93,9 +93,9 @@
 </template>
 
 
-<script  src="../../static/js/comeStoreOrderInfo.js">
+<script  src="../../upresource/js/comeStoreOrderInfo.js">
 </script>
 <style >
-@import "../../static/css/logisticsStatus.css";
-@import "../../static/css/comeStoreOrderInfo.css";
+@import "../../upresource/css/logisticsStatus.css";
+@import "../../upresource/css/comeStoreOrderInfo.css";
 </style>

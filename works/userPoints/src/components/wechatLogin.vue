@@ -144,5 +144,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style   scoped>
-@import "../../static/css/wechatLogin.css";
+@import "../../upresource/css/wechatLogin.css";
 </style>

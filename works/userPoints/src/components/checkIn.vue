@@ -6,7 +6,7 @@
         <span v-if="data.isSignInToday">
           已签到
           <img
-            src="../../static/img/checkInEnd.png"
+            src="../../upresource/img/checkInEnd.png"
             style="vertical-align:middle;margin-top:-5px;"
           >
         </span>
@@ -35,10 +35,10 @@
   </div>
 </template>
 
-<script  src="../../static/js/checkIn.js">
+<script  src="../../upresource/js/checkIn.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../static/css/checkIn.css";
+@import "../../upresource/css/checkIn.css";
 </style>

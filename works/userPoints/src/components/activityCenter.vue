@@ -4,22 +4,22 @@
     <div class="activityCenterTop">
       <ul>
         <li @click="goPage('/checkIn')">
-          <img src="../../static/img/rili.png">
+          <img src="../../upresource/img/rili.png">
           <br>
           <span>签到日历</span>
         </li>
         <li @click="goPage('/taskList')">
-          <img src="../../static/img/baoxiang.png">
+          <img src="../../upresource/img/baoxiang.png">
           <br>
           <span>积分福利</span>
         </li>
         <li @click="goPage('/testDrive')">
-          <img src="../../static/img/shijia.png">
+          <img src="../../upresource/img/shijia.png">
           <br>
           <span>试乘试驾</span>
         </li>
         <li @click="goPage('/invitedGift')">
-          <img src="../../static/img/jifen.png">
+          <img src="../../upresource/img/jifen.png">
           <br>
           <span>邀请有礼</span>
         </li>
@@ -30,7 +30,7 @@
         <span @click="changeActive(1)">
           精彩活动
           <img
-            src="../../static/img/shaixuan.png"
+            src="../../upresource/img/shaixuan.png"
             @click="openModal"
             style="vertical-align: middle;margin-left: 20px;width: 18px;height: 18px;"
           >
@@ -48,13 +48,13 @@
           <p style="font-size:14px;font-weight: bold;">
             {{item.title}}
             <!-- <img
-              src="../../static/img/shouchang.png"
+              src="../../upresource/img/shouchang.png"
               @click="favorite(true)"
               class="favoIcon"
               v-if="!favoriteFlag"
             >
             <img
-              src="../../static/img/shouchang2.png"
+              src="../../upresource/img/shouchang2.png"
               v-if="favoriteFlag"
               @click="favorite(true)"
               class="favoIcon"
@@ -72,7 +72,7 @@
       </div>
       <div v-if="activeFlag==2">
         <div>
-          <img src="../../static/img/tiche6.png" @click="goPage('pickCar')">
+          <img src="../../upresource/img/tiche6.png" @click="goPage('pickCar')">
           <p style="font-size:14px;font-weight: bold;">【提车小记】没想到就这样挑中了你</p>
         </div>
         <div>
@@ -89,20 +89,20 @@
         <!-- <li>全部兑换</li> -->
         <li @click="changeActiveTarget(1)">
           车 主
-          <img src="../../static/img/jiantou.png">
+          <img src="../../upresource/img/jiantou.png">
         </li>
         <li @click="changeActiveTarget(2)">
           潜 客
-          <img src="../../static/img/jiantou.png">
+          <img src="../../upresource/img/jiantou.png">
         </li>
       </ul>
     </Drawer>
   </div>
 </template>
 
-<script  src="../../static/js/activityCenter.js">
+<script  src="../../upresource/js/activityCenter.js">
 </script>
 <style  >
-@import "../../static/css/activityCenter.css";
+@import "../../upresource/css/activityCenter.css";
 </style>
 

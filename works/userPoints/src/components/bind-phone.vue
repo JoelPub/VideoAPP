@@ -2,7 +2,7 @@
   <div class="loginBox">
     <prompt-modal :messsage="messsage" timeout="2500" @hideModal="messsage=''"></prompt-modal>
     <div class="loginTitle">
-      <img src="../../static/img/fordlogo.png">
+      <img src="../../upresource/img/fordlogo.png">
     </div>
     <div class="bind-tit">绑定手机号</div>
     <ul class="loginBoxUl">
@@ -134,7 +134,7 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style   scoped>
-  @import "../../static/css/login.css";
+  @import "../../upresource/css/login.css";
   .bind-tit{
     font-size: 18px;
     margin-bottom: 20px;
