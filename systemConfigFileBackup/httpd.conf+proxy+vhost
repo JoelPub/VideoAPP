@@ -41,6 +41,7 @@ ServerRoot "/etc/httpd"
 #Listen 12.34.56.78:80
 Listen 80
 Listen 9001
+Listen 9002
 #
 # Dynamic Shared Object (DSO) Support
 #
@@ -358,4 +359,3 @@ ProxyPass /litemallsl http://localhost:8080/
 ProxyPassReverse /litemallsl http://localhost:8080/
 ProxyPass /static http://localhost:8080/static
 ProxyPassReverse /static http://localhost:8080/static
-
