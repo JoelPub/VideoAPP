@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="../js/jquery.js"></script>
+		<script src="../js/t6.js"></script>
+		<link rel="stylesheet" href="../css/app.css" />
+	</head>
+	<body>
+		<div class="content">
+			<div class="search-box">
+				<form>
+					<input type="text" class="text-search">
+					<input type="submit" class="btn-search">
+				</form>
+			</div>
+			<div id="filter-box">
+				<div class="filter-value"><p></p></div>
+				<ul class="filter-list" id="filter-group">
+				</ul>
+				<div class="page-slide">
+					<div class="slide-left"><</div>
+					<div class="slide-right">></div>
+				</div>
+			</div>
+			<script id="filter-group-template" type="text/x-query-tmpl">
+			
+				<li class="filter-btn" data-template-bind='[{"attribute": "content", "value":"label"},{"attribute": "data-category", "value":"value"}]'></li>
+
+			</script>
+
+			<article>
+				<div class="error-msg">
+					<p>Please check your connection</p>
+				</div>
+				<header id="list-header">
+					<script id="list-header-template" type="text/x-jquery-tmpl">
+						<ul data-template-bind='{"attribute":"class","value":"rowclass"}'>
+							<li class="c-id" data-content="No"></li>
+							<li data-content="ProductName"></li>
+							<li data-content="TestingLaboratory"></li>
+							<li data-content="TestItem"></li>
+							<li data-content="AcquisitionDate"></li>
+							<li data-content="DownloadCopy"></li>
+						</ul>
+					</script>
+				</header>
+				<section id="search-items">
+					
+				</section>
+				<script id="search-template" type="text/x-jquery-tmpl">	
+							<ul data-template-bind='{"attribute":"class","value":"rowclass"}'>
+								<li class="c-id" data-content="ID"></li>
+								<li data-content="ProductName"></li>
+								<li data-content="TestingLaboratory"></li>
+								<li data-content="TestItem"></li>
+								<li data-content="AcquisitionDate"></li>
+								<li ><a data-content="DownloadCopy" data-href="Path"></a></li>
+							</ul>
+						
+				</script>
+				<div class="pagination">
+				</div>
+
+			</article>
+			<script type="text/javascript">
+			 	var restfulurl="/works/USGB/carve/json/test.json";
+			</script>
+			<script id="rest-services" type="text/x-json">
+			{
+				"url": "/works/USGB/carve/json/test.json"
+			}
+			</script>
+		</div>
+	</body>
+</html>
