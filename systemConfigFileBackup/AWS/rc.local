@@ -18,12 +18,3 @@ echo "Start up Litemall Service">>  /home/ec2-user/serverstart.log
 sleep 3m
 /var/www/html/litemall/deploy/litemall/litemall.jar start
 
-echo "Start up TTT">>  /home/ec2-user/serverstart.log
-sleep 1m
-cd /var/www/html/works/Try-The-Tech/TTT-Map
-npm run serve
-
-echo "Start up User Points">>  /home/ec2-user/serverstart.log
-sleep 1m
-cd /var/www/html/works/userPoints
-npm run dev

@@ -23,7 +23,7 @@ export default {
                 this.messsage = '车辆识別码格式不符合规范';
                 return;
             }
-            apiAll.checkVin('?vin=' + this.vinCode + '&vinNickName=领界&accountId=' + localStorage.getItem('accountId')).then(function (res) {
+            apiAll.checkVin('?vin=' + this.vinCode + '&vinNickName=JJ&accountId=' + localStorage.getItem('accountId')).then(function (res) {
 
                 if (res.status == 'SUCCESS') {
                     _this.messsage = '恭喜您成为认证车主 ~';

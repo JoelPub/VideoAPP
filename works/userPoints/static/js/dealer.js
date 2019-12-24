@@ -78,7 +78,7 @@ export default {
       }
       var newData = [];
       for (var i = 0; i < data.length; i++) {
-        if (data[i].DealerNewVehicle.indexOf("领界") > -1) {
+        if (data[i].DealerNewVehicle.indexOf("JJ") > -1) {
 
           var filterData = [];
           var dealerLatitude = data[i]._location.split(",")[1];

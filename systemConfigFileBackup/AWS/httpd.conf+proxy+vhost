@@ -1,4 +1,3 @@
-
 #
 # This is the main Apache HTTP server configuration file.  It contains the
 # configuration directives that give the server its instructions.
@@ -41,7 +40,9 @@ ServerRoot "/etc/httpd"
 #
 #Listen 12.34.56.78:80
 Listen 80
-
+Listen 9001
+Listen 9002
+Listen 9003
 #
 # Dynamic Shared Object (DSO) Support
 #
@@ -355,37 +356,9 @@ IncludeOptional conf.d/*.conf
 
 
 # Apache HTTP Server As Reverse-Proxy Using mod_proxy
+##litemall proxy
 ProxyPass /litemallsl http://localhost:8080/
 ProxyPassReverse /litemallsl http://localhost:8080/
-
 ProxyPass /static http://localhost:8080/static
 ProxyPassReverse /static http://localhost:8080/static
-
-LoadModule dispatcher_module /etc/httpd/modules/mod_dispatcher.so
-<IfModule disp_apache2.c>
- DispatcherConfig conf/dispatcher.any
- DispatcherLog logs/dispatcher.log
- DispatcherLogLevel 3
- DispatcherNoServerHeader 0
- DispatcherDeclineRoot 0
- DispatcherUseProcessedURL 0
- DispatcherPassError 0
- DispatcherKeepAliveTimeout 60
-</IfModule>
- 
-<Directory />
- <IfModule disp_apache2.c>
- SetHandler dispatcher-handler
- </IfModule>
- Options FollowSymLinks
- AllowOverride None
-</Directory>
-<Directory />
- <IfModule disp_apache2.c>
- SetHandler dispatcher-handler
- ModMimeUsePathInfo On
- </IfModule>
- Options FollowSymLinks
- AllowOverride None
-</Directory>
 

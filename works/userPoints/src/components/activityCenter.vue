@@ -41,7 +41,7 @@
       </Col>
     </Row>
     <div class="activityCenterMain" style="padding: 10px;">
-      <p class="Topping" @click="goPage('/IntegralRules')">[置顶] XX领界积分平台会员手册</p>
+      <p class="Topping" @click="goPage('/IntegralRules')">[置顶] XXJJ积分平台会员手册</p>
       <div v-if="activeFlag==1 && activityTarget=='all'">
         <div v-for="item in  AexcitingActivities">
           <img :src="item.imageUrl" @click="goPage(item.contentUrl)">
@@ -80,7 +80,7 @@
             src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity1.png"
             @click="goPage('wordOfMouthInformation')"
           >
-          <p style="font-size:14px;font-weight: bold;">开着领界带你领略马峦山 探险吃鸡观瀑自驾之旅</p>
+          <p style="font-size:14px;font-weight: bold;">开着JJ带你领略马峦山 探险吃鸡观瀑自驾之旅</p>
         </div>
       </div>
     </div>

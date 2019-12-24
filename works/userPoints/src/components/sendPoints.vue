@@ -2,7 +2,7 @@
   <div class="sendPoints">
     <ul>
       <li>
-        <span>领界</span>
+        <span>JJ</span>
         <span>
           <i-switch v-model="testSwith.one" @on-change="change" class-name="switchFlag"></i-switch>
         </span>

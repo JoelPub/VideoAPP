@@ -54,7 +54,7 @@
     <Modal
       v-model="modal1"
       footer-hide
-      title="XX领界平台积分规则"
+      title="XXJJ平台积分规则"
       class-name="vinModal  taskListModal"
       style="height:300px;"
     >

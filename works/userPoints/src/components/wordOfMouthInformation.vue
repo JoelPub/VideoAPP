@@ -3,25 +3,25 @@
         <br>
         <br>
         <div style="text-align: center;">
-        <strong><span style="font-size: x-large;">开着领界带你领略马峦山 探险吃鸡观瀑自驾之旅</span></strong><br>
-        <strong><span style="font-size: 14px;">深圳年轻人五一自驾去哪里？开着领界马峦山去探险吧！</span></strong><br>
-        <strong><span style="font-size: 14px;">不出深圳就可观瀑布吃农家鸡？开着领界去探险马峦山！</span></strong><br>
+        <strong><span style="font-size: x-large;">开着JJ带你领略马峦山 探险吃鸡观瀑自驾之旅</span></strong><br>
+        <strong><span style="font-size: 14px;">深圳年轻人五一自驾去哪里？开着JJ马峦山去探险吧！</span></strong><br>
+        <strong><span style="font-size: 14px;">不出深圳就可观瀑布吃农家鸡？开着JJ去探险马峦山！</span></strong><br>
         </div>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity1.png">
 <p>作为久居在深圳的南漂，我深知外地人每天是多么有压力，为生活，为理想，都在夜以继日的奋斗，
 但是再苦再累，不要忘了放松自己，毕竟一味的拼命并不会有更好的状态去投入，这就是我这篇文章的目的。</p>
 <p>不过大部分人都很相似，即使是有了时间，也不知道去哪里看看玩玩，无非就是逛吃逛吃，再就是睡觉。
-这次我们正好拿到了一辆XX领界的试驾车，打算为大家亲自探路，来一个近郊自驾游记，让大家的假期更加有意义。</p>
+这次我们正好拿到了一辆XXJJ的试驾车，打算为大家亲自探路，来一个近郊自驾游记，让大家的假期更加有意义。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity2.png">
 <p>我们选择的近郊自驾游目的地是一个不用出深圳就可以享受自然风光的地方——马峦山郊野公园。这个公园处于深圳东部的山区，山谷内植被浓密，远离喧嚣，景色秀丽，并且，
 有着深圳最大的瀑布，即使不用去黄果树也可以感受瀑布之美。体验完发现简直就是一线大城市郊野的圣地。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity3.png">
 <p><strong><span>自驾前准备工作</span></strong><br></p>
-<p>一大早，我们就拿到了试驾车，领界的上市时间不长，与家族里的大哥撼路者不一样，一眼看上去它确实更加的暖男一点，暖男带着去自驾游，会不会很舒心呢？</p>
+<p>一大早，我们就拿到了试驾车，JJ的上市时间不长，与家族里的大哥撼路者不一样，一眼看上去它确实更加的暖男一点，暖男带着去自驾游，会不会很舒心呢？</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity4.png">
 <p>作为职业习惯，车身周围全部检查一圈，尤其是车轮，在自驾游之前必须检查是否有异物，因为要跑高速，事先排除安全隐患非常有必要。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity5.png">
-<p>这辆领界搭载的是18寸的轮毂，邓禄普轮胎 SP SPORT 01V，主打操控及舒适，对于高速自驾游再合适不过，检查了一下没有异物和破损，自驾之旅马上就可以启程啦。</p>
+<p>这辆JJ搭载的是18寸的轮毂，邓禄普轮胎 SP SPORT 01V，主打操控及舒适，对于高速自驾游再合适不过，检查了一下没有异物和破损，自驾之旅马上就可以启程啦。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity6.png">
 <p>上车后我先清零了油耗，10.25寸的全液晶仪表盘及10.1寸的显示屏确实在这个级别的合资车型上比较少见，功能齐全，所以很容易找到油耗清零的位置，并且一并检查了剩余油耗量。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity7.png">
@@ -86,7 +86,7 @@
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity34.png">
 <p>这条路就是在我们吃鸡的地方往里走，是一条全路段单车道并且非常窄的路，我们是听说了有古建筑，所以决定进去看一看有没有什么意外惊喜。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity35.png">
-<p>刚吃完午饭的我们稍微有点累，同事毫不犹豫的决定想躺在车上眯一会儿，放倒了领界的后排座椅，几乎全平，并且还有全景天窗，躺下之后他就来了一句：舒服。</p>
+<p>刚吃完午饭的我们稍微有点累，同事毫不犹豫的决定想躺在车上眯一会儿，放倒了JJ的后排座椅，几乎全平，并且还有全景天窗，躺下之后他就来了一句：舒服。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity36.png">
 <p>首先第一个让我们停下的地方就是左手边小湖，右手茅草屋的路段，这里的风景怎么看都格外安静，并且有些世外桃源般的感觉，除了天气有点热之外。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity37.png">
@@ -120,7 +120,7 @@
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity50.png">
 <p>在这里拍一个这样的背影，真的可以直接做微信头像，并且你可以自豪的告诉别人，这就是在深圳拍的，没错，深圳也有景色这么好的地方。</p>
 <img src="https://www.lincoln.com.cn/content/dam/lincoln/TerritoryActivity/WordOfMouthInformation/activity51.png">
-<p>最后，作为陪伴了我们一天的伙伴，我来谈谈XX领界这款车整天的自驾游感受。首先这款车1.5T加CVT的动力总成在起步的时候很冲，所以在爬山什么的不费力，另外空间和底盘的质感都没有让我们一天的旅途有烦恼，尤其要表扬的是隔音方面，在高速驾驶时，完全不会耽误前后排乘客的沟通交流，这是这个级别的车里表现尤其优秀的。</p>
+<p>最后，作为陪伴了我们一天的伙伴，我来谈谈XXJJ这款车整天的自驾游感受。首先这款车1.5T加CVT的动力总成在起步的时候很冲，所以在爬山什么的不费力，另外空间和底盘的质感都没有让我们一天的旅途有烦恼，尤其要表扬的是隔音方面，在高速驾驶时，完全不会耽误前后排乘客的沟通交流，这是这个级别的车里表现尤其优秀的。</p>
 <br><br><br>
 
 <div style="text-align: center;">
@@ -131,7 +131,7 @@
 <p>首先，马峦山上道路比较窄，会车情况多，弯路也多，如果想要自驾游一定要要驾驶技术娴熟的司机。</p>
 <p>第二，山上这几个我们去的景点全部都是没有指示牌的，包括农家乐，是相当于没有被完全开发的景点，可以说是非常难找，想要去的话一定要看好我们给出的图片指示。</p>
 <p>第三，在山上如果实在找不到路，绝对不建议胡乱驾驶探路，我们在首次探路就遇到了困难，因为路上掉头点非常的少，岔路也多，找好地点再出发，或者询问山上居民。</p>
-<p>第四，上山对于车辆的要求也比较高，要保证车辆通过性足够，本次驾驶的江铃XX领界进入角和出入角都比较好一点，不建议轿车上山。</p>
+<p>第四，上山对于车辆的要求也比较高，要保证车辆通过性足够，本次驾驶的江铃XXJJ进入角和出入角都比较好一点，不建议轿车上山。</p>
 <p>最后，此次的路线的全程游玩项目，对于一个长时间居住于钢筋水泥的我们来说，绝对是值得在假期放松自己好选择。价格便宜，到的人少，刚好适合一天的自驾，又能尝到最新鲜食材的农家菜，所以我极度推荐大家来玩一次。</p>
   </div>
 </template>
@@ -158,7 +158,7 @@
       async initData(token){
         this.shareLinkRaw=window.location.href
         this.shareTit='提车小记'
-        this.shareDesc='开着领界带你领略马恋山'
+        this.shareDesc='开着JJ带你领略马恋山'
         this.shareLink=this.getLinkToken('wordOfMouthInformation',token)
         console.log('this.shareLink1:',this.shareLink)
         this.shareImgUrl=`https://territorydataimageplatform.apps.pp01.cnnorth.cf.ford.com.cn/share/share.jpg`

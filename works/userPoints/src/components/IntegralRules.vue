@@ -1,7 +1,7 @@
 <template>
   <div style="background:#fff;">
     <div style="text-align:center;">
-      <h1>XX领界积分平台会员手册</h1>
+      <h1>XXJJ积分平台会员手册</h1>
     </div>
     <div class="rules">
       <h2>一、 会员卡介绍</h2>
