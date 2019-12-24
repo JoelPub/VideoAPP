@@ -3,7 +3,7 @@
         <div class="wrapper">
 
             <header id="title">
-                <h3>欢迎使用福特答疑小管家</h3>
+                <h3>欢迎使用XX答疑小管家</h3>
             </header>
 
             <section id="show" @mouseover="handleMouseover" @mouseout="handleMouseout" @scroll="handleScroll">

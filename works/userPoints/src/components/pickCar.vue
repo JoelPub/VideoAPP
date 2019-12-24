@@ -4,7 +4,7 @@
     <span>转载汽车之家</span>
     <br>9月份买的，订车的时候是年前，提车的时候是年后。
     原本想，订的时候直接提走，过年的时候就可以开新车走亲戚，出去玩儿了。无奈，挑到的车型没有现车，只能等到年后了。
-    因为家里已经有两辆轿车了，就考虑SUV，但是，开始也没想过买福特车。毕竟，都说福特油老虎。逛福特SSSS店，也真的只是随便进去看看的。
+    因为家里已经有两辆轿车了，就考虑SUV，但是，开始也没想过买XX车。毕竟，都说XX油老虎。逛XXSSSS店，也真的只是随便进去看看的。
     其实，买个新款车，是有些风险的。虽然我是车子小白，不过我老公很爱车，也对比了很好，又试驾过，感觉各方面都还不错。
     当然，作为汽车小白的我，最看中的还是它的外形内饰。确实觉很漂亮。
     车子已经开了个月了，作为“老司机”的我，也已经开的相当上手了。
@@ -22,7 +22,7 @@
     >
     <img src="../../static/img/hua1 (4).jpg">
     外形比较霸气，看车的时候眼就相中了。家里还是老公开的，又不喜欢满大街的白色，所以挑了个棕色的，还是挺耐看的。
-    福特别的车不太一样的格栅，看起来还是不错的。
+    XX别的车不太一样的格栅，看起来还是不错的。
     <img
       src="../../static/img/hua1 (5).jpg"
     >
@@ -73,7 +73,7 @@
     methods: {
       async initData(token){
         this.shareLinkRaw=window.location.href
-        this.shareTit='福特临界积分平台会员！'
+        this.shareTit='XX临界积分平台会员！'
         this.shareDesc='没想到这样就挑中了你！'
         this.shareLink=this.getLinkToken('pickCar',token)
         console.log('this.shareLink1:',this.shareLink)

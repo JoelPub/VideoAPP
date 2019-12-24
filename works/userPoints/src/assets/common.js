@@ -95,7 +95,7 @@ export const wxShareCom=()=>{
         // 分享到朋友圈
         wx.onMenuShareTimeline({
           title: self.shareTit,
-          desc: '邀请您加入福特领界积分平台',
+          desc: '邀请您加入XX领界积分平台',
           link:self.shareLink,
           imgUrl: self.shareImgUrl,//分享图标
           success:function(){
@@ -107,7 +107,7 @@ export const wxShareCom=()=>{
         });
         wx.onMenuShareAppMessage({
           title: self.shareTit,
-          desc: '邀请您加入福特领界积分平台',
+          desc: '邀请您加入XX领界积分平台',
           link:self.shareLink,
           imgUrl: self.shareImgUrl,
           success: function () {

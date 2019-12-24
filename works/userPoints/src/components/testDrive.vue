@@ -32,7 +32,7 @@
 
     <!-- <div class="remindMsg">
       <Checkbox v-model="single"></Checkbox>
-      <router-link to="serverTerms">登录即同意福特积分平台服务条款</router-link>
+      <router-link to="serverTerms">登录即同意XX积分平台服务条款</router-link>
     </div> -->
     <button class="submitButton" @click="submitTestDrive">立即预约</button>
   </div>

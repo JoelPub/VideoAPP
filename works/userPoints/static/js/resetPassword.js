@@ -48,7 +48,7 @@ export default {
         resetPassWord: function () {
             var _this = this;
             if (!this.single) {
-                _this.messsage = '请阅读福特积分平台服务条款';
+                _this.messsage = '请阅读XX积分平台服务条款';
                 return;
             }
             this.$validator.validateAll().then(function (res) {

@@ -46,7 +46,7 @@
     <div class="routePasswordLogin" @click="goPasswordLogin">账号密码登录>></div>
     <div class="remindMsg">
       <Checkbox v-model="single"></Checkbox>
-      <router-link to="serverTerms">登录即同意福特积分服务条款</router-link>
+      <router-link to="serverTerms">登录即同意XX积分服务条款</router-link>
     </div>
   </div>
 </template>

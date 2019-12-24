@@ -41,7 +41,7 @@
       </Col>
     </Row>
     <div class="activityCenterMain" style="padding: 10px;">
-      <p class="Topping" @click="goPage('/IntegralRules')">[置顶] 福特领界积分平台会员手册</p>
+      <p class="Topping" @click="goPage('/IntegralRules')">[置顶] XX领界积分平台会员手册</p>
       <div v-if="activeFlag==1 && activityTarget=='all'">
         <div v-for="item in  AexcitingActivities">
           <img :src="item.imageUrl" @click="goPage(item.contentUrl)">

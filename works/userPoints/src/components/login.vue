@@ -20,8 +20,8 @@
     <div class="routePasswordLogin" @click="weChatLogin">微信登录></div>
     <div class="remindMsg">
       <Checkbox v-model="single"></Checkbox>
-      <!-- <span>登录即同意福特积分平台服务条款</span> -->
-      <router-link to="serverTerms">登录即同意福特积分服务条款</router-link>
+      <!-- <span>登录即同意XX积分平台服务条款</span> -->
+      <router-link to="serverTerms">登录即同意XX积分服务条款</router-link>
     </div>
   </div>
 </template>
@@ -111,7 +111,7 @@ export default {
         return;
       }
       if (!this.single) {
-        this.messsage = "请阅读福特积分平台服务条款";
+        this.messsage = "请阅读XX积分平台服务条款";
         return;
       }
       var postData = {

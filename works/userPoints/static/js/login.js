@@ -61,7 +61,7 @@ export default {
                 return;
             }
             if (!this.single) {
-                this.messsage = '请阅读福特积分平台服务条款';
+                this.messsage = '请阅读XX积分平台服务条款';
                 return;
             }
             var postData = {

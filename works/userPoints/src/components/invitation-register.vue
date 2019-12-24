@@ -56,7 +56,7 @@
       return{
         nickName:"",
         profileImg:require("../../static/img/profile-pic.png"),
-        welcomeTip:'邀请您加入福特领界积分平台',
+        welcomeTip:'邀请您加入XX领界积分平台',
         btnText:'立即注册',
         shareMsg: '',
         shareModalFlag: true,
@@ -145,14 +145,14 @@
         {
           case 'register':
             this.shareTit='立即注册'
-            this.shareDesc='邀请您加入福特领界积分平台'
+            this.shareDesc='邀请您加入XX领界积分平台'
             this.shareLink=this.getLinkToken('register',token)
             console.log('this.shareLink1:',this.shareLink)
             this.shareImgUrl=`https://territorydataimageplatform.apps.pp01.cnnorth.cf.ford.com.cn/share/share.jpg`
             break;
           case 'drive':
             this.shareTit='立即试驾'
-            this.shareDesc='邀请您加入福特领界积分平台'
+            this.shareDesc='邀请您加入XX领界积分平台'
             this.shareLink=this.getLinkToken('drive',token)
             console.log('this.shareLink2:',this.shareLink)
             this.shareImgUrl=`https://territorydataimageplatform.apps.pp01.cnnorth.cf.ford.com.cn/share/share.jpg`
@@ -196,7 +196,7 @@
               // 分享到朋友圈
               wx.onMenuShareTimeline({
                 title: self.shareTit,
-                desc: '邀请您加入福特领界积分平台',
+                desc: '邀请您加入XX领界积分平台',
                 link:self.shareLink,
                 imgUrl: self.shareImgUrl,//分享图标
                 success:function(){
@@ -208,7 +208,7 @@
               });
               wx.onMenuShareAppMessage({
                 title: self.shareTit,
-                desc: '邀请您加入福特领界积分平台',
+                desc: '邀请您加入XX领界积分平台',
                 link:self.shareLink,
                 imgUrl: self.shareImgUrl,
                 success: function () {
@@ -296,12 +296,12 @@
        this.shareLinkRaw=window.location.href
        switch (name) {
          case 'register':
-        this.welcomeTip='邀请您加入福特领界积分平台'
+        this.welcomeTip='邀请您加入XX领界积分平台'
            this.btnText='立即注册'
            this.shareMsg='点击右上角按钮, 邀请好友注册'
            break;
          case 'drive':
-           this.welcomeTip='邀请您即刻预约试驾福特领界'
+           this.welcomeTip='邀请您即刻预约试驾XX领界'
            this.btnText='立即预约'
            this.shareMsg='点击右上角按钮, 邀请好友试驾'
            break;

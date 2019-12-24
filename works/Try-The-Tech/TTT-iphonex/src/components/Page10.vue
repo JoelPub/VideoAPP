@@ -10,7 +10,7 @@
         </div>
 
         <div class="btn">
-            <Button type="primary">去福特商城查看最新的电动车</Button>
+            <Button type="primary">去XX商城查看最新的电动车</Button>
         </div>
         
         <img src="@/assets/c10-2.png" class="fullScreen" alt="图片无法加载">
