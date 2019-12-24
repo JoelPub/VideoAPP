@@ -18,5 +18,5 @@ module.exports = {
 
   outputDir: './dist/public',
 
-  assetsDir: './assets'
+  assetsDir: './tttiphoneresource'
 }
