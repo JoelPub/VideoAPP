@@ -368,20 +368,35 @@ LoadModule dispatcher_module /etc/httpd/modules/mod_dispatcher.so
  DispatcherKeepAliveTimeout 60
 </IfModule>
 
-<Directory />
- <IfModule disp_apache2.c>
- SetHandler dispatcher-handler
- </IfModule>
- Options FollowSymLinks
- AllowOverride None
-</Directory>
-<Directory />
- <IfModule disp_apache2.c>
- SetHandler dispatcher-handler
- ModMimeUsePathInfo On
- </IfModule>
- Options FollowSymLinks
- AllowOverride None
-</Directory>
+# Define virtual host for brandA.com
+<VirtualHost *:80>
+  ServerName www.evw.wiki
+  DocumentRoot /var/www/html
+  RewriteEngine  on
+  RewriteRule    ^/(.*)\.html$  /content/hd_pages/$1.html [PT]
+   <Directory /var/www/html>
+     <IfModule disp_apache2.c>
+       SetHandler dispatcher-handler
+       ModMimeUsePathInfo On
+     </IfModule>
+     Options FollowSymLinks
+     AllowOverride None
+   </Directory>
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName www.evw.wiki
+  DocumentRoot /var/www/html
+  RewriteEngine  on
+  RewriteRule    ^/(.*)\.html$  /content/hd_pages/$1.html [PT]
+   <Directory /var/www/html>
+     <IfModule disp_apache2.c>
+       SetHandler dispatcher-handler
+       ModMimeUsePathInfo On
+     </IfModule>
+     Options FollowSymLinks
+     AllowOverride None
+   </Directory>
+</VirtualHost>
+
 
 
