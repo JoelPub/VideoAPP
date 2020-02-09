@@ -398,5 +398,7 @@ LoadModule dispatcher_module /etc/httpd/modules/mod_dispatcher.so
    </Directory>
 </VirtualHost>
 
-
+##News Servlet Proxy
+ProxyPass /bin http://localhost:4503/bin
+ProxyPassReverse /bin http://localhost:4503/bin
 
