@@ -26,7 +26,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Video from 'react-native-video';
-import LightVideo from "./three.mp4";
+import LightVideo from "./one.mp4";
 const App: () => React$Node = () => {
   const [paused, setPaused] = useState(true);
   const [position, setPostion] = useState({
@@ -56,11 +56,11 @@ const App: () => React$Node = () => {
               </View>
               <Video 
                 repeat={false}
-                source={LightVideo}
+                source={one}
                 paused={paused}
                 onLayout={handleVideoLayout}
-                resizeMode="cover"
-                style={{width, height:300}}/>
+                resizeMode="contain"
+                style={{width:width, height:height}}/>
               <View style={styles.fakeContent}>
                 <Text>{paused?"Paused":"Playing"}</Text>
               </View>
@@ -70,12 +70,15 @@ const App: () => React$Node = () => {
   );
 };
 const { height, width } = Dimensions.get("window");
+const one = require('./one.mp4');
 const styles = StyleSheet.create({
   container: {
     flex:1,
   },
   fakeContent: {
     height,
+    alignItems: "center",
+    paddingTop: height/2,
   },
   fillWindow : {
      position: 'absolute',
