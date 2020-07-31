@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React , { useState }from 'react';
+import React , { useRef , useState }from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,38 +28,53 @@ import {
 import Video from 'react-native-video';
 import LightVideo from "./one.mp4";
 const App: () => React$Node = () => {
-  const [paused, setPaused] = useState(true);
+  const scrollViewRef = useRef();
+  const [paused, setPaused] = useState(false);
+  const [videoPos, setVideoPos] = useState({
+    start:null,
+    end:null
+  });
   const [position, setPostion] = useState({
     start:null,
     end:null
   });
   const handleVideoLayout = (e)  => {
-    const {height} =  Dimensions.get("window");
+    setVideoPos({start: e.nativeEvent.layout.y,
+      end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
     setPostion({start: e.nativeEvent.layout.y,
-      end:e.nativeEvent.layout.y + height + e.nativeEvent.layout.height });
+      end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
   }
   const handleScroll = (e) => {
+    const {height} =  Dimensions.get("window");
     const scrollPosition = e.nativeEvent.contentOffset.y;
-    if(scrollPosition > position.start && scrollPosition < position.end && paused) {
+    if(scrollPosition > position.start) {
+      scrollViewRef.current.scrollTo({x: 0, y: position.end, animated: true});
+    } else if(scrollPosition < position.start) {
+      scrollViewRef.current.scrollTo({x: 0, y: position.start - height, animated: true});
+    }
+  }
+  const endScroll = (e) => {
+    const {height} =  Dimensions.get("window");
+    const scrollPosition = e.nativeEvent.contentOffset.y;
+    if(scrollPosition >= videoPos.start && scrollPosition < videoPos.end && paused) {
       setPaused(false);
-    } else if((scrollPosition < position.start || scrollPosition > position.end) && !paused) {
+      setPostion({start: videoPos.start,end:videoPos.start + height });
+    } else if((scrollPosition < videoPos.start || scrollPosition >= videoPos.end) && !paused) {
       setPaused(true);
+      setPostion({start: videoPos.end,end:videoPos.end + height });
     }
     console.log(paused?'paused':'playing');
   }
   return (
     <>
           <SafeAreaView style={styles.container}>
-            <ScrollView scrollEventThrottle={16} onScroll={handleScroll}>
-              <View style={styles.fakeContent}>
-                <Text>{paused?"Paused":"Playing"}</Text>
-              </View>
+            <ScrollView onMomentumScrollEnd={endScroll} onScrollEndDrag={handleScroll} ref={scrollViewRef}>
               <Video 
                 repeat={false}
                 source={one}
                 paused={paused}
                 onLayout={handleVideoLayout}
-                resizeMode="contain"
+                resizeMode="cover"
                 style={{width:width, height:height}}/>
               <View style={styles.fakeContent}>
                 <Text>{paused?"Paused":"Playing"}</Text>
