@@ -26,21 +26,27 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Video from 'react-native-video';
-import LightVideo from "./one.mp4";
 const App: () => React$Node = () => {
   const scrollViewRef = useRef();
   const [paused, setPaused] = useState(false);
-  const [videoPos, setVideoPos] = useState({
-    start:null,
-    end:null
-  });
   const [position, setPostion] = useState({
     start:null,
     end:null
   });
+  const [videos, setVideos] = useState([
+    {id:0,path:require('./one.mp4'),paused:false,start:0,end:0,style:'cover'},
+    {id:1,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
+    {id:2,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}]);
   const handleVideoLayout = (e)  => {
-    setVideoPos({start: e.nativeEvent.layout.y,
-      end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
+    const newVideos = [...videos];
+    newVideos.map((item,index) =>{
+      item.start = e.nativeEvent.layout.height * index;
+      item.end = e.nativeEvent.layout.height * (index + 1);
+      if((e.nativeEvent.layout.y < item.start || e.nativeEvent.layout.y >= item.end) && !item.paused) {
+        item.paused = true;
+      }
+    });
+    setVideos(newVideos);
     setPostion({start: e.nativeEvent.layout.y,
       end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
   }
@@ -56,36 +62,46 @@ const App: () => React$Node = () => {
   const endScroll = (e) => {
     const {height} =  Dimensions.get("window");
     const scrollPosition = e.nativeEvent.contentOffset.y;
-    if(scrollPosition >= videoPos.start && scrollPosition < videoPos.end && paused) {
-      setPaused(false);
-      setPostion({start: videoPos.start,end:videoPos.start + height });
-    } else if((scrollPosition < videoPos.start || scrollPosition >= videoPos.end) && !paused) {
-      setPaused(true);
-      setPostion({start: videoPos.end,end:videoPos.end + height });
-    }
-    console.log(paused?'paused':'playing');
+    const newVideos = [...videos];
+    newVideos.map((item,index) => {
+      if(scrollPosition >= item.start && scrollPosition < item.end && item.paused) {
+        item.paused = false;
+        setPostion({start: item.start,end:item.start + height });
+      } else if((scrollPosition < item.start || scrollPosition >= item.end) && !item.paused) {
+        item.paused = true;
+        //setPostion({start: item.end,end:item.end + height });
+      }
+    });
+    setVideos(newVideos);
   }
   return (
     <>
           <SafeAreaView style={styles.container}>
             <ScrollView onMomentumScrollEnd={endScroll} onScrollEndDrag={handleScroll} ref={scrollViewRef}>
-              <Video 
-                repeat={false}
-                source={one}
-                paused={paused}
-                onLayout={handleVideoLayout}
-                resizeMode="cover"
-                style={{width:width, height:height}}/>
-              <View style={styles.fakeContent}>
-                <Text>{paused?"Paused":"Playing"}</Text>
-              </View>
+              {videos.map((video) =>  video.id==0?
+                                            <Video 
+                                            repeat={false}
+                                            source={video.path}
+                                            paused={video.paused}
+                                            onLayout={handleVideoLayout}
+                                            resizeMode={video.style}
+                                            style={{width:width, height:height}}
+                                            key={video.id}/>
+                                            :
+                                            <Video 
+                                              repeat={false}
+                                              source={video.path}
+                                              paused={video.paused}
+                                              resizeMode={video.style}
+                                              style={{width:width, height:height}}
+                                              key={video.id}/>
+                                            )}
             </ScrollView>  
           </SafeAreaView>
     </>
   );
 };
 const { height, width } = Dimensions.get("window");
-const one = require('./one.mp4');
 const styles = StyleSheet.create({
   container: {
     flex:1,
