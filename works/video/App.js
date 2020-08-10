@@ -34,20 +34,62 @@ const App: () => React$Node = () => {
     ]);
   const handleVideoLayout = (e)  => {
     let newVideos = [...videos];
-    const localVideo = 'file:///storage/emulated/0/Android/data/com.video/files/four.mp4';
-    newVideos = [...newVideos,
-      {id:3,path:{ uri: localVideo },paused:false,start:0,end:0,style:'cover'}
-    ]
-    newVideos.map((item,index) =>{
-      item.start = e.nativeEvent.layout.height * index;
-      item.end = e.nativeEvent.layout.height * (index + 1);
-      if((e.nativeEvent.layout.y < item.start || e.nativeEvent.layout.y >= item.end) && !item.paused) {
-        item.paused = true;
+    const layout = e.nativeEvent.layout;
+    //const localVideo = 'file:///storage/emulated/0/Android/data/com.video/files/four.mp4';
+    //newVideos = [...newVideos,
+    //  {id:3,path:{ uri: localVideo },paused:false,start:0,end:0,style:'cover'}
+    //]
+
+    //download start
+    let dirs = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath ; 
+    //外部文件，共享目录的绝对路径（仅限android）
+    const timestamp = (new Date()).getTime();//获取当前时间错
+    const random = String(((Math.random() * 1000000) | 0))//六位随机数
+    const downloadDest = `${dirs}/${timestamp+random}.mp4`;
+    //下载地址
+    const formUrl = 'https://stszjl.aoscdn.com/app/lightmv/resources/3d2501f009e8e837cae0e7ddee792483/mv/87b8f19e3000eef08ba81094f34038fb-360-water.mp4?auth_key=1597047711-846183-567902-c12e87a3768a5727334a51301be1e06c&Expires=1597047711';
+      
+    const options = {
+      fromUrl: formUrl,
+      toFile: downloadDest,
+      background: true,
+      begin: (res) => {
+        ToastAndroid.show('开始下载',ToastAndroid.SHORT)
+        console.log('begin', res);
+        console.log('contentLength:', res.contentLength / 1024 / 1024, 'M');
+      },
+      progress: (res) => { //下载进度
+        let pro = res.bytesWritten / res.contentLength;
+        console.log('pro==',pro)
       }
-    });
-    setVideos(newVideos);
-    setPostion({start: e.nativeEvent.layout.y,
-      end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
+    }
+    try {
+      const ret = RNFS.downloadFile(options);
+      ret.promise.then(res => {
+        console.log('success', res);
+        console.log('file://' + downloadDest);
+        const donwloadVideo = 'file://' + downloadDest;
+        newVideos = [...newVideos,
+          {id:3,path:{ uri: donwloadVideo },paused:false,start:0,end:0,style:'cover'}
+        ]
+        newVideos.map((item,index) =>{
+          item.start = layout.height * index;
+          item.end = layout.height * (index + 1);
+          if((layout.y < item.start || layout.y >= item.end) && !item.paused) {
+            item.paused = true;
+          }
+        });
+        setVideos(newVideos);
+        setPostion({start: layout.y,
+          end:layout.y + layout.height });
+      }).catch(err => {
+          console.log('err', err);
+      });
+    }catch (e) {
+      ToastAndroid.show('下载失败',ToastAndroid.SHORT)
+      console.log(error);
+    }
+    //download end
   }
   const handleScroll = (e) => {
     const {height} =  Dimensions.get("window");
@@ -75,60 +117,7 @@ const App: () => React$Node = () => {
   }
 
 
-//  let dirs = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath ; 
-//  //外部文件，共享目录的绝对路径（仅限android）
-//  const downloadDest = `${dirs}/four.mp4`;
-//  //下载地址
-//  const formUrl = 'https://stszjl.aoscdn.com/app/lightmv/resources/3d2501f009e8e837cae0e7ddee792483/mv/45223b1c6c0e67730cd498f88431b4bf-360-water.mp4?auth_key=1596801575-661239-167811-4f1e65d62cf2fc3b44609a2efb85d6df&Expires=1596801575';
-//    
-//  const options = {
-//    fromUrl: formUrl,
-//    toFile: downloadDest,
-//    background: true,
-//    begin: (res) => {
-//      ToastAndroid.show('开始下载',ToastAndroid.SHORT)
-//      console.log('begin', res);
-//      console.log('contentLength:', res.contentLength / 1024 / 1024, 'M');
-//    },
-//    progress: (res) => { //下载进度
-//      let pro = res.bytesWritten / res.contentLength;
-//      console.log('pro==',pro)
-//    }
-//  }
-//  try {
-//    const ret = RNFS.downloadFile(options);
-//    ret.promise.then(res => {
-//      console.log('success', res);
-//      console.log('file://' + downloadDest)
-//      RNFS.readDir(dirs) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
-//      .then((result) => {
-//        console.log('GOT RESULT', result);
-//  
-//        // stat the first file
-//        return Promise.all([RNFS.stat(result[0].path), result[0].path]);
-//      })
-//      .then((statResult) => {
-//        if (statResult[0].isFile()) {
-//          // if we have a file, read it
-//          return RNFS.readFile(statResult[1], 'utf8');
-//        }
-//  
-//        return 'no file';
-//      })
-//      .then((contents) => {
-//        // log the file contents
-//        console.log(contents);
-//      })
-//      .catch((err) => {
-//        console.log(err.message, err.code);
-//      });
-//    }).catch(err => {
-//        console.log('err', err);
-//    });
-//  }catch (e) {
-//    ToastAndroid.show('下载失败',ToastAndroid.SHORT)
-//    console.log(error);
-//  }
+
   return (
     <>
           <SafeAreaView style={styles.container}>
