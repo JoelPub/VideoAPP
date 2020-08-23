@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">video</string>
+     <string moduleConfig="true" name="CodePushDeploymentKey">ALHg96Bn4HZJEEOm0ll-utWoctUMbgVGMoq7c</string>
 </resources>

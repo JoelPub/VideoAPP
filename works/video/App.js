@@ -122,7 +122,8 @@ const App: () => React$Node = () => {
     <>
           <SafeAreaView style={styles.container}>
             <ScrollView onMomentumScrollEnd={endScroll} onScrollEndDrag={handleScroll} ref={scrollViewRef}>
-            
+            <Text style={styles.fakeContent}>2</Text>
+              
 
               {videos.map((video) =>  video.id==0?
                                             <Video 
