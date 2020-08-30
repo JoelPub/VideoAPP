@@ -28,9 +28,8 @@ const App: () => React$Node = () => {
     end:null
   });
   const [videos, setVideos] = useState([
-    {id:0,path:require('./one.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:1,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:2,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
+    {id:0,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
+    {id:1,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
     ]);
   const handleVideoLayout = (e)  => {
     let newVideos = [...videos];
@@ -47,7 +46,7 @@ const App: () => React$Node = () => {
     const random = String(((Math.random() * 1000000) | 0))//六位随机数
     const downloadDest = `${dirs}/${timestamp+random}.mp4`;
     //下载地址
-    const formUrl = 'https://stszjl.aoscdn.com/app/lightmv/resources/3d2501f009e8e837cae0e7ddee792483/mv/87b8f19e3000eef08ba81094f34038fb-360-water.mp4?auth_key=1597047711-846183-567902-c12e87a3768a5727334a51301be1e06c&Expires=1597047711';
+    const formUrl = 'https://www.haidanmm.com/demos/mp3mp4/one.mp4';
       
     const options = {
       fromUrl: formUrl,
@@ -122,9 +121,6 @@ const App: () => React$Node = () => {
     <>
           <SafeAreaView style={styles.container}>
             <ScrollView onMomentumScrollEnd={endScroll} onScrollEndDrag={handleScroll} ref={scrollViewRef}>
-            <Text style={styles.fakeContent}>2</Text>
-              
-
               {videos.map((video) =>  video.id==0?
                                             <Video 
                                             repeat={false}
