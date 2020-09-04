@@ -18,6 +18,7 @@ import {
   ToastAndroid,
 } from 'react-native';
 import Video from 'react-native-video';
+import codePush from "react-native-code-push";
 import LightVideo from "./one.mp4";
 var RNFS = require('react-native-fs');
 const App: () => React$Node = () => {
@@ -28,8 +29,7 @@ const App: () => React$Node = () => {
     end:null
   });
   const [videos, setVideos] = useState([
-    {id:0,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:1,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
+    {id:0,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'}
     ]);
   const handleVideoLayout = (e)  => {
     let newVideos = [...videos];
@@ -53,7 +53,7 @@ const App: () => React$Node = () => {
       toFile: downloadDest,
       background: true,
       begin: (res) => {
-        ToastAndroid.show('开始下载',ToastAndroid.SHORT)
+        ToastAndroid.show('开始下载1',ToastAndroid.SHORT)
         console.log('begin', res);
         console.log('contentLength:', res.contentLength / 1024 / 1024, 'M');
       },
@@ -162,5 +162,4 @@ const styles = StyleSheet.create({
      right: 0
    }
 });
-
-export default App;
+export default codePush(App);
