@@ -5,9 +5,12 @@ import {
   ScrollView,
   View,
   Text,
-  Dimensions
+  Dimensions,
+  ToastAndroid,
 } from 'react-native';
 import Video from 'react-native-video';
+import LightVideo from "./one.mp4";
+var RNFS = require('react-native-fs');
 export default function HomeScreen({ isExtended, setIsExtended }) {
   const scrollViewRef = useRef();
   const [paused, setPaused] = useState(false);
@@ -16,21 +19,67 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
     end:null
   });
   const [videos, setVideos] = useState([
-    {id:0,path:require('./one.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:1,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:2,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}]);
+    {id:0,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
+    {id:1,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
+    ]);
   const handleVideoLayout = (e)  => {
-    const newVideos = [...videos];
-    newVideos.map((item,index) =>{
-      item.start = e.nativeEvent.layout.height * index;
-      item.end = e.nativeEvent.layout.height * (index + 1);
-      if((e.nativeEvent.layout.y < item.start || e.nativeEvent.layout.y >= item.end) && !item.paused) {
-        item.paused = true;
+    let newVideos = [...videos];
+    const layout = e.nativeEvent.layout;
+    //const localVideo = 'file:///storage/emulated/0/Android/data/com.video/files/four.mp4';
+    //newVideos = [...newVideos,
+    //  {id:3,path:{ uri: localVideo },paused:false,start:0,end:0,style:'cover'}
+    //]
+
+    //download start
+    let dirs = Platform.OS === 'ios' ? RNFS.LibraryDirectoryPath : RNFS.ExternalDirectoryPath ; 
+    //外部文件，共享目录的绝对路径（仅限android）
+    const timestamp = (new Date()).getTime();//获取当前时间错
+    const random = String(((Math.random() * 1000000) | 0))//六位随机数
+    const downloadDest = `${dirs}/${timestamp+random}.mp4`;
+    //下载地址
+    const formUrl = 'https://www.haidanmm.com/demos/mp3mp4/one.mp4';
+      
+    const options = {
+      fromUrl: formUrl,
+      toFile: downloadDest,
+      background: true,
+      begin: (res) => {
+        ToastAndroid.show('开始下载',ToastAndroid.SHORT)
+        console.log('begin', res);
+        console.log('contentLength:', res.contentLength / 1024 / 1024, 'M');
+      },
+      progress: (res) => { //下载进度
+        let pro = res.bytesWritten / res.contentLength;
+        console.log('pro==',pro)
       }
-    });
-    setVideos(newVideos);
-    setPostion({start: e.nativeEvent.layout.y,
-      end:e.nativeEvent.layout.y + e.nativeEvent.layout.height });
+    }
+    try {
+      const ret = RNFS.downloadFile(options);
+      ret.promise.then(res => {
+        console.log('success', res);
+        console.log('file://' + downloadDest);
+        const donwloadVideo = 'file://' + downloadDest;
+        newVideos = [...newVideos,
+          {id:3,path:{ uri: donwloadVideo },paused:false,start:0,end:0,style:'cover'}
+        ]
+        newVideos.map((item,index) =>{
+          item.start = layout.height * index;
+          item.end = layout.height * (index + 1);
+          if((layout.y < item.start || layout.y >= item.end) && !item.paused) {
+            item.paused = true;
+          }
+        });
+        setVideos(newVideos);
+        setPostion({start: layout.y,
+          end:layout.y + layout.height });
+      }).catch(err => {
+          console.log('err', err);
+      });
+    }catch (e) {
+      ToastAndroid.show('下载失败',ToastAndroid.SHORT)
+      console.log(error);
+    }
+    //download end
   }
   const handleScroll = (e) => {
     const {height} =  Dimensions.get("window");
