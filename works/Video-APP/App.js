@@ -8,8 +8,9 @@ import { colors } from './src/styles';
 import { store, persistor } from './src/redux/store';
 
 import AppView from './src/modules/AppViewContainer';
+import codePush from "react-native-code-push";
 
-export default function App() {
+function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -37,3 +38,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
+export default codePush(App);
