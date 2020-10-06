@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ReactNativeStarter</string>
+    <string name="app_name">吐槽</string>
      <string moduleConfig="true" name="CodePushDeploymentKey">JcxkScYfiGBFhtuV7HmzLezBPqU9oL6Yx0aes</string>
 </resources>
