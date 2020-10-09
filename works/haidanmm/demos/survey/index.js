@@ -1,4 +1,4 @@
-Survey
+﻿Survey
     .StylesManager
     .applyTheme("modern");
 
@@ -15,7 +15,8 @@ var json = {
                     type: "dropdown",
                     name: "yearOfBirth",
                     title: "您生于哪一年？",
-                    isRequired: false,
+                    isRequired: true,
+		    requiredErrorText: "必填",
                     colCount: 0,
                     showOptionsCaption : true,
                     optionsCaption : "请选择",
@@ -36,7 +37,8 @@ var json = {
                     type: "radiogroup",
                     name: "gender",
                     title: "您是……？  ",
-                    isRequired: false,
+                    isRequired: true,
+		    requiredErrorText: "必填",
                     colCount: 2,
                     choices: [
                         "先生",
@@ -47,11 +49,24 @@ var json = {
                     type: "multipletext",
                     name: "impressionOfDesign",
                     title: "您对于福特展台的印象是什么，请用三个词来回答",
+                    isRequired: true,
+		    requiredErrorText: "必填",
+                    cssClasses : "hidebottom",
                     items: [
                         {
                             name: "impressionOfDesign1",
                             title: " "
-                        }, {
+                        }
+                    ]
+                },
+
+                {
+                    type: "multipletext",
+                    name: "impressionOfDesign1",
+                    title: "您对于福特展台的印象是什么，请用三个词来回答",
+                    titleLocation : 'hidden',
+                    items: [
+                        {
                             name: "impressionOfDesign2",
                             title: " "
                         }, {
@@ -59,12 +74,13 @@ var json = {
                             title: " "
                         }
                     ]
-                        },
+                },
                 {
                     type: "radiogroup",
                     name: "fordImpression",
                     title: "您对于展台上印象最深刻的区域有哪些？请分别用一个词来描述原因",
-                    isRequired: false,
+                    isRequired: true,
+		    requiredErrorText: "必填",
                     choices: [
                         "展台布置颜色", "互动灯光设置", "展台的互动性","寻找隐藏的电马","徽章制作","福特Co-Pilot360TM 弹力球游戏","福特音乐派","势能美学设计作品", "星巴克联名饮品", "车型产品","Mach-E","F-150 LTD","Mustang","全新探险者","锐界","锐际","新一代福克斯","领界S"
                     ],
@@ -74,9 +90,11 @@ var json = {
                   "type": "matrixdynamic",
                   "name": "otherImpression",
                   "title": "在您看过的展台中，你觉得印象深刻的有哪些？不考虑面积的情况下，在展台的呈现上，你觉得其中哪些展台的体验做得比福特好？",
-                  "rowCount": 3,
+                  "rowCount": 1,
                   "allowAddRows": false,
                   "allowRemoveRows": false,
+                    isRequired: true,
+		    requiredErrorText: "必填",
                   "columns": [
                       {
                           "name": "otherImpressionBrand1",
@@ -90,28 +108,66 @@ var json = {
                           "isRequired": false
                       }
                   ]
-              },
+                },
+                {
+                  "type": "matrixdynamic",
+                  "name": "otherImpression1",
+                  "title": "在您看过的展台中，你觉得印象深刻的有哪些？不考虑面积的情况下，在展台的呈现上，你觉得其中哪些展台的体验做得比福特好？",
+                  titleLocation : 'hidden',
+                  "rowCount": 2,
+                  "allowAddRows": false,
+                  "allowRemoveRows": false,
+                  "columns": [
+                      {
+                          "name": "otherImpressionBrand2",
+                          "cellType": "text",
+                          "title": "填写品牌",
+                          titleLocation : 'hidden',
+                          "isRequired": false
+                      }, {
+                          "name": "otherImpressionDesc2",
+                          "cellType": "text",
+                          "title": "填写原因",
+                          "isRequired": false
+                      }
+                  ]
+                },
                 {
                     type: "comment",
                     name: "suggestions",
+                    isRequired: true,
+		    requiredErrorText: "必填",
                     title: "您认为福特展台上还有待提高的地方是哪里？请指出一点"
                 },
                 {
                     type: "rating",
                     name: "score",
                     title: "如果您给福特展台打分，满分10分，你会打几分？",
-                    isRequired: false
+                    isRequired: true,
+		    requiredErrorText: "必填",
                 },
                 {
                     type: "multipletext",
                     name: "fordImpressionDesc",
                     title: "您对于福特势能美学的设计雕塑和呈现内容的印象是什么？请用三个词来回答",
                     colCount: 1,
+                    isRequired: true,
+		    requiredErrorText: "必填",
                     items: [
                         {
                             name: "fordImpressionDesc1",
                             title: " "
-                        }, {
+                        }
+                    ]
+                },
+                {
+                    type: "multipletext",
+                    name: "fordImpressionDesc1",
+                    title: "您对于福特势能美学的设计雕塑和呈现内容的印象是什么？请用三个词来回答",
+		    titleLocation : 'hidden',
+                    colCount: 1,
+                    items: [
+                        {
                             name: "fordImpressionDesc2",
                             title: " "
                         }, {
@@ -136,6 +192,11 @@ s.colCount = 1;
 survey
     .onAfterRenderQuestion
     .add(function (survey, options) {
+        $('.primary-multipletext').parents('.sv-row').css('padding-bottom',0);
+        $('.primary-matrixdynamic').parents('.sv-row').css('padding-bottom',0);
+	$('.primary-matrixdynamic').css('padding-bottom',0);
+	$('.secondary-matrixdynamic').css('padding-top',0);
+	$('.secondary-matrixdynamic thead').hide();
         var subQuestions1=[3,4,5,6];
         var subQuestions2=[10,11,12,13,14,15,16,17];
         var domImpression=$('#'+s.id);
@@ -186,8 +247,10 @@ survey
     formattedResult.gender=result.data.gender;
     if(result.data.impressionOfDesign){
         formattedResult.impressionOfDesign1=result.data.impressionOfDesign.impressionOfDesign1;
-        formattedResult.impressionOfDesign2=result.data.impressionOfDesign.impressionOfDesign2;
-        formattedResult.impressionOfDesign3=result.data.impressionOfDesign.impressionOfDesign3;
+    }
+    if(result.data.impressionOfDesign1){
+        formattedResult.impressionOfDesign2=result.data.impressionOfDesign1.impressionOfDesign2;
+        formattedResult.impressionOfDesign3=result.data.impressionOfDesign1.impressionOfDesign3;
     }
     if(result.data.fordImpression=='Mach-E'
     ||result.data.fordImpression=='F-150 LTD'
@@ -214,24 +277,26 @@ survey
         formattedResult.otherImpressionBrand1=result.data.otherImpression[0].otherImpressionBrand1;
         formattedResult.otherImpressionDesc1=result.data.otherImpression[0].otherImpressionDesc1;
     }
-    if(result.data.otherImpression&&result.data.otherImpression[1]){
-        formattedResult.otherImpressionBrand2=result.data.otherImpression[1].otherImpressionBrand1;
-        formattedResult.otherImpressionDesc2=result.data.otherImpression[1].otherImpressionDesc1;
+    if(result.data.otherImpression1&&result.data.otherImpression1[0]){
+        formattedResult.otherImpressionBrand2=result.data.otherImpression1[0].otherImpressionBrand2;
+        formattedResult.otherImpressionDesc2=result.data.otherImpression1[0].otherImpressionDesc2;
     }
-    if(result.data.otherImpression&&result.data.otherImpression[2]){
-        formattedResult.otherImpressionBrand3=result.data.otherImpression[2].otherImpressionBrand1;
-        formattedResult.otherImpressionDesc3=result.data.otherImpression[2].otherImpressionDesc1;
+    if(result.data.otherImpression1&&result.data.otherImpression1[1]){
+        formattedResult.otherImpressionBrand3=result.data.otherImpression1[1].otherImpressionBrand2;
+        formattedResult.otherImpressionDesc3=result.data.otherImpression1[1].otherImpressionDesc2;
     }
     formattedResult.fordImprove=result.data.suggestions;
     formattedResult.score=result.data.score;
     if(result.data.fordImpressionDesc){
         formattedResult.fordImpressionDesc1=result.data.fordImpressionDesc.fordImpressionDesc1;
-        formattedResult.fordImpressionDesc2=result.data.fordImpressionDesc.fordImpressionDesc2;
-        formattedResult.fordImpressionDesc3=result.data.fordImpressionDesc.fordImpressionDesc3;
+    }
+    if(result.data.fordImpressionDesc1){
+        formattedResult.fordImpressionDesc2=result.data.fordImpressionDesc1.fordImpressionDesc2;
+        formattedResult.fordImpressionDesc3=result.data.fordImpressionDesc1.fordImpressionDesc3;
     }
 
                 $.ajax({
-					url: 'https://run.mocky.io/v3/938b3f1d-368a-48eb-811c-b3644d1bb6a8',
+					url: 'https://autoshow.apps.pp01.cneast.cf.ford.com.cn/survey',
 					type: "POST",
   					contentType: 'application/json',
 					data:JSON.stringify(formattedResult),
@@ -246,6 +311,21 @@ survey
                           .textContent = "Result JSON:\n" + JSON.stringify(formattedResult, null, 3);
 	                }
                 });
+    });
+survey
+    .onUpdateQuestionCssClasses
+    .add(function (survey, options) {
+        var classes = options.cssClasses
+
+        if (options.question.getType() === "multipletext" && options.question.isRequired ) {
+            classes.root += " primary-multipletext";
+        }
+        if (options.question.getType() === "matrixdynamic" && options.question.isRequired ) {
+            classes.root += " primary-matrixdynamic";
+        }
+        if (options.question.getType() === "matrixdynamic"  && !options.question.isRequired ) {
+            classes.root += " secondary-matrixdynamic";
+        }
     });
 
 $("#surveyElement").Survey({model: survey});
