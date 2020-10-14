@@ -20,7 +20,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
   });
   const [videos, setVideos] = useState([
     {id:0,path:require('./two.mp4'),paused:false,start:0,end:0,style:'cover'},
-    {id:1,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
+    //{id:1,path:require('./three.mp4'),paused:false,start:0,end:0,style:'contain'}
     ]);
   const handleVideoLayout = (e)  => {
     let newVideos = [...videos];

@@ -12,6 +12,8 @@ target 'ReactNativeStarter' do
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
+  pod 'TextToSpeech', :path => '../node_modules/react-native-tts'
+
   target 'ReactNativeStarterTests' do
     inherit! :search_paths
     # Pods for testing
