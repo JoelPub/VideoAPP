@@ -3,6 +3,7 @@ import { TouchableOpacity, Image } from 'react-native';
 
 import TabNavigator from './MainTabNavigator';
 import GalleryScreen from '../gallery/GalleryViewContainer';
+import CalendarScreen from '../calendar/CalendarViewContainer';
 import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 
 // import ProfileScreen from '../profile/ProfileViewContainer';
@@ -48,17 +49,6 @@ const StackNavigationData = [
     },
   },
   {
-    name: 'Charts',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
     name: 'Gallery',
     component: GalleryScreen,
     headerLeft: headerLeftComponent,
@@ -70,8 +60,8 @@ const StackNavigationData = [
     },
   },
   {
-    name: 'Profile',
-    component: AvailableInFullVersion,
+    name: 'Calendar',
+    component: CalendarScreen,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
@@ -82,39 +72,6 @@ const StackNavigationData = [
   },
   {
     name: 'Article',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Chat',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Messages',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Auth',
     component: AvailableInFullVersion,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },

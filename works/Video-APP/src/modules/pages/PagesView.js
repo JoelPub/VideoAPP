@@ -3,27 +3,13 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
 
-const chartIcon = require('../../../assets/images/pages/chart.png');
 const calendarIcon = require('../../../assets/images/pages/calendar.png');
-const chatIcon = require('../../../assets/images/pages/chat.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
-const profileIcon = require('../../../assets/images/pages/profile.png');
 
 export default function PagesScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Charts')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={chartIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Charts</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Gallery')}
           style={styles.item}
@@ -35,30 +21,8 @@ export default function PagesScreen(props) {
           />
           <Text style={styles.itemText}>Gallery</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Profile')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={profileIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Profile</Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Chat')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={chatIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Chats</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Calendar')}
           style={styles.item}
@@ -69,14 +33,6 @@ export default function PagesScreen(props) {
             style={styles.itemImage}
           />
           <Text style={styles.itemText}>Calendar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={styles.item}>
-          <Image
-            resizeMode="contain"
-            source={profileIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Login</Text>
         </TouchableOpacity>
       </View>
     </View>
