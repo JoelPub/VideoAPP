@@ -7,8 +7,6 @@ import {
 } from '@react-navigation/drawer';
 import NavigatorView from './RootNavigation';
 
-import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
-
 const iconHome = require('../../../assets/images/drawer/home.png');
 const iconCalendar = require('../../../assets/images/drawer/calendar.png');
 const iconGrids = require('../../../assets/images/drawer/grids.png');
@@ -22,19 +20,27 @@ const drawerData = [
     icon: iconHome,
   },
   {
-    name: 'Calendar',
-    icon: iconCalendar,
+    name: 'Pages',
+    icon: iconPages,
   },
   {
     name: 'Grids',
     icon: iconGrids,
   },
   {
-    name: 'Pages',
-    icon: iconPages,
+    name: 'Calendar',
+    icon: iconCalendar,
   },
   {
     name: 'Components',
+    icon: iconComponents,
+  },
+  {
+    name: 'Video',
+    icon: iconComponents,
+  },
+  {
+    name: 'Gallery',
     icon: iconComponents,
   },
 ];
