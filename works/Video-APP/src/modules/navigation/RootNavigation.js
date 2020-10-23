@@ -33,7 +33,8 @@ export default function NavigatorView(props) {
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    headerMode="none">
       {StackNavigationData.map((item, idx) => (
         <Stack.Screen
           key={`stack_item-${idx+1}`}

@@ -101,6 +101,7 @@ export default function App() {
         backgroundColor: '#3C38B1',
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}
+      screenOptions={{swipeEnabled: false}}
     >
       <Drawer.Screen name="Homes" component={NavigatorView} />
     </Drawer.Navigator>
