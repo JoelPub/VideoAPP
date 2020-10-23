@@ -9,7 +9,23 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator      
+      tabBarOptions={{
+        showIcon: true,
+        showLabel: false,
+        lazyLoad: true,
+        style: {
+          backgroundColor: 'transparent',
+          borderTopWidth: 0,
+          position: 'absolute',
+          left: 20,
+          right: 20,
+          bottom: 20,
+          height: 100,
+          elevation: 0
+        }
+      }}
+    >
       {tabNavigationData.map((item, idx) => (
         <Tab.Screen 
           key={`tab_item${idx+1}`}
@@ -39,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 2,
-    borderBottomColor: colors.white,
+    borderBottomColor: 'transparent',
     paddingHorizontal: 10,
   },
   tabBarIcon: {
