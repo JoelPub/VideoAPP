@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
 
+import Dashboard from "./Dashboard";
+import Menu from "./Menu";
 const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
@@ -59,6 +61,8 @@ export default function PagesScreen(props) {
           <Text style={styles.itemText}>Components</Text>
         </TouchableOpacity>
       </View>
+      <Menu />
+      <Dashboard />
     </View>
   );
 }
