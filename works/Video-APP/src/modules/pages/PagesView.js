@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
 
@@ -9,61 +9,68 @@ const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
 const componentsIcon = require('../../../assets/images/pages/chat.png');
+const { height, width } = Dimensions.get("window");
 
 export default function PagesScreen(props) {
   return (
-    <View style={styles.container}>
-    <View style={styles.row}>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('Gallery')}
-        style={styles.item}
-      >
-        <Image
-          resizeMode="contain"
-          source={galleryIcon}
-          style={styles.itemImage}
-        />
-        <Text style={styles.itemText}>Gallery</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('Calendar')}
-        style={styles.item}
-      >
-        <Image
-          resizeMode="contain"
-          source={calendarIcon}
-          style={styles.itemImage}
-        />
-        <Text style={styles.itemText}>Calendar</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('Video')}
-        style={styles.item}
-      >
-        <Image
-          resizeMode="contain"
-          source={videoIcon}
-          style={styles.itemImage}
-        />
-        <Text style={styles.itemText}>Video</Text>
-      </TouchableOpacity>
-    </View>
-      <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Components')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={componentsIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Components</Text>
-        </TouchableOpacity>
-      </View>
-      <Menu />
-      <Dashboard />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView >
+        <View style={[{width:width, height:height},styles.container]}>
+          <View style={styles.row}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Gallery')}
+              style={styles.item}
+            >
+              <Image
+                resizeMode="contain"
+                source={galleryIcon}
+                style={styles.itemImage}
+              />
+              <Text style={styles.itemText}>Gallery</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Calendar')}
+              style={styles.item}
+            >
+              <Image
+                resizeMode="contain"
+                source={calendarIcon}
+                style={styles.itemImage}
+              />
+              <Text style={styles.itemText}>Calendar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Video')}
+              style={styles.item}
+            >
+              <Image
+                resizeMode="contain"
+                source={videoIcon}
+                style={styles.itemImage}
+              />
+              <Text style={styles.itemText}>Video</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Components')}
+              style={styles.item}
+            >
+              <Image
+                resizeMode="contain"
+                source={componentsIcon}
+                style={styles.itemImage}
+              />
+              <Text style={styles.itemText}>Components</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={[{width:width, height:height}]}>
+          <Menu />
+          <Dashboard />
+        </View>
+      </ScrollView>  
+    </SafeAreaView>
   );
 }
 

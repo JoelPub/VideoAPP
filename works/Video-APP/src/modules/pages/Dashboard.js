@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Animated, Dimensions } from "react-native";
-const AnimatedG = Animated.createAnimatedComponent(G);
 
 import Svg, {
     Circle,
@@ -52,14 +51,19 @@ export default class Dashboard extends Component {
     const { initAnim } = this.state;
     let animateWidth = initAnim.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, 80],
+      outputRange: ['0', '80'],
     });
     return (
-        <AnimatedSvg width={width} height={height/4} viewBox="0 0 400 400">
-            <AnimatedG rotation={animateWidth}
-            >
-                <Path d="M250 150 L150 350 L350 350 Z" fill="none" stroke="blue" strokeWidth="5" />
-            </AnimatedG>
+        <AnimatedSvg width={width} height={height/8} viewBox="0 0 100 100" style={{ backgroundColor: '#33AAFF' }}>
+            <AnimatedRect
+                x="15"
+                y="75"
+                width={animateWidth}
+                height="20"
+                stroke="red"
+                strokeWidth="2"
+                fill="yellow"
+            />
       </AnimatedSvg>
     );
   }

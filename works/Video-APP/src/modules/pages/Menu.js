@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated, Dimensions } from "react-native";
+const AnimatedG = Animated.createAnimatedComponent(G);
 
 import Svg, {
     Circle,
@@ -27,49 +28,70 @@ import Svg, {
   
 const { width, height } = Dimensions.get("window");
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
-const AnimatedG = Animated.createAnimatedComponent(G);
 export default class Menu extends Component {
     state = {
-      anim: new Animated.Value(0),
+        initAnim: new Animated.Value(0),
     };
 
   componentDidMount() {
-    this.animate(this.props.value);
+    Animated.timing(
+      // Animate over time
+      this.state.initAnim,
+      {
+        toValue: 1,
+        duration: 3000,
+        useNativeDriver: false,
+      }
+    ).start();
   }
-
-  componentDidUpdate({ value }) {
-    this.animate(value);
-  }
-
-  animate = value =>
-    Animated.timing(this.state.anim, {
-      useNativeDriver: true,
-      duration: 4000,
-      toValue: value,
-    }).start();
 
 
 
   render() {
-    const { anim } = this.state;
+    const { initAnim } = this.state;
     return (
-        <AnimatedSvg width={width} height={height/2} viewBox="0 0 400 400">
+        <AnimatedSvg width={width} height={height/2} viewBox="0 0 600 1300" style={{ backgroundColor: '#f9bdad' }}>
             <Defs>
                 <Path id="path" d="M250 150 L150 350 L350 350 Z" />
+                <Path id="patha" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
             </Defs>
-            <AnimatedG
-            style={{
-                opacity: anim,
-            }}>
-                <Text fill="blue">
-                <TextPath href="#path" startOffset="-10%">
+            <AnimatedG 
+                translate={initAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 100],
+                })}
+            >
+                <Text fill="blue" fontSize="40">
+                <TextPath href="#path" >
                     We go up and down,asdfadsfasdfasdfasdfasdfasdfasdfadssdafasdfasdfasdfasdfasdfsadfasdfasdfsadfdsaasdfasdfdssdfasdfsdafsadfassdaf
                 </TextPath>
                 </Text>
-                <Path d="M250 150 L150 350 L350 350 Z" fill="none" stroke="blue" strokeWidth="1" />
             </AnimatedG>
-        </AnimatedSvg>
-
+            <AnimatedG 
+                x={initAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 80],
+                })} 
+                y={initAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 180],
+                })} 
+                rotation={initAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 80],
+                })}
+                scale={initAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 1],
+                })}
+            >
+                <Text fill="blue" fontSize="80">
+                <TextPath href="#patha" >
+                We go up and down,asdfadsfasdfasdfasdfasdfasdfasdfadssdafasdfasdfasdfasdfasdfsadfasdfasdfsadfdsaasdfasdfdssdfasdfsdafsadfassdaffjghfgfjhfgfjgfjgfgjhfjgfghjfhjfgjfjgfgjhfjfgjfjhfgjfjgfgjffdjgfghfhgfjgfgjfgfjhgfgjhfghjfghfjf
+                </TextPath>
+                </Text>
+            </AnimatedG>
+      </AnimatedSvg>
     );
   }
 }
