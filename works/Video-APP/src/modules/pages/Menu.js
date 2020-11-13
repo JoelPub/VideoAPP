@@ -28,49 +28,61 @@ import Svg, {
   
 const { width, height } = Dimensions.get("window");
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
+
+const fadeIn = (n,duration) => {
+  // Will change fadeAnim value to 1 in 5 seconds
+  Animated.timing(n, {
+    toValue: 1,
+    duration: duration,
+    useNativeDriver: false,
+  }).start();
+};
+const fadeOut = (n) => {
+  // Will change fadeAnim value to 0 in 5 seconds
+  Animated.timing(n, {
+    toValue: 0,
+    duration: 100,
+    useNativeDriver: false,
+  }).start();
+};
 export default class Menu extends Component {
+    constructor(props){
+        super(props);
+    };
     state = {
         initAnim: new Animated.Value(0),
+        initAnim1: new Animated.Value(0),
+        initAnim2: new Animated.Value(0),
+        parts:this.props.ajaxData,
     };
 
   componentDidMount() {
-    Animated.timing(
-      // Animate over time
-      this.state.initAnim,
-      {
-        toValue: 1,
-        duration: 3000,
-        useNativeDriver: false,
-      }
-    ).start();
+    fadeIn(this.state.initAnim,5000);
+    fadeIn(this.state.initAnim1,8000);
+    fadeIn(this.state.initAnim2,11000);
   }
 
 
 
   render() {
-    const { initAnim } = this.state;
+    const { initAnim ,initAnim1,initAnim2,parts } = this.state;
     return (
-        <AnimatedSvg width={width} height={height-100} viewBox="0 0 600 1300" style={{ backgroundColor: '#f9bdad' }}>
+        <AnimatedSvg width={width} height={height-100} viewBox="0 0 600 1300" style={{ backgroundColor: this.props.bgcolor }}>
             <Defs>
-                <Path id="path" d="M1285 3670 c-16 -4 -51 -5 -77 -2 -57 6 -96 -16 -164 -91 -114 -126 -146 -208 -145 -369 l0 -98 -32 0 c-57 0 -198 -39 -259 -72 -75 -40 -106 -80 -138 -179 l-26 -78 -33 31 c-26 25 -35 28 -42 17 -5 -8 -9 -18 -9 -22 0 -9 -40 1 -53 12 -4 4 0 27 8 52 18 51 13 85 -15 94 -14 4 -25 26 -40 78 -40 138 -71 185 -106 156 -24 -19 -15 -92 22 -184 5 -13 -7 -6 -37 20 -49 45 -100 70 -124 61 -23 -8 -19 -16 40 -88 58 -69 61 -89 23 -116 -25 -18 -24 -76 2 -102 18 -18 26 -21 46 -19 3 0 13 -15 23 -33 19 -38 59 -48 96 -24 21 14 24 13 39 -3 14 -16 15 -24 5 -63 l-12 -45 110 -129 c153 -179 286 -346 342 -430 l47 -70 -48 -195 c-27 -107 -52 -226 -55 -265 -5 -64 -3 -74 16 -93 11 -11 21 -31 21 -43 -1 -13 -22 -134 -49 -271 -26 -136 -45 -250 -42 -252 2 -3 30 -5 61 -5 32 0 78 -3 104 -6 l46 -7 0 -233 0 -233 -27 -3 c-24 -3 -31 -11 -47 -58 -18 -51 -24 -57 -76 -82 -31 -16 -70 -40 -85 -54 -28 -26 -28 -27 -9 -41 20 -16 147 -13 319 8 152 18 152 18 115 104 l-20 46 58 266 57 265 85 -6 c47 -4 106 -9 132 -12 l47 -6 6 49 c4 26 10 59 15 73 7 20 9 12 9 -32 1 -45 6 -63 22 -79 19 -19 30 -20 156 -17 l136 3 55 -255 c52 -244 53 -255 38 -287 -25 -52 -21 -99 9 -119 31 -20 206 -29 340 -17 l89 8 -104 60 c-71 41 -106 66 -108 80 -8 52 -34 105 -52 105 -18 0 -19 13 -20 218 l0 218 107 3 c59 1 108 3 109 4 0 1 -12 130 -28 287 -24 240 -28 321 -26 515 3 187 6 234 18 252 9 11 65 61 125 109 139 110 315 286 389 387 54 73 60 78 86 72 39 -9 59 4 119 76 56 67 67 110 31 129 -11 6 -20 17 -20 25 0 8 -5 15 -10 15 -6 0 7 24 29 53 49 66 71 109 71 141 0 57 -36 40 -106 -50 -25 -33 -48 -61 -50 -63 -2 -2 -1 34 3 81 6 83 -4 128 -27 128 -18 0 -50 -64 -80 -162 -17 -53 -42 -116 -55 -140 -14 -24 -25 -56 -25 -73 0 -24 -4 -30 -23 -31 -21 -2 -24 5 -35 68 -13 77 -46 150 -86 189 -15 15 -37 59 -52 105 -69 213 -173 375 -353 552 -163 159 -201 185 -261 179 -25 -3 -74 1 -110 8 -69 15 -370 19 -425 5z m406 -36 c50 -9 104 -14 120 -10 48 9 86 -14 208 -125 182 -167 320 -370 382 -561 l22 -68 -27 -21 c-15 -12 -49 -51 -77 -87 l-49 -65 0 194 c0 216 -11 282 -59 359 -27 45 -27 45 -79 42 -62 -4 -68 0 -183 113 -48 47 -94 85 -103 85 -9 0 -48 -29 -86 -65 -77 -72 -108 -85 -145 -61 -43 28 -32 65 42 149 18 20 33 41 33 47 0 32 -106 56 -268 61 -66 3 -86 0 -99 -13 -15 -16 -14 -20 13 -57 16 -23 39 -55 52 -72 12 -18 22 -45 22 -60 0 -26 -4 -29 -31 -29 -32 0 -62 18 -140 82 -25 21 -52 38 -60 38 -20 0 -69 -53 -113 -123 -41 -66 -64 -72 -100 -24 -20 27 -20 28 -2 62 31 57 121 160 162 186 29 18 55 24 109 25 38 2 97 7 130 12 81 12 218 6 326 -14z m-128 -56 l108 -11 -39 -41 c-56 -59 -72 -86 -72 -123 0 -54 58 -93 117 -78 14 3 56 35 93 71 37 35 71 64 76 64 5 0 43 -34 84 -76 78 -80 152 -134 181 -134 10 0 25 7 34 16 15 15 17 15 30 -2 8 -11 25 -44 37 -74 22 -52 23 -68 23 -307 0 -138 3 -254 7 -258 3 -4 32 29 63 72 67 90 114 143 130 143 15 0 70 -59 88 -95 17 -34 32 -90 41 -152 6 -41 6 -41 -37 -56 -23 -8 -150 -54 -282 -101 -369 -133 -504 -162 -885 -186 -135 -9 -330 -6 -330 5 0 2 11 23 25 46 62 110 10 229 -101 229 -105 0 -208 -142 -177 -243 l10 -34 -39 9 c-58 13 -132 53 -173 93 -125 126 -153 438 -53 589 49 75 156 125 311 147 l82 11 0 107 c0 58 4 119 8 134 l8 29 22 -33 c30 -44 52 -57 75 -43 9 6 44 50 77 97 33 48 65 87 71 87 5 0 35 -21 65 -47 95 -81 173 -102 200 -52 15 30 -12 97 -67 164 l-43 53 62 -4 c34 -3 111 -10 170 -16z m-1359 -417 c9 -16 24 -61 35 -100 11 -39 22 -75 25 -80 3 -5 -7 -14 -23 -19 l-30 -11 -25 77 c-30 95 -39 138 -31 152 12 19 34 10 49 -19z m-55 -156 c50 -49 53 -55 38 -70 -15 -14 -19 -14 -40 0 -28 18 -127 132 -127 146 0 21 79 -25 129 -76z m155 -60 c13 -14 13 -20 0 -56 -21 -60 -18 -77 15 -91 l28 -13 -19 -43 -19 -43 -20 26 -21 25 -25 -20 c-34 -27 -59 -25 -78 4 -13 20 -14 28 -4 45 7 11 22 22 32 25 17 4 19 11 14 40 -5 31 -3 36 14 36 16 0 18 -5 13 -26 -5 -19 -4 -25 5 -20 6 4 11 18 11 32 0 20 -5 24 -29 24 -35 0 -48 15 -31 36 10 12 16 12 28 2 13 -10 14 -10 8 0 -5 8 1 15 16 21 33 14 45 13 62 -4z m2499 -22 c3 -15 1 -68 -4 -118 -5 -49 -9 -93 -9 -97 0 -3 -22 -8 -50 -10 -41 -2 -49 0 -45 12 69 230 95 281 108 213z m-2641 -20 c45 -47 47 -104 3 -87 -20 8 -58 81 -51 100 8 20 19 17 48 -13z m-42 -52 c10 -22 25 -41 32 -44 25 -9 -9 -30 -37 -23 -34 9 -52 47 -37 81 6 14 14 25 17 25 2 0 14 -18 25 -39z m2840 25 c0 -39 -128 -226 -140 -205 -4 6 -13 15 -19 18 -13 8 40 93 101 160 37 42 58 52 58 27z m-2510 -199 c0 -227 106 -381 295 -429 28 -7 63 -23 78 -35 35 -29 93 -30 145 -4 32 16 70 19 267 24 341 8 575 41 795 112 58 19 211 73 340 120 239 86 255 92 246 76 -7 -11 43 -111 55 -111 21 0 5 -30 -60 -110 -84 -105 -200 -216 -354 -340 -100 -80 -119 -100 -129 -135 -7 -24 -12 -123 -12 -247 l-1 -207 -65 -8 c-159 -20 -863 -6 -1249 23 -111 9 -124 21 -115 107 5 48 88 400 131 556 4 16 3 22 -5 18 -5 -4 -13 -25 -17 -47 -7 -40 -18 -51 -28 -27 -10 27 -166 228 -313 404 -179 213 -172 193 -110 329 l36 78 35 -34 c34 -33 35 -36 35 -113z m2355 -23 c0 -14 -11 -22 -37 -28 -34 -9 -38 -13 -38 -43 0 -18 5 -33 11 -33 7 0 9 11 6 30 -6 25 -3 30 14 30 11 0 17 -5 14 -10 -11 -18 6 -50 26 -50 10 0 19 -5 19 -11 0 -7 7 -17 16 -23 14 -11 11 -16 -21 -45 -25 -21 -43 -30 -54 -25 -9 3 -20 6 -26 5 -5 0 -21 -2 -34 -3 -18 -2 -31 6 -48 31 -20 29 -23 42 -17 80 4 26 13 63 21 83 14 34 18 37 61 40 61 4 87 -5 87 -28z m63 -15 c3 -27 -39 -79 -64 -79 -24 0 -16 46 13 79 31 36 47 35 51 0z m38 -51 c-10 -36 -42 -69 -60 -62 -23 9 -20 25 9 53 14 13 25 33 25 44 0 20 1 20 16 5 11 -11 14 -24 10 -40z m-1876 -106 c76 -76 29 -224 -85 -267 -84 -33 -155 16 -155 106 0 56 13 95 43 128 62 68 148 82 197 33z m-60 -1103 c191 -14 947 -23 1055 -11 50 5 91 9 91 8 4 -3 55 -549 52 -551 -2 -2 -166 -7 -365 -11 l-362 -7 -11 27 c-5 15 -10 47 -10 72 0 30 -6 50 -20 64 -20 20 -127 56 -137 46 -3 -3 0 -7 8 -10 8 -2 32 -9 54 -15 67 -18 67 -19 54 -99 -10 -63 -15 -72 -33 -72 -39 0 -708 49 -711 52 -2 2 16 104 39 228 24 124 46 242 50 263 l7 37 52 -5 c29 -3 113 -10 187 -16z m88 -555 c42 -5 43 -7 37 -32 -4 -15 -20 -88 -37 -161 -16 -74 -31 -138 -34 -142 -8 -13 -92 -22 -139 -15 l-45 7 0 181 0 180 88 -6 c48 -4 107 -9 130 -12z m901 -208 l2 -183 -41 -17 c-22 -9 -53 -16 -69 -16 -28 0 -30 3 -41 58 -7 31 -25 118 -41 191 -16 74 -29 139 -29 143 0 4 49 8 108 8 l109 0 2 -184z m-939 -156 c0 -18 -34 -176 -39 -181 -3 -4 -36 -9 -73 -12 l-68 -6 0 102 0 102 90 0 c50 0 90 -2 90 -5z m940 -120 l0 -80 -54 0 -54 0 -14 63 -13 62 53 6 c29 4 59 12 65 18 6 6 12 11 14 11 2 0 3 -36 3 -80z m-1130 -35 l0 -55 74 0 c46 0 78 4 82 12 4 6 15 -8 26 -37 10 -26 17 -49 15 -51 -2 -2 -62 -11 -133 -19 -144 -17 -304 -20 -304 -6 0 11 104 75 137 85 14 4 26 19 30 34 14 59 33 92 53 92 18 0 20 -7 20 -55z m1178 30 c7 -14 15 -43 18 -63 6 -36 11 -41 95 -88 l89 -49 -160 -3 c-225 -4 -255 7 -232 85 l11 38 76 -3 77 -4 -2 49 c-1 26 -1 51 -1 56 2 16 18 6 29 -18z" />
-                <Path id="path1" d="M1165 3176 c-38 -17 -90 -72 -104 -109 -16 -42 -13 -107 8 -152 59 -128 225 -153 323 -49 85 91 56 249 -54 303 -51 24 -127 27 -173 7z m137 -26 c21 -6 51 -27 72 -50 33 -36 36 -45 36 -99 0 -94 -54 -157 -145 -167 -101 -11 -185 62 -185 161 0 66 29 112 90 143 49 24 77 27 132 12z" />
-                <Path id="path2" d="M1869 3097 c-84 -44 -127 -138 -107 -231 14 -66 82 -136 152 -156 137 -38 275 62 276 201 0 80 -31 135 -100 177 -70 41 -152 45 -221 9z m197 -32 c65 -32 94 -81 94 -158 0 -47 -5 -62 -33 -99 -45 -59 -118 -85 -195 -68 -94 21 -142 80 -142 176 0 75 25 115 92 148 66 33 119 33 184 1z" />
-                <Path id="path3" d="M1122 3344 c-58 -29 -91 -66 -123 -138 -32 -72 -16 -65 20 9 71 143 229 186 325 90 33 -33 76 -126 76 -165 0 -10 5 -22 11 -26 12 -7 11 1 -11 86 -5 19 -23 56 -39 82 -56 88 -158 113 -259 62z" />
-                <Path id="path4" d="M1795 3321 c-43 -11 -87 -35 -112 -63 -26 -28 -63 -105 -63 -133 0 -11 11 6 25 39 13 32 34 70 47 83 34 37 96 63 153 63 113 0 180 -42 231 -144 19 -39 32 -57 28 -41 -25 114 -108 186 -229 199 -27 3 -63 1 -80 -3z" />
-                <Path id="path5" d="M1209 3051 c-42 -42 -40 -92 5 -137 55 -55 125 -39 156 35 39 96 -87 176 -161 102z m121 -21 c54 -54 -12 -141 -83 -109 -22 10 -47 46 -47 68 0 5 9 20 21 35 26 33 79 36 109 6z" />
-                <Path id="path6" d="M1941 3012 c-43 -21 -76 -81 -66 -119 10 -41 68 -93 104 -93 41 0 98 51 107 95 15 82 -74 154 -145 117z m98 -48 c12 -15 21 -38 21 -51 0 -30 -51 -83 -80 -83 -29 0 -80 53 -80 83 0 42 36 77 80 77 30 0 43 -6 59 -26z" />
-                
+                {parts.map((part,index) => 
+                    <Path id={part.id} d={part.d} key={index}/>
+                )}
                 <Path id="patha" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
                 
             </Defs>
             <AnimatedG 
                 y={initAnim.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 1000],
+                outputRange: [1000, 1000],
                 })}
                 x={initAnim.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 600],
+                outputRange: [600, 600],
                 })}
                 opacity={initAnim.interpolate({
                 inputRange: [0, 1],
@@ -79,20 +91,21 @@ export default class Menu extends Component {
             >
                 <Text fill="blue" fontSize="150" scale="0.2" rotation="180">
                     <TextPath href="#path" >
-                    蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓
+                    {parts[0].text}
                     </TextPath>
                 </Text>
+                <Path fill="none" stroke="black" strokeWidth="10" d={parts[0].d} scale="0.2" rotation="180"/>
             </AnimatedG>
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 1000],
+                outputRange: [1000, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 600],
+                outputRange: [600, 600],
                 })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim1.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}
@@ -104,35 +117,15 @@ export default class Menu extends Component {
                 </Text>
             </AnimatedG>
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 1000],
+                outputRange: [1000, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 600],
+                outputRange: [600, 600],
                 })}
-                opacity={initAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, 1],
-                })}
-            >
-                <Text fill="blue" fontSize="50" scale="0.2" rotation="180">
-                    <TextPath href="#path2" >
-                    蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓
-                    </TextPath>
-                </Text>
-            </AnimatedG>
-            <AnimatedG 
-                y={initAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, 1000],
-                })}
-                x={initAnim.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, 600],
-                })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim1.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}
@@ -144,55 +137,55 @@ export default class Menu extends Component {
                 </Text>
             </AnimatedG>
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 600],
                 })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}
             >
                 <Text fill="blue" fontSize="50" scale="0.2" rotation="180">
                     <TextPath href="#path3" >
-                    蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓
+                    蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛
                     </TextPath>
                 </Text>
             </AnimatedG>
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 600],
                 })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim2.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}
             >
                 <Text fill="blue" fontSize="50" scale="0.2" rotation="180">
                     <TextPath href="#path4" >
-                    蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓蜡笔小新的轮廓
+                    蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛蜡笔小新的眉毛
                     </TextPath>
                 </Text>
             </AnimatedG>
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 1000],
+                outputRange: [1000, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 600],
+                outputRange: [600, 600],
                 })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim1.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}
@@ -203,16 +196,18 @@ export default class Menu extends Component {
                     </TextPath>
                 </Text>
             </AnimatedG>
+
+            
             <AnimatedG 
-                y={initAnim.interpolate({
+                y={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 1000],
+                outputRange: [1000, 1000],
                 })}
-                x={initAnim.interpolate({
+                x={initAnim1.interpolate({
                 inputRange: [0, 1],
-                outputRange: [0, 600],
+                outputRange: [600, 600],
                 })}
-                opacity={initAnim.interpolate({
+                opacity={initAnim1.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, 1],
                 })}

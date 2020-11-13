@@ -1,5 +1,5 @@
-import React from 'react';
-import { Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect, useState }  from 'react';
+import { ActivityIndicator, Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
 
@@ -10,8 +10,17 @@ const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
 const componentsIcon = require('../../../assets/images/pages/chat.png');
 const { height, width } = Dimensions.get("window");
+export default PagesScreen = (props) =>{
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-export default function PagesScreen(props) {
+  useEffect(() => {
+    fetch('https://run.mocky.io/v3/925a2127-fd49-48d2-80a8-6ebd1d8518d1')
+      .then((response) => response.json())
+      .then((json) => {console.log(json);setData(json.character);})
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView >
@@ -66,7 +75,9 @@ export default function PagesScreen(props) {
           </View>
         </View>
         <View style={[{width:width, height:height}]}>
-          <Menu />
+            {isLoading ? <ActivityIndicator/> : (
+              <Menu bgcolor='#f9bdad' ajaxData={data}/>
+            )}
           <Dashboard />
         </View>
       </ScrollView>  
