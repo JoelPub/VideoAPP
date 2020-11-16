@@ -3,7 +3,6 @@ import { ActivityIndicator, Dimensions,SafeAreaView,ScrollView,StyleSheet, View,
 
 import { colors, fonts } from '../../styles';
 
-import Dashboard from "./Dashboard";
 import Menu from "./Menu";
 const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
@@ -15,7 +14,7 @@ export default PagesScreen = (props) =>{
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://run.mocky.io/v3/925a2127-fd49-48d2-80a8-6ebd1d8518d1')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/ArKEdK/f20075d83eda5ba42b9da12e63191f336a6b3b43/files/parts')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))
@@ -24,6 +23,11 @@ export default PagesScreen = (props) =>{
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView >
+        <View style={[{width:width, height:height}]}>
+            {isLoading ? <ActivityIndicator/> : (
+              <Menu bgcolor='white' ajaxData={data}/>
+            )}
+        </View>
         <View style={[{width:width, height:height},styles.container]}>
           <View style={styles.row}>
             <TouchableOpacity
@@ -73,12 +77,6 @@ export default PagesScreen = (props) =>{
               <Text style={styles.itemText}>Components</Text>
             </TouchableOpacity>
           </View>
-        </View>
-        <View style={[{width:width, height:height}]}>
-            {isLoading ? <ActivityIndicator/> : (
-              <Menu bgcolor='#f9bdad' ajaxData={data}/>
-            )}
-          <Dashboard />
         </View>
       </ScrollView>  
     </SafeAreaView>
