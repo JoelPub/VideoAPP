@@ -85,7 +85,7 @@ export default class Menu extends Component {
   render() {
     const { initAnimHead ,initAnimFace,initAnimBody,initAnimLegs,parts } = this.state;
     return (
-        <AnimatedSvg width={width} height={height} viewBox={`${width/4} 0 ${width/2} ${height/2}`} style={{ backgroundColor: this.props.bgcolor }}>
+        <AnimatedSvg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ backgroundColor: this.props.bgcolor }}>
             <Defs>
                 {parts.map((part,index) => 
                     <Path id={part.id} d={part.d} key={index}/>
@@ -99,12 +99,12 @@ export default class Menu extends Component {
                                 :initAnimLegs.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 }
                     >
-                        <Text fill="blue" fontSize="5" >
+                        <Text fill="black" fontSize={part.fontSize} >
                             <TextPath href={`#${part.id}`} >
                             {part.text}
                             </TextPath>
                         </Text>
-                        <Path fill="none" stroke="black"  strokeWidth="0" d={part.d} />
+                        <Path fill="none" stroke="black"  strokeWidth={part.strokeWidth} d={part.d} />
                     </AnimatedG>
                 )}
       </AnimatedSvg>

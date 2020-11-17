@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react';
-import { ActivityIndicator, Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { RefreshControl,ActivityIndicator, Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
 
@@ -9,12 +9,28 @@ const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
 const componentsIcon = require('../../../assets/images/pages/chat.png');
 const { height, width } = Dimensions.get("window");
+const wait = (timeout) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+}
 export default PagesScreen = (props) =>{
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [refreshing, setRefreshing] = React.useState(false);
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setLoading(true);
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/41fee1e3fabda27dc9b10bd36ab149f5d451058e/files/svgwukong.json')
+      .then((response) => response.json())
+      .then((json) => {console.log(json);setData(json.character);})
+      .catch((error) => console.error(error))
+      .finally(() => {setLoading(false);setRefreshing(false);});
+  }, []);
+
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/ArKEdK/f20075d83eda5ba42b9da12e63191f336a6b3b43/files/parts')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/41fee1e3fabda27dc9b10bd36ab149f5d451058e/files/svgwukong.json')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))
@@ -22,7 +38,9 @@ export default PagesScreen = (props) =>{
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView >
+      <ScrollView refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <View style={[{width:width, height:height}]}>
             {isLoading ? <ActivityIndicator/> : (
               <Menu bgcolor='white' ajaxData={data}/>
