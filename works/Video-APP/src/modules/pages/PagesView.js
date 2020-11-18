@@ -9,11 +9,6 @@ const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
 const componentsIcon = require('../../../assets/images/pages/chat.png');
 const { height, width } = Dimensions.get("window");
-const wait = (timeout) => {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-}
 export default PagesScreen = (props) =>{
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -21,7 +16,7 @@ export default PagesScreen = (props) =>{
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setLoading(true);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/41fee1e3fabda27dc9b10bd36ab149f5d451058e/files/svgwukong.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/21d39516ecb4a771684d1e309742240285043c48/files/svgwukong.json')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))
@@ -30,7 +25,7 @@ export default PagesScreen = (props) =>{
 
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/41fee1e3fabda27dc9b10bd36ab149f5d451058e/files/svgwukong.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/21d39516ecb4a771684d1e309742240285043c48/files/svgwukong.json')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))
