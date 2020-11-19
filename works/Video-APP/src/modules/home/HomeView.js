@@ -64,7 +64,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
     Tts.setDefaultLanguage('zh-CN');
     Tts.speak(videos[position.current][0].name);
     //Tts.voices().then(voices => console.log(voices));
-    console.log(position.current);
+    console.log('handleVideoLayout',position.current);
   }
   const handleScroll = (e) => {
     console.log('handleScroll');
@@ -107,18 +107,26 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setLoading(true);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/7e5acab6b999cfef8288f76c5784100e93804dce/files/svgwukong.json')
+    setVideos([]);
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/b4cc5fd754d76dedab1c7e7b2d203679128d3f7c/files/svglist.json')
       .then((response) => response.json())
-      .then((json) => {setVideos([...videos,json.character,JSON.parse(JSON.stringify(json.character))]);})
+      .then((json) => {
+        json.list.map((ele,index) => {
+          setVideos([...videos,ele.character]);
+        })})
       .catch((error) => console.error(error))
       .finally(() => {setLoading(false);setRefreshing(false);});
   }, []);
 
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/7e5acab6b999cfef8288f76c5784100e93804dce/files/svgwukong.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/b4cc5fd754d76dedab1c7e7b2d203679128d3f7c/files/svglist.json')
       .then((response) => response.json())
-      .then((json) => {setVideos([...videos,json.character,JSON.parse(JSON.stringify(json.character))]);})
+      .then((json) => {
+        json.list.map((ele,index) => {
+          setVideos([...videos,ele.character]);
+        })
+      })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
