@@ -60,7 +60,7 @@ export default class Menu extends Component {
   componentDidMount() {
       this.props.ajaxData.map((part,index) =>
       {
-          switch (part.id) {
+          switch (part.id.substring(0,9)) {
             case 'path-head':
                 fadeIn(this.state.initAnimHead,part.delay);
             break;
@@ -93,9 +93,9 @@ export default class Menu extends Component {
             </Defs>
                 {parts.map((part,index) => 
                     <AnimatedG key={index}
-                        opacity={part.id=='path-head'?initAnimHead.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
-                                :part.id=='path-face'?initAnimFace.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
-                                :part.id=='path-body'?initAnimBody.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
+                        opacity={part.id.substring(0,9)=='path-head'?initAnimHead.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
+                                :part.id.substring(0,9)=='path-face'?initAnimFace.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
+                                :part.id.substring(0,9)=='path-body'?initAnimBody.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :initAnimLegs.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 }
                     >

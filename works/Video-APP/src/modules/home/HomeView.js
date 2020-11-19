@@ -56,6 +56,9 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
       if((layout.y < item.start || layout.y >= item.end) && !item.paused) {
         item.paused = true;
       }
+      else {
+        item.paused = false;
+      }
     });
     setVideos(newVideos);
     setPostion({start: layout.y,
@@ -67,88 +70,83 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
     console.log('handleVideoLayout',position.current);
   }
   const handleScroll = (e) => {
-    console.log('handleScroll');
-    Tts.stop();
+    const newVideos = [...videos];
     const {height} =  Dimensions.get("window");
     const scrollPosition = e.nativeEvent.contentOffset.y;
+    Tts.stop();
+    console.log('handleScroll');
+    console.log("scrollPosition",scrollPosition);
+      console.log("position.start",position.start);
+      console.log("position.end",position.end);
     if(scrollPosition > position.start) {
+      newVideos[position.current].paused=true;
+      newVideos[position.current+1].paused=false;
+      setPostion({start: position.end,end:position.end + height,current:position.current+1 });
       scrollViewRef.current.scrollTo({x: 0, y: position.end, animated: true});
       console.log('pagedown');
     } else if(scrollPosition < position.start) {
+      newVideos[position.current].paused=true;
+      newVideos[position.current-1].paused=false;
+      setPostion({start: position.start - height,end:position.start,current:position.current-1 });
       scrollViewRef.current.scrollTo({x: 0, y: position.start - height, animated: true});
       console.log('pageup');
     }
-    
-    
-  }
-  const endScroll = (e) => {
-    console.log('endScroll');
-    const {height} =  Dimensions.get("window");
-    const scrollPosition = e.nativeEvent.contentOffset.y;
-    const newVideos = [...videos];
-    newVideos.map((item,index) => {
-      if(scrollPosition >= item.start && scrollPosition < item.end && item.paused) {
-        item.paused = false;
-        setPostion({start: item.start,end:item.start + height,current:index });
-      } else if((scrollPosition < item.start || scrollPosition >= item.end) && !item.paused) {
-        item.paused = true;
-      }
-    });
     setVideos(newVideos);
     Tts.speak(videos[position.current][0].name);
-    //Tts.voices().then(voices => console.log(voices));
-    console.log(position.current);
+    
   }
-
-
   
   const [isLoading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = React.useState(false);
   const onRefresh = React.useCallback(() => {
+    var tmpVideos=[];
     setRefreshing(true);
     setLoading(true);
     setVideos([]);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/b4cc5fd754d76dedab1c7e7b2d203679128d3f7c/files/svglist.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/d057b69a5c252885bf95dae0c2dd13b7ab5d83ef/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {
-          setVideos([...videos,ele.character]);
-        })})
+          tmpVideos.push(ele.character);
+        })
+        setVideos(tmpVideos);
+      })
       .catch((error) => console.error(error))
       .finally(() => {setLoading(false);setRefreshing(false);});
   }, []);
 
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/b4cc5fd754d76dedab1c7e7b2d203679128d3f7c/files/svglist.json')
+    var tmpVideos=[];
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/d057b69a5c252885bf95dae0c2dd13b7ab5d83ef/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {
-          setVideos([...videos,ele.character]);
+          tmpVideos.push(ele.character);
         })
+        setVideos(tmpVideos);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView onMomentumScrollEnd={endScroll} onScrollEndDrag={handleScroll} ref={scrollViewRef} refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }>
-      {videos.map((video,index) => index==0?
-        <View key={index} style={{width:width, height:height}} onLayout={handleVideoLayout}>
           {isLoading ? <ActivityIndicator/> : (
-              <Menu bgcolor='white' ajaxData={video}/>
+              
+              <ScrollView onScrollEndDrag={handleScroll} ref={scrollViewRef} refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+              }>
+                {videos.map((video,index) => index==0?
+                  <View key={index} style={{width:width, height:height}} onLayout={handleVideoLayout}>
+                    {!video.paused&&<Menu bgcolor='white' ajaxData={video}/>}
+                  </View>
+                  :
+                  <View key={index} style={{width:width, height:height}} >
+                    {!video.paused&&<Menu bgcolor='white' ajaxData={video}/>}
+                  </View>
+                )}
+            </ScrollView>  
             )}
-        </View>
-        :
-        <View key={index} style={{width:width, height:height}} >
-          {isLoading ? <ActivityIndicator/> : (
-              <Menu bgcolor='white' ajaxData={video}/>
-            )}
-        </View>
-      )}
-      </ScrollView>  
     </SafeAreaView>
   );
 }
