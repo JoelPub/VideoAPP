@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Animated, Dimensions } from "react-native";
-const AnimatedG = Animated.createAnimatedComponent(G);
-
 import Svg, {
     Circle,
     Ellipse,
@@ -45,6 +43,8 @@ const fadeOut = (n) => {
     useNativeDriver: false,
   }).start();
 };
+const AnimatedG = Animated.createAnimatedComponent(G);
+
 export default class Menu extends Component {
     constructor(props){
         super(props);
@@ -56,25 +56,76 @@ export default class Menu extends Component {
         initAnimLegs: new Animated.Value(0),
         parts:this.props.ajaxData,
     };
+    log = (tag) => e => {
+        var seq=0;
+        this.state.parts.map((part,index) => {
+            if(part.id==tag) {
+                part.layout=e.nativeEvent.layout;
+                seq=index;
+            }
+        })
+        console.log(tag, this.state.parts[seq].layout);
+        if( this.state.parts[1].position) {
+            if(this.state.parts[0].position.bottom>0) {
+                this.state.parts[1].position.y=this.state.parts[0].position.bottom-this.state.parts[1].layout.y;
+                this.state.parts[0].position.bottom=0;
+            }
+            if(this.state.parts[1].position.bottom>0) {
+                this.state.parts[2].position.y=this.state.parts[1].position.bottom-this.state.parts[2].layout.y;
+                this.state.parts[1].position.bottom=0;
+            }
+        }
+        this.setState({
+          parts: this.state.parts
+        })
+    }
+
+    handleOnPress = (someId) => event => {
+      console.log(someId);
+      if(someId==0) {
+          this.state.parts[0].d= this.state.parts[3].d;
+      }
+      else if(someId==1) {
+          console.log(this.state.parts[0].position.bottom);
+          this.state.parts[0].position.bottom=this.state.parts[0].layout.height+this.state.parts[0].layout.y;
+          console.log(this.state.parts[0].position.bottom);
+          this.state.parts[1].d= this.state.parts[4].d;
+      }
+      else if(someId==2) {
+          console.log(this.state.parts[1].position.bottom);
+          this.state.parts[1].position.bottom=this.state.parts[1].layout.height+this.state.parts[1].layout.y;
+          console.log(this.state.parts[1].position.bottom);
+          this.state.parts[2].d= this.state.parts[5].d;
+      }
+  
+    //   console.log(event.nativeEvent)
+  
+      this.setState({
+        parts: this.state.parts
+      })
+    }
+  
 
   componentDidMount() {
       this.props.ajaxData.map((part,index) =>
       {
-          switch (part.id.substring(0,9)) {
-            case 'path-head':
-                fadeIn(this.state.initAnimHead,part.delay);
-            break;
-            case 'path-face':
-                fadeIn(this.state.initAnimFace,part.delay);
-            break;
-            case 'path-body':
-                fadeIn(this.state.initAnimBody,part.delay);
-            break;
-            case 'path-legs':
-                fadeIn(this.state.initAnimLegs,part.delay);
-            break;
-            default:
-                fadeIn(this.state.initAnimHead,part.delay);
+          if(part.id!='replacement') {
+            switch (part.id.substring(0,9)) {
+              case 'path-head':
+                  fadeIn(this.state.initAnimHead,part.delay);
+              break;
+              case 'path-face':
+                  fadeIn(this.state.initAnimFace,part.delay);
+              break;
+              case 'path-body':
+                  fadeIn(this.state.initAnimBody,part.delay);
+              break;
+              case 'path-legs':
+                  fadeIn(this.state.initAnimLegs,part.delay);
+              break;
+              default:
+                  fadeIn(this.state.initAnimHead,part.delay);
+            }
           }
           
       })
@@ -88,23 +139,24 @@ export default class Menu extends Component {
         <AnimatedSvg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ backgroundColor: this.props.bgcolor }}>
             <Defs>
                 {parts.map((part,index) => 
-                    <Path id={part.id} d={part.d} key={index}/>
+                    part.id!='replacement'&&<Path id={part.id} d={part.d} key={index}/>
                 )}
             </Defs>
                 {parts.map((part,index) => 
-                    <AnimatedG key={index}
+                    part.id!='replacement'&&
+                    <AnimatedG key={index} y={part.position?part.position.y:'0'} onPress={this.handleOnPress(index)}
                         opacity={part.id.substring(0,9)=='path-head'?initAnimHead.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :part.id.substring(0,9)=='path-face'?initAnimFace.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :part.id.substring(0,9)=='path-body'?initAnimBody.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :initAnimLegs.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 }
                     >
-                        <Text fill="black" fontSize={part.fontSize} >
+                        <Text fill="transparent" fontSize={part.fontSize} >
                             <TextPath href={`#${part.id}`} >
                             {part.text}
                             </TextPath>
                         </Text>
-                        <Path fill="none" stroke="black"  strokeWidth={part.strokeWidth} d={part.d} />
+                        <Path fill="none" onLayout={this.log(part.id)}  stroke="black"  strokeWidth={part.strokeWidth} d={part.d} />
                     </AnimatedG>
                 )}
       </AnimatedSvg>
