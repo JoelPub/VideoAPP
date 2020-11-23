@@ -16,7 +16,7 @@ export default PagesScreen = (props) =>{
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setLoading(true);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/96f4b775985ec0d6f84bc2afb0a3dd6413fd77cd/files/svgwukong.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/43c42420e27f4f2409543d8f2b5fce342f907d70/files/svgtest.json')
       .then((response) => response.json())
       .then((json) => {setData(json.character);})
       .catch((error) => console.error(error))
@@ -25,7 +25,7 @@ export default PagesScreen = (props) =>{
 
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/n7a4pe/96f4b775985ec0d6f84bc2afb0a3dd6413fd77cd/files/svgwukong.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/43c42420e27f4f2409543d8f2b5fce342f907d70/files/svgtest.json')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))

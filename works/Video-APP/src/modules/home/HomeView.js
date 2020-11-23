@@ -103,7 +103,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
     setRefreshing(true);
     setLoading(true);
     setVideos([]);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/d057b69a5c252885bf95dae0c2dd13b7ab5d83ef/files/svglist.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/e0d412d473c1073aba7b2e4fbc037fb12ca08621/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {
@@ -118,7 +118,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
 
   useEffect(() => {
     var tmpVideos=[];
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/2b95c304a5aff552468ecb9bd96eebcf269c83b3/files/svglist.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/e0d412d473c1073aba7b2e4fbc037fb12ca08621/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {

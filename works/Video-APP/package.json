@@ -60,6 +60,7 @@
     "redux-persist": "^5.10.0",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
+    "svg-path-properties": "^1.0.9",
     "victory-native": "^31.0.0"
   },
   "devDependencies": {

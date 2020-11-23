@@ -23,7 +23,7 @@ import Svg, {
     Pattern,
     Mask,
   } from 'react-native-svg';
-  
+import * as path from 'svg-path-properties';  
 const { width, height } = Dimensions.get("window");
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
@@ -107,6 +107,7 @@ export default class Menu extends Component {
   
 
   componentDidMount() {
+    var properties,length;
       this.props.ajaxData.map((part,index) =>
       {
           if(part.id!='replacement') {
@@ -126,6 +127,11 @@ export default class Menu extends Component {
               default:
                   fadeIn(this.state.initAnimHead,part.delay);
             }
+            properties = path.svgPathProperties(part.d);
+            length = properties.getTotalLength();
+            part.text=part.name.repeat(length/190);
+            console.log("part.name",part.name);
+            console.log("length",length);
           }
           
       })
@@ -144,19 +150,19 @@ export default class Menu extends Component {
             </Defs>
                 {parts.map((part,index) => 
                     part.id!='replacement'&&
-                    <AnimatedG key={index} y={part.position?part.position.y:'0'} onPress={this.handleOnPress(index)}
+                    <AnimatedG key={index} y={part.position?part.position.y:'0'} 
                         opacity={part.id.substring(0,9)=='path-head'?initAnimHead.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :part.id.substring(0,9)=='path-face'?initAnimFace.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :part.id.substring(0,9)=='path-body'?initAnimBody.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 :initAnimLegs.interpolate({inputRange: [0, 1],outputRange: [0, 1],})
                                 }
                     >
-                        <Text fill="transparent" fontSize={part.fontSize} >
+                        <Text fill={part.color} fontSize={part.fontSize} >
                             <TextPath href={`#${part.id}`} >
                             {part.text}
                             </TextPath>
                         </Text>
-                        <Path fill="none" onLayout={this.log(part.id)}  stroke="black"  strokeWidth={part.strokeWidth} d={part.d} />
+                        <Path fill="none" onLayout={this.log(part.id)}  stroke="black"  strokeWidth={part.strokeWidth} d={part.d} onPress={this.handleOnPress(index)}/>
                     </AnimatedG>
                 )}
       </AnimatedSvg>
