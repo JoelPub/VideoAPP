@@ -4,6 +4,7 @@ import { RefreshControl,ActivityIndicator, Dimensions,SafeAreaView,ScrollView,St
 import { colors, fonts } from '../../styles';
 
 import Menu from "./Menu";
+import Modalpage from "./Modal";
 const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
@@ -11,12 +12,13 @@ const componentsIcon = require('../../../assets/images/pages/chat.png');
 const { height, width } = Dimensions.get("window");
 export default PagesScreen = (props) =>{
   const [isLoading, setLoading] = useState(true);
+  const [modalData, setModal] = useState({show:false,fromPart:0,toPart:0});
   const [data, setData] = useState([]);
   const [refreshing, setRefreshing] = React.useState(false);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setLoading(true);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/43c42420e27f4f2409543d8f2b5fce342f907d70/files/svgtest.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/bf28e5047366ca68448e78c657c4e57bf6d5d8d1/files/svgtest.json')
       .then((response) => response.json())
       .then((json) => {setData(json.character);})
       .catch((error) => console.error(error))
@@ -25,7 +27,7 @@ export default PagesScreen = (props) =>{
 
 
   useEffect(() => {
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/43c42420e27f4f2409543d8f2b5fce342f907d70/files/svgtest.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/MK65rj/bf28e5047366ca68448e78c657c4e57bf6d5d8d1/files/svgtest.json')
       .then((response) => response.json())
       .then((json) => {console.log(json);setData(json.character);})
       .catch((error) => console.error(error))
@@ -36,9 +38,10 @@ export default PagesScreen = (props) =>{
       <ScrollView refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
+        <Modalpage modalData={modalData}  setModal={setModal}/>
         <View style={[{width:width, height:height}]}>
             {isLoading ? <ActivityIndicator/> : (
-              <Menu bgcolor='white' ajaxData={data}/>
+              <Menu bgcolor='white' ajaxData={data}  editable={true} modalData={modalData}  setModal={setModal}/>
             )}
         </View>
         <View style={[{width:width, height:height},styles.container]}>

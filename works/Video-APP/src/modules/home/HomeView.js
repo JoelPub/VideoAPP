@@ -103,7 +103,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
     setRefreshing(true);
     setLoading(true);
     setVideos([]);
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/e0d412d473c1073aba7b2e4fbc037fb12ca08621/files/svglist.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/583fd9af09bcef5983c4977bcf1524489bd6cad5/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {
@@ -118,7 +118,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
 
   useEffect(() => {
     var tmpVideos=[];
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/e0d412d473c1073aba7b2e4fbc037fb12ca08621/files/svglist.json')
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/583fd9af09bcef5983c4977bcf1524489bd6cad5/files/svglist.json')
       .then((response) => response.json())
       .then((json) => {
         json.list.map((ele,index) => {
@@ -138,11 +138,11 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
               }>
                 {videos.map((video,index) => index==0?
                   <View key={index} style={{width:width, height:height}} onLayout={handleVideoLayout}>
-                    {!video.paused&&<Menu bgcolor='white' ajaxData={video}/>}
+                    {!video.paused&&<Menu bgcolor='white' ajaxData={video} editable={false}/>}
                   </View>
                   :
                   <View key={index} style={{width:width, height:height}} >
-                    {!video.paused&&<Menu bgcolor='white' ajaxData={video}/>}
+                    {!video.paused&&<Menu bgcolor='white' ajaxData={video} editable={false}/>}
                   </View>
                 )}
             </ScrollView>  

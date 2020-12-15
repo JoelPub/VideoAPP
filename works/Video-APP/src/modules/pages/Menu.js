@@ -81,30 +81,39 @@ export default class Menu extends Component {
     }
 
     handleOnPress = (someId) => event => {
-      console.log(someId);
-      if(someId==0) {
-          this.state.parts[0].d= this.state.parts[3].d;
+      if(this.props.editable){
+        console.log('show modal');
+        this.props.setModal({show:true,fromPart:someId,toPart:this.props.modalData.toPart});
       }
-      else if(someId==1) {
-          console.log(this.state.parts[0].position.bottom);
-          this.state.parts[0].position.bottom=this.state.parts[0].layout.height+this.state.parts[0].layout.y;
-          console.log(this.state.parts[0].position.bottom);
-          this.state.parts[1].d= this.state.parts[4].d;
+      else {
+        console.log('view only');
       }
-      else if(someId==2) {
-          console.log(this.state.parts[1].position.bottom);
-          this.state.parts[1].position.bottom=this.state.parts[1].layout.height+this.state.parts[1].layout.y;
-          console.log(this.state.parts[1].position.bottom);
-          this.state.parts[2].d= this.state.parts[5].d;
-      }
-  
-    //   console.log(event.nativeEvent)
-  
-      this.setState({
-        parts: this.state.parts
-      })
     }
-  
+    
+    componentDidUpdate(prevProps) {
+      if (prevProps.modalData && prevProps.modalData.show !== this.props.modalData.show && !this.props.modalData.show) {
+        console.log(this.props.modalData);
+        if(this.props.modalData.fromPart==0) {
+          this.state.parts[this.props.modalData.fromPart].d= this.state.parts[this.props.modalData.toPart+3].d;
+        }
+        else if(this.props.modalData.fromPart==1) {
+            console.log(this.state.parts[0].position.bottom);
+            this.state.parts[0].position.bottom=this.state.parts[0].layout.height+this.state.parts[0].layout.y;
+            console.log(this.state.parts[0].position.bottom);
+            this.state.parts[1].d= this.state.parts[4].d;
+        }
+        else if(this.props.modalData.fromPart==2) {
+            console.log(this.state.parts[1].position.bottom);
+            this.state.parts[1].position.bottom=this.state.parts[1].layout.height+this.state.parts[1].layout.y;
+            console.log(this.state.parts[1].position.bottom);
+            this.state.parts[2].d= this.state.parts[5].d;
+        }
+        //   console.log(event.nativeEvent)
+        this.setState({
+          parts: this.state.parts
+        })
+      }
+    }
 
   componentDidMount() {
     var properties,length;
