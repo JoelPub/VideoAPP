@@ -40,6 +40,26 @@ export default PagesScreen = (props) =>{
         }>
         <Modalpage modalData={modalData}  setModal={setModal}/>
         <View style={[{width:width, height:height}]}>
+          <View style={{...styles.row, marginTop:-30, marginBottom:-70,zIndex:5}}>
+            <TouchableOpacity
+              onPress={() => setModal({show:true,fromPart:0,toPart:modalData.toPart})}
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+            >
+              <Text style={styles.textStyle}>Head</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setModal({show:true,fromPart:1,toPart:modalData.toPart})}
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+            >
+              <Text style={styles.textStyle}>Body</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setModal({show:true,fromPart:2,toPart:modalData.toPart})}
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+            >
+              <Text style={styles.textStyle}>Legs</Text>
+            </TouchableOpacity>
+          </View>
             {isLoading ? <ActivityIndicator/> : (
               <Menu bgcolor='white' ajaxData={data}  editable={true} modalData={modalData}  setModal={setModal}/>
             )}
@@ -127,5 +147,17 @@ const styles = StyleSheet.create({
   },
   itemImage: {
     height: 35,
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    marginTop:15,
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
   },
 });
