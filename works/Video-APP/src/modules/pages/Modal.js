@@ -120,14 +120,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 15,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
     height:150
   },
   item: {
@@ -142,7 +134,7 @@ const styles = StyleSheet.create({
   itemTwoContainer: {
     paddingBottom: 10,
     backgroundColor: 'white',
-    marginVertical: 5,
+    margin: 5,
     width:100
   },
   itemTwoContent: {
@@ -152,12 +144,12 @@ const styles = StyleSheet.create({
     height: 150,
   },
   itemTwoTitle: {
-    color: colors.white,
+    color: colors.lightGray,
     fontFamily: fonts.primaryBold,
     fontSize: 20,
   },
   itemTwoSubTitle: {
-    color: colors.white,
+    color: colors.lightGray,
     fontFamily: fonts.primaryRegular,
     fontSize: 15,
     marginVertical: 5,
@@ -177,7 +169,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     backgroundColor: '#6271da',
-    opacity: 0.3,
+    opacity: 0.1,
   },
 });
 
