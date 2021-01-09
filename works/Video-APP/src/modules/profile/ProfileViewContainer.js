@@ -1,13 +1,13 @@
 import { compose, withState , lifecycle} from 'recompose';
 
-import HomeScreen from './HomeView';
+import RegisterScreen from './RegisterView';
 
 export default compose(withState('isExtended', 'setIsExtended', false),
 lifecycle({
   componentDidMount() {
-    console.log('HomeViewContainer componentDidMount');
+    console.log('ProfileViewContainer componentDidMount');
 
   },
 }))(
-  HomeScreen,
+  RegisterScreen,
 );

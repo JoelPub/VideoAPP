@@ -4,9 +4,9 @@ import { TouchableOpacity, Image } from 'react-native';
 import TabNavigator from './MainTabNavigator';
 import GalleryScreen from '../gallery/GalleryViewContainer';
 import CalendarScreen from '../calendar/CalendarViewContainer';
-import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 import VideoScreen from '../video/VideoViewContainer';
 import ComponentsScreen from '../components/ComponentsViewContainer';
+import GridsScreen from '../grids/GridsViewContainer';
 
 // import ProfileScreen from '../profile/ProfileViewContainer';
 // import ArticleScreen from '../article/ArticleViewContainer';
@@ -95,8 +95,8 @@ const StackNavigationData = [
     },
   },
   {
-    name: 'Article',
-    component: AvailableInFullVersion,
+    name: 'Grids',
+    component: GridsScreen,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {

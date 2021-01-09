@@ -9,6 +9,7 @@ const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const videoIcon = require('../../../assets/images/pages/chart.png');
 const componentsIcon = require('../../../assets/images/pages/chat.png');
+const gridsIcon = require('../../../assets/images/tabbar/grids.png');
 const { height, width } = Dimensions.get("window");
 export default PagesScreen = (props) =>{
   const [isLoading, setLoading] = useState(true);
@@ -111,6 +112,17 @@ export default PagesScreen = (props) =>{
                 style={styles.itemImage}
               />
               <Text style={styles.itemText}>Components</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('Grids')}
+              style={styles.item}
+            >
+              <Image
+                resizeMode="contain"
+                source={gridsIcon}
+                style={styles.itemImage}
+              />
+              <Text style={styles.itemText}>Grides</Text>
             </TouchableOpacity>
           </View>
         </View>

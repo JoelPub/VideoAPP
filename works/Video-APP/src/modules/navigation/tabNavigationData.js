@@ -1,9 +1,9 @@
 import HomeScreen from '../home/HomeViewContainer';
-import GridsScreen from '../grids/GridsViewContainer';
+import RegisterScreen from '../profile/ProfileViewContainer';
 import PagesScreen from '../pages/PagesViewContainer';
 
 const iconHome = require('../../../assets/images/tabbar/home.png');
-const iconGrids = require('../../../assets/images/tabbar/grids.png');
+const iconGrids = require('../../../assets/images/pages/profile.png');
 const iconPages = require('../../../assets/images/tabbar/pages.png');
 
 const tabNavigationData = [
@@ -18,8 +18,8 @@ const tabNavigationData = [
     icon: iconPages,
   },
   {
-    name: 'Grids',
-    component: GridsScreen,
+    name: 'Profile',
+    component: RegisterScreen,
     icon: iconGrids,
   },
 ];
