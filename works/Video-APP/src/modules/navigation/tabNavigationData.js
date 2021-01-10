@@ -1,5 +1,5 @@
 import HomeScreen from '../home/HomeViewContainer';
-import RegisterScreen from '../profile/ProfileViewContainer';
+import ProfileScreen from '../profile/ProfileViewContainer';
 import PagesScreen from '../pages/PagesViewContainer';
 
 const iconHome = require('../../../assets/images/tabbar/home.png');
@@ -19,7 +19,7 @@ const tabNavigationData = [
   },
   {
     name: 'Profile',
-    component: RegisterScreen,
+    component: ProfileScreen,
     icon: iconGrids,
   },
 ];

@@ -7,8 +7,8 @@ import CalendarScreen from '../calendar/CalendarViewContainer';
 import VideoScreen from '../video/VideoViewContainer';
 import ComponentsScreen from '../components/ComponentsViewContainer';
 import GridsScreen from '../grids/GridsViewContainer';
-
-// import ProfileScreen from '../profile/ProfileViewContainer';
+import RegisterScreen from '../register/RegisterViewContainer';
+import ProfileScreen from '../profile/ProfileViewContainer';
 // import ArticleScreen from '../article/ArticleViewContainer';
 // import ChatScreen from '../chat/ChatViewContainer';
 // import MessagesScreen from '../chat/MessagesViewContainer';
@@ -97,6 +97,28 @@ const StackNavigationData = [
   {
     name: 'Grids',
     component: GridsScreen,
+    headerLeft: headerLeftComponent,
+    headerBackground: { source: headerBackground },
+    headerTitleStyle: {
+      fontFamily: fonts.primaryRegular,
+      color: colors.white,
+      fontSize: 18,
+    },
+  },
+  {
+    name: 'Profile',
+    component: ProfileScreen,
+    headerLeft: headerLeftComponent,
+    headerBackground: { source: headerBackground },
+    headerTitleStyle: {
+      fontFamily: fonts.primaryRegular,
+      color: colors.white,
+      fontSize: 18,
+    },
+  },
+  {
+    name: 'Register',
+    component: RegisterScreen,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
