@@ -47,15 +47,17 @@ const ProfileScreen = ({navigation}) => {
     }
     formBody = formBody.join('&');
 
-    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/neGpAx/0b489eb7e42bbd93faae409a07a9b8ea2182f981/files/adminlogin', {
-      method: 'POST',
-      body: formBody,
-      headers: {
-        //Header Defination
-        'Content-Type':
-        'application/x-www-form-urlencoded;charset=UTF-8',
-      },
-    })
+    fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/neGpAx/20eec1bbe8b3ad91aace7beff51ac3ed3eb5b360/files/adminlogin.json'
+      // ,{
+      //   method: 'POST',
+      //   body: formBody,
+      //   headers: {
+      //     //Header Defination
+      //     'Content-Type':
+      //     'application/x-www-form-urlencoded;charset=UTF-8',
+      //   },
+      // }
+    )
       .then((response) => response.json())
       .then((responseJson) => {
         //Hide Loader
@@ -65,7 +67,7 @@ const ProfileScreen = ({navigation}) => {
         if (responseJson.status === 'S') {
           // AsyncStorage.setItem('user_id', responseJson.data.email);
           console.log(responseJson.data.accountId);
-          navigation.replace('DrawerNavigationRoutes');
+          navigation.goBack();
         } else {
           setErrortext(responseJson.msg);
           console.log('Please check your email id or password');

@@ -250,7 +250,7 @@ const RegisterScreen = (props) => {
           </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}
-              onPress={() => props.navigation.navigate('Profile')}>
+              onPress={() => props.navigation.goBack()}>
               返回登录
             </Text>
         </KeyboardAvoidingView>
