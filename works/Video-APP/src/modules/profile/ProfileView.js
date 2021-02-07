@@ -2,7 +2,7 @@
 // https://aboutreact.com/react-native-login-and-signup/
 
 // Import React and Component
-import React, {useState, createRef} from 'react';
+import React, {useEffect, useState, createRef} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -15,7 +15,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 
-//import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loader from '../components/Loader';
 
@@ -24,8 +24,22 @@ const ProfileScreen = ({navigation}) => {
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
+  const [userData, setUserData] = useState({login:false,userId:''});
 
   const passwordInputRef = createRef();
+
+
+  useEffect(() => {
+    AsyncStorage.getItem("user_id").then((value) => {
+      if(value!=='') setUserData({login:true,userId:value});
+    });
+  }, []);
+
+  const handleLogoutPress = () => {
+    AsyncStorage.setItem('user_id', '').then((value) => {
+      setUserData({login:false,userId:''});
+    });
+  };
 
   const handleSubmitPress = () => {
     setErrortext('');
@@ -65,9 +79,17 @@ const ProfileScreen = ({navigation}) => {
         console.log(responseJson);
         // If server response message same as Data Matched
         if (responseJson.status === 'S') {
-          // AsyncStorage.setItem('user_id', responseJson.data.email);
           console.log(responseJson.data.accountId);
-          navigation.goBack();
+          AsyncStorage.setItem('user_id', String(responseJson.data.accountId))
+          .then((value) => {
+            AsyncStorage.getItem("user_id")
+            .then((value) => {
+              if(value!=='') setUserData({login:true,userId:value});
+            })
+          })
+          .then(res => {
+            navigation.goBack();
+          });
         } else {
           setErrortext(responseJson.msg);
           console.log('Please check your email id or password');
@@ -90,6 +112,20 @@ const ProfileScreen = ({navigation}) => {
           justifyContent: 'center',
           alignContent: 'center',
         }}>
+        {userData.login ? 
+        <View>
+        <Text
+          style={styles.registerTextStyle}
+          >
+          用户 {userData.userId}
+        </Text>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            activeOpacity={0.5}
+            onPress={handleLogoutPress}>
+            <Text style={styles.buttonTextStyle}>退出登录</Text>
+          </TouchableOpacity>
+        </View>:
         <View>
           <KeyboardAvoidingView enabled>
             <View style={styles.SectionStyle}>
@@ -146,6 +182,7 @@ const ProfileScreen = ({navigation}) => {
             </Text>
           </KeyboardAvoidingView>
         </View>
+        }
       </ScrollView>
     </View>
   );
