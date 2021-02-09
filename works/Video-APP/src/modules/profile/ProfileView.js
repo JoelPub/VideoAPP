@@ -3,6 +3,7 @@
 
 // Import React and Component
 import React, {useEffect, useState, createRef} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   StyleSheet,
   TextInput,
@@ -18,7 +19,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loader from '../components/Loader';
-
+import { updateprofile } from './ProfileState'
 const ProfileScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -27,17 +28,24 @@ const ProfileScreen = ({navigation}) => {
   const [userData, setUserData] = useState({login:false,userId:''});
 
   const passwordInputRef = createRef();
-
+  const store = useSelector(state => state);
+  const dispatch = useDispatch();
+  const updateProfile = id => dispatch(updateprofile(id));
 
   useEffect(() => {
+    console.log('initial profile',store.profile);
     AsyncStorage.getItem("user_id").then((value) => {
       if(value!=='') setUserData({login:true,userId:value});
     });
   }, []);
 
   const handleLogoutPress = () => {
+    console.log('before action',store.profile);
     AsyncStorage.setItem('user_id', '').then((value) => {
       setUserData({login:false,userId:''});
+      updateProfile('');
+
+      console.log('after action',store.profile);
     });
   };
 
@@ -60,7 +68,7 @@ const ProfileScreen = ({navigation}) => {
       formBody.push(encodedKey + '=' + encodedValue);
     }
     formBody = formBody.join('&');
-
+    console.log('before login',store.profile);
     fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/neGpAx/20eec1bbe8b3ad91aace7beff51ac3ed3eb5b360/files/adminlogin.json'
       // ,{
       //   method: 'POST',
@@ -74,6 +82,7 @@ const ProfileScreen = ({navigation}) => {
     )
       .then((response) => response.json())
       .then((responseJson) => {
+        console.log(store.profile);
         //Hide Loader
         setLoading(false);
         console.log(responseJson);
@@ -84,7 +93,11 @@ const ProfileScreen = ({navigation}) => {
           .then((value) => {
             AsyncStorage.getItem("user_id")
             .then((value) => {
-              if(value!=='') setUserData({login:true,userId:value});
+              if(value!=='') {
+                setUserData({login:true,userId:value});
+                updateProfile(value);
+                console.log('after login',store.profile);
+              }
             })
           })
           .then(res => {
@@ -117,7 +130,7 @@ const ProfileScreen = ({navigation}) => {
         <Text
           style={styles.registerTextStyle}
           >
-          用户 {userData.userId}
+          用户{userData.userId}
         </Text>
           <TouchableOpacity
             style={styles.buttonStyle}

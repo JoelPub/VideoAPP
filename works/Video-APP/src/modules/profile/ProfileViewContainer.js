@@ -1,13 +1,7 @@
-import { compose, withState , lifecycle} from 'recompose';
+import { compose} from 'recompose';
 
 import ProfileScreen from './ProfileView';
 
-export default compose(withState('isExtended', 'setIsExtended', false),
-lifecycle({
-  componentDidMount() {
-    console.log('ProfileViewContainer componentDidMount');
-
-  },
-}))(
+export default compose()(
   ProfileScreen,
 );

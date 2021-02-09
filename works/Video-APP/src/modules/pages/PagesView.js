@@ -1,4 +1,5 @@
 import React, { useEffect, useState }  from 'react';
+import { useSelector } from 'react-redux';
 import { RefreshControl,ActivityIndicator, Dimensions,SafeAreaView,ScrollView,StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import { colors, fonts } from '../../styles';
@@ -16,6 +17,7 @@ export default PagesScreen = (props) =>{
   const [modalData, setModal] = useState({show:false,fromPart:0,toPart:0});
   const [data, setData] = useState([]);
   const [refreshing, setRefreshing] = React.useState(false);
+  const store = useSelector(state => state);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setLoading(true);
@@ -66,6 +68,7 @@ export default PagesScreen = (props) =>{
             )}
         </View>
         <View style={[{width:width, height:height},styles.container]}>
+          <Text>hello {store.profile.user_id}</Text>
           <View style={styles.row}>
             <TouchableOpacity
               onPress={() => props.navigation.navigate('Gallery')}

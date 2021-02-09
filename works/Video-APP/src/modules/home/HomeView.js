@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import { useSelector } from 'react-redux';
 import { 
   RefreshControl,
   ActivityIndicator, 
@@ -39,7 +39,7 @@ import Menu from "../pages/Menu";
 
 export default function HomeScreen({ isExtended, setIsExtended }) {
   const { height, width } = Dimensions.get("window");
-
+  const store = useSelector(state => state);
   const [videos, setVideos] = useState([]);
   const scrollViewRef = useRef();
   const [position, setPostion] = useState({
@@ -117,6 +117,7 @@ export default function HomeScreen({ isExtended, setIsExtended }) {
 
 
   useEffect(() => {
+    console.log('initial!!!!!!!!!!!!!!',store.profile);
     var tmpVideos=[];
     fetch('https://bitbucket.org/!api/2.0/snippets/JoelPub/aL5oEB/583fd9af09bcef5983c4977bcf1524489bd6cad5/files/svglist.json')
       .then((response) => response.json())
