@@ -19,7 +19,8 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loader from '../components/Loader';
-import { updateprofile } from './ProfileState'
+import { updateprofile } from './ProfileState';
+import analytics from '@react-native-firebase/analytics';
 const ProfileScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -125,6 +126,17 @@ const ProfileScreen = ({navigation}) => {
           justifyContent: 'center',
           alignContent: 'center',
         }}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={async () =>
+            await analytics().logSelectContent({
+              content_type: 'clothing',
+              item_id: 'abcd',
+            })
+          }>
+          <Text style={styles.buttonTextStyle}>Select_Content Tracking</Text>
+        </TouchableOpacity>
         {userData.login ? 
         <View>
         <Text
