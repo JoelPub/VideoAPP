@@ -2,7 +2,7 @@
 // https://aboutreact.com/react-native-login-and-signup/
 
 // Import React and Component
-import React, {useEffect, useState, createRef} from 'react';
+import React, {useEffect, useState, createRef, useRef} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   StyleSheet,
@@ -15,6 +15,8 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
+import Share from 'react-native-share';
+import ViewShot from "react-native-view-shot";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -27,8 +29,10 @@ const ProfileScreen = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
   const [userData, setUserData] = useState({login:false,userId:''});
+  const [result, setResult] = useState('');
 
   const passwordInputRef = createRef();
+  const viewShotRef = useRef();
   const store = useSelector(state => state);
   const dispatch = useDispatch();
   const updateProfile = id => dispatch(updateprofile(id));
@@ -115,6 +119,35 @@ const ProfileScreen = ({navigation}) => {
         console.error(error);
       });
   };
+/**
+   * This functions share a image passed using the
+   * url param
+   */
+  const shareSingleImage = async (uri) => {
+    const shareOptions = {
+      title: 'Share file',
+      url: uri,
+      failOnCancel: false,
+    };
+
+    try {
+      const ShareResponse = await Share.open(shareOptions);
+      setResult(JSON.stringify(ShareResponse, null, 2));
+    } catch (error) {
+      console.log('Error =>', error);
+      setResult('error: '.concat(getErrorString(error)));
+    }
+  };
+  const takeScreenShot = () => {
+    // To capture Screenshot
+    viewShotRef.current.capture().then(
+      //callback function to get the result URL of the screnshot
+      (uri) => {
+        shareSingleImage(uri);
+      },
+      (error) => console.error('Oops, Something Went Wrong', error),
+    );
+  };
 
   return (
     <View style={styles.mainBody}>
@@ -129,6 +162,12 @@ const ProfileScreen = ({navigation}) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
+          onPress={takeScreenShot}>
+          <Text style={styles.buttonTextStyle}>Share Single Image</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
           onPress={async () =>
             await analytics().logSelectContent({
               content_type: 'clothing',
@@ -138,7 +177,7 @@ const ProfileScreen = ({navigation}) => {
           <Text style={styles.buttonTextStyle}>Select_Content Tracking</Text>
         </TouchableOpacity>
         {userData.login ? 
-        <View>
+        <ViewShot ref={viewShotRef}>
         <Text
           style={styles.registerTextStyle}
           >
@@ -150,7 +189,7 @@ const ProfileScreen = ({navigation}) => {
             onPress={handleLogoutPress}>
             <Text style={styles.buttonTextStyle}>退出登录</Text>
           </TouchableOpacity>
-        </View>:
+        </ViewShot>:
         <View>
           <KeyboardAvoidingView enabled>
             <View style={styles.SectionStyle}>
