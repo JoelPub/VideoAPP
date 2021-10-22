@@ -100,7 +100,7 @@ SSLHonorCipherOrder on
 #   Some ECC cipher suites (http://www.ietf.org/rfc/rfc4492.txt)
 #   require an ECC certificate which can also be configured in
 #   parallel.
-SSLCertificateFile /etc/pki/tls/certs/2903423_evw.wiki_public.crt
+SSLCertificateFile /etc/pki/tls/certs/6470165_www.evw.wiki_chain.crt
 
 #   Server Private Key:
 #   If the key is not combined with the certificate, use this
@@ -108,7 +108,7 @@ SSLCertificateFile /etc/pki/tls/certs/2903423_evw.wiki_public.crt
 #   you've both a RSA and a DSA private key you can configure
 #   both in parallel (to also allow the use of DSA ciphers, etc.)
 #   ECC keys, when in use, can also be configured in parallel
-SSLCertificateKeyFile /etc/pki/tls/private/2903423_evw.wiki.key
+SSLCertificateKeyFile /etc/pki/tls/private/6470165_www.evw.wiki.key
 
 #   Server Certificate Chain:
 #   Point SSLCertificateChainFile at a file containing the
@@ -117,7 +117,7 @@ SSLCertificateKeyFile /etc/pki/tls/private/2903423_evw.wiki.key
 #   the referenced file can be the same as SSLCertificateFile
 #   when the CA certificates are directly appended to the server
 #   certificate for convenience.
-SSLCertificateChainFile /etc/pki/tls/certs/2903423_evw.wiki_chain.crt
+SSLCertificateChainFile /etc/pki/tls/certs/6470165_www.evw.wiki_chain.crt
 
 #   Certificate Authority (CA):
 #   Set the CA certificate verification path where to find CA
