@@ -14,16 +14,17 @@
 
 ```bash
 # install dependencies
-yarn
+nvm use v8.17.0
+npm install
 
 # serve with hot reload at localhost:8080
-yarn run dev
+npm run dev
 
 # build for production with minification
-yarn run build
+npm run build
 
 # build for production and view the bundle analyzer report
-yarn run report
+npm run report
 ```
 
 ## 页面截图

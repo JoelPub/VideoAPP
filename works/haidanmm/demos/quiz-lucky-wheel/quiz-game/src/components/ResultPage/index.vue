@@ -14,7 +14,7 @@
         :propsStyle="{ backgroundColor: '#198cf9', color: '#fff' }"
         @click.native="play"
       >
-        再玩一局
+        接受惩罚
       </BeginButton>
       <BeginButton
         :propsStyle="{ backgroundColor: '#fd5b96', color: '#fff' }"
@@ -69,24 +69,25 @@ export default {
   },
   methods: {
     play() {
-      const type = this.previousGameMode;
-      switch (type) {
-        case 'normal':
-          if (this.gameNumber[0] <= 0) {
-            this.goHomeWithMessage('游戏次数不够，尝试填写邀请码吧！');
-            return;
-          }
-          break;
-        case 'practice':
-          if (this.practiceNumber <= 0) {
-            this.goHomeWithMessage('今日练习次数已用完，试试游戏模式吧！');
-            return;
-          }
-          break;
-        case 'activity':
-          break;
-        default:
-      }
+      //const type = this.previousGameMode;
+      ///switch (type) {
+      //  case 'normal':
+      //    if (this.gameNumber[0] <= 0) {
+      //      this.goHomeWithMessage('游戏次数不够，尝试填写邀请码吧！');
+      //      return;
+      //    }
+      //    break;
+      //  case 'practice':
+      //    if (this.practiceNumber <= 0) {
+      //      this.goHomeWithMessage('今日练习次数已用完，试试游戏模式吧！');
+      //      return;
+      //    }
+      //    break;
+      //  case 'activity':
+      //    break;
+      //  default:
+      //}
+      window.location.href='../../../quiz-lucky-wheel/lucky_wheel/dist/';
       playGame({ openid: this.openid, type })
         .then((res) => {
           if (res.data.state) {
