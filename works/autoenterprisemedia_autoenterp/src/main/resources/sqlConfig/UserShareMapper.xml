@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.shj.code.mapper.UserShareMapper">
+	<!--通过主键查询  -->
+	<select id="findById" parameterType="STRING" resultType="com.shj.code.entity.UserShare">
+		select * from user_share where userId = #{userId,jdbcType=VARCHAR} and type = #{type,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getUserShareList" parameterType="STRING" resultType="com.shj.code.entity.UserShare">
+		SELECT us.`id`,tf.fileName,tf.sourceUrl,tf.absolutelyUrl,tf.pictureHeight,tf.pictureWidth,tf.coverUrl FROM user_template_info us LEFT JOIN template_info tf ON us.`templateId` = tf.`id` WHERE us.`userId` = #{userId,jdbcType=VARCHAR} AND tf.fileName LIKE '%${search}%' and tf.typeName!="视频" ORDER BY us.`createData` DESC
+	</select>
+	
+	<select id="getUserShareLists" parameterType="STRING" resultType="com.shj.code.entity.UserShare">
+		SELECT us.`id`,tf.fileName,tf.sourceUrl,tf.absolutelyUrl,tf.pictureHeight,tf.pictureWidth,tf.coverUrl FROM user_template_info us LEFT JOIN template_info tf ON us.`templateId` = tf.`id` WHERE us.`userId` = #{userId,jdbcType=VARCHAR} and tf.typeName!="视频" ORDER BY us.`createData` DESC
+	</select>
+	
+	<select id="getUserVideoShareList" parameterType="STRING" resultType="com.shj.code.entity.UserShare">
+		SELECT us.`id`,tf.fileName,tf.sourceUrl,tf.absolutelyUrl,tf.pictureHeight,tf.pictureWidth,tf.coverUrl FROM user_template_info us LEFT JOIN template_info tf ON us.`templateId` = tf.`id` WHERE us.`userId` = #{userId,jdbcType=VARCHAR} AND tf.fileName LIKE '%${search}%' and tf.typeName ="视频" ORDER BY us.`createData` DESC
+	</select>
+	
+	<select id="getUserVideoShareLists" parameterType="STRING" resultType="com.shj.code.entity.UserShare">
+		SELECT us.`id`,tf.fileName,tf.sourceUrl,tf.absolutelyUrl,tf.pictureHeight,tf.pictureWidth,tf.coverUrl FROM user_template_info us LEFT JOIN template_info tf ON us.`templateId` = tf.`id` WHERE us.`userId` = #{userId,jdbcType=VARCHAR} and tf.typeName ="视频" ORDER BY us.`createData` DESC
+	</select>
+	
+	
+	<!--新增  -->
+	<insert id ="save" parameterType="com.shj.code.entity.UserShare">
+		insert into user_share(userId,type)values(#{userId,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR})
+	</insert>
+</mapper>

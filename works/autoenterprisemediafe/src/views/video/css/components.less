@@ -1,0 +1,38 @@
+.wrapper {
+  height: calc(100% - 144px);
+  .wrapper-content-scroll {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+  }
+}
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .filter-area {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1 1 auto;
+    span {
+      margin-right: 10px;
+      color: #909399;
+    }
+    .checked {
+      color: #63bbff;
+    }
+  }
+}
+.button-text {
+  background: #ecf5ff;
+  width: 98px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  color: #1989fa;
+  font-size: 14px;
+  border: 1px solid #a3d0fd;
+  border-radius: 3px;
+}

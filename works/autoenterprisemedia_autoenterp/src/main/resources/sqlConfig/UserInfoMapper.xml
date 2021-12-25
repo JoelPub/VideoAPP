@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.shj.code.mapper.UserInfoMapper">
+
+	<!--查询所有用户  -->
+	<select id="getUserList" resultType="com.shj.code.entity.UserInfo">  
+	    <!-- select * from user_info where region = #{region,jdbcType=VARCHAR} and disCode != "0" order by updataData desc -->
+	    select * from user_info where disCode!= "0" order by creatData desc
+	</select>
+	
+	<select id="getUserListLogin" resultType="com.shj.code.entity.UserInfo">  
+	    <!-- select * from user_info where region = #{region,jdbcType=VARCHAR} and disCode != "0" order by updataData desc -->
+	    select * from user_info where accountNumber = #{accountNumber,jdbcType=VARCHAR} and passWord = #{passWord,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getUserInfoLists" resultType="com.shj.code.entity.UserInfo">  
+	    select * from user_info where disCode!= "0"  order by creatData desc
+	</select>
+	
+	<select id="getUserInfoList" resultType="com.shj.code.entity.UserInfo">  
+	    select * from user_info where distrName like '%${search}%' and disCode!= "0" order by creatData desc
+	</select>
+	
+	<select id="getUserCountInfo" resultType="INTEGER">
+		select count(*) from user_info where modify = 2 and disCode != "0"
+	</select>
+	
+	<!--通过主键查询  -->
+	<select id="findById" parameterType="STRING" resultType="com.shj.code.entity.UserInfo">
+		select * from user_info where id = #{id,jdbcType=VARCHAR}
+	</select>
+	
+	<!--新增用户  -->
+	<insert id ="save" parameterType="com.shj.code.entity.UserInfo">
+		insert into user_info(id,accountNumber,passWord,userName,phone,email,position,region,village,province,city,distrName,disCode,role,status,modify,readStatus,updataData)values(#{id,jdbcType=VARCHAR},#{accountNumber,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{position,jdbcType=VARCHAR},#{region,jdbcType=VARCHAR},#{village,jdbcType=VARCHAR},#{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{distrName,jdbcType=VARCHAR},#{disCode,jdbcType=VARCHAR},#{role,jdbcType=INTEGER},#{status,jdbcType=INTEGER},#{modify,jdbcType=INTEGER},#{readStatus,jdbcType=INTEGER},#{updataData,jdbcType=VARCHAR})
+	</insert>
+	
+	<!--修改用户  -->
+	<update id ="update" parameterType="com.shj.code.entity.UserInfo">
+	 	update user_info set passWord=#{passWord,jdbcType=VARCHAR},userName=#{userName,jdbcType=VARCHAR},phone=#{phone,jdbcType=VARCHAR},email=#{email,jdbcType=VARCHAR},position=#{position,jdbcType=VARCHAR},region=#{region,jdbcType=VARCHAR},village=#{village,jdbcType=VARCHAR},province=#{province,jdbcType=VARCHAR},city=#{city,jdbcType=VARCHAR},distrName=#{distrName,jdbcType=VARCHAR},disCode=#{disCode,jdbcType=VARCHAR},modify=#{modify,jdbcType=VARCHAR},readStatus=#{readStatus,jdbcType=INTEGER},updataData=#{updataData,jdbcType=VARCHAR} where id = #{id,jdbcType=VARCHAR}
+	</update>
+	
+	<!--登录  -->
+	<select id="regin" parameterType="STRING" resultType="com.shj.code.entity.UserInfo">
+		select * from user_info where disCode = #{disCode,jdbcType=VARCHAR} and position = #{position,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="login" parameterType="STRING" resultType="com.shj.code.entity.UserInfo">
+		select * from user_info where accountNumber = #{accountNumber,jdbcType=VARCHAR} and passWord = #{passWord,jdbcType=VARCHAR}
+	</select>
+	
+	<!--查数  -->
+	<select id="getUserCount" resultType="INTEGER">
+		select count(*) from user_info where disCode = #{disCode,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findByAccoutCode" parameterType="STRING" resultType="com.shj.code.entity.UserInfo">
+		select * from user_info where accountNumber = #{accountNumber,jdbcType=VARCHAR}
+	</select>
+</mapper>

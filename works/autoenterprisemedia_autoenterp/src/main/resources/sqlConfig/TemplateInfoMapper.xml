@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.shj.code.mapper.TemplateInfoMapper">
+	<!--通过主键查询  -->
+	<select id="findById" parameterType="STRING" resultType="com.shj.code.entity.TemplateInfo">
+		select * from template_info where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="findFileName" parameterType="STRING" resultType="com.shj.code.entity.TemplateInfo">
+		select * from template_info where fileName = #{fileName,jdbcType=VARCHAR} and typeName = #{typeName,jdbcType=VARCHAR} and userId = #{userId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="findUserWork" parameterType="STRING" resultType="com.shj.code.entity.TemplateInfo">
+		select * from template_info where userWorkId = #{userWorkId,jdbcType=VARCHAR}
+	</select>
+	
+	<!--新增  -->
+	<insert id ="save" parameterType="com.shj.code.entity.TemplateInfo">
+		insert into template_info(fileName,typeName,userId,accountNumber,coverUrl,templateJson,sourceUrl,isEdit,startTime,endTime,carModelName,categoryName,uploadData,materialType,role,width,height,userWorkId,videoTime,absolutelyUrl,pictureHeight,pictureWidth)values
+							(#{fileName,jdbcType=VARCHAR},#{typeName,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},#{accountNumber,jdbcType=VARCHAR},
+							#{coverUrl,jdbcType=VARCHAR},#{templateJson,jdbcType=VARCHAR},#{sourceUrl,jdbcType=VARCHAR},#{isEdit,jdbcType=VARCHAR},
+							#{startTime,jdbcType=VARCHAR},#{endTime,jdbcType=VARCHAR},#{carModelName,jdbcType=VARCHAR},
+							#{categoryName,jdbcType=VARCHAR},#{uploadData,jdbcType=VARCHAR},#{materialType,jdbcType=INTEGER},#{role,jdbcType=INTEGER},
+							#{width,jdbcType=VARCHAR},#{height,jdbcType=VARCHAR},#{userWorkId,jdbcType=VARCHAR},#{videoTime,jdbcType=VARCHAR},#{absolutelyUrl,jdbcType=VARCHAR},#{pictureHeight,jdbcType=VARCHAR},#{pictureWidth,jdbcType=VARCHAR})
+	</insert>
+	
+	<!--修改  -->
+	<update id ="update" parameterType="com.shj.code.entity.TemplateInfo">
+	 	update template_info set fileName=#{fileName,jdbcType=VARCHAR},typeName=#{typeName,jdbcType=VARCHAR},userId=#{userId,jdbcType=VARCHAR},accountNumber=#{accountNumber,jdbcType=VARCHAR},coverUrl=#{coverUrl,jdbcType=VARCHAR},templateJson=#{templateJson,jdbcType=VARCHAR},sourceUrl=#{sourceUrl,jdbcType=VARCHAR},isEdit=#{isEdit,jdbcType=VARCHAR},startTime=#{startTime,jdbcType=VARCHAR},endTime=#{endTime,jdbcType=VARCHAR},carModelName=#{carModelName,jdbcType=VARCHAR},categoryName=#{categoryName,jdbcType=VARCHAR},uploadData=#{uploadData,jdbcType=VARCHAR},materialType=#{materialType,jdbcType=INTEGER},role=#{role,jdbcType=INTEGER},width=#{width,jdbcType=VARCHAR},height=#{height,jdbcType=VARCHAR},videoTime=#{videoTime,jdbcType=VARCHAR},absolutelyUrl=#{absolutelyUrl,jdbcType=VARCHAR},pictureHeight=#{pictureHeight,jdbcType=VARCHAR},pictureWidth=#{pictureWidth,jdbcType=VARCHAR} where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<update id ="updateFileName" parameterType="com.shj.code.entity.TemplateInfo">
+	 	update template_info set typeName=#{typeName,jdbcType=VARCHAR},userId=#{userId,jdbcType=VARCHAR},
+	 							 accountNumber=#{accountNumber,jdbcType=VARCHAR},coverUrl=#{coverUrl,jdbcType=VARCHAR},templateJson=#{templateJson,jdbcType=VARCHAR},
+							     sourceUrl=#{sourceUrl,jdbcType=VARCHAR},isEdit=#{isEdit,jdbcType=VARCHAR},
+							     startTime=#{startTime,jdbcType=VARCHAR},endTime=#{endTime,jdbcType=VARCHAR},
+							     carModelName=#{carModelName,jdbcType=VARCHAR},
+							     categoryName=#{categoryName,jdbcType=VARCHAR},
+							     uploadData=#{uploadData,jdbcType=VARCHAR},materialType=#{materialType,jdbcType=INTEGER},videoTime=#{videoTime,jdbcType=VARCHAR},
+							     role=#{role,jdbcType=INTEGER},width=#{width,jdbcType=VARCHAR},height=#{height,jdbcType=VARCHAR},
+							     absolutelyUrl=#{absolutelyUrl,jdbcType=VARCHAR},pictureHeight=#{pictureHeight,jdbcType=VARCHAR},pictureWidth=#{pictureWidth,jdbcType=VARCHAR}
+	 							where userWorkId = #{userWorkId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="getPosterList" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="海报" and materialType = 1 and isEdit = "是"  and fileName LIKE '%${search}%' order by createData desc
+	</select>
+	
+	<select id="getPosterListed" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="海报" and materialType = 1 and isEdit = "是" order by createData desc
+	</select>
+	
+	<select id="getPosterListKV" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="kv" and materialType = 1 and isEdit = "是"  and fileName LIKE '%${search}%' order by createData desc
+	</select>
+	
+	<select id="getPosterListedKV" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="kv" and materialType = 1 and isEdit = "是" order by createData desc
+	</select>
+	
+	
+	<select id="getPosterVideoList" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="视频" and materialType = 1 and isEdit = "是"  and fileName LIKE '%${search}%' order by createData desc
+	</select>
+	
+	<select id="getPosterVideoListed" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="视频" and materialType = 1 and isEdit = "是" order by createData desc
+	</select>
+	
+	
+	<select id="getDisVideoList" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="视频" and materialType = 2 and isEdit = "是"  and fileName LIKE '%${search}%' order by createData desc
+	</select>
+	
+	<select id="getDisVideoListed" resultType="com.shj.code.entity.TemplateInfo">
+	    select * from template_info where typeName="视频" and materialType = 2 and isEdit = "是" order by createData desc
+	</select>
+	
+</mapper>
