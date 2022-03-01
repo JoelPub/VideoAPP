@@ -230,6 +230,9 @@
 				gap: 0 20px;
 				grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 			}
+			.convert-result {
+				display:none;
+			}
 
 			@media screen and (min-width: 781px) {
 				.show-br {
@@ -247,6 +250,9 @@
 				.grid-container {
 					width: 100%;
 					display: block;
+				}
+				.convert-result {
+					display:none;
 				}
 
 				.tzContainer {
@@ -600,6 +606,90 @@
 					</form>
 				</div>
 			</div>
+
+			<div class="row grid-container convert-result">
+				<div class="col">
+					<div class="card tokyo">
+						<div class="location-tokyo-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour"></span>
+								<span class="colon">:</span>
+								<span class="minute"></span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Tokyo, <br class="show-br">JAPAN</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card sydney">
+						<div class="location-sydney-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+							<hr class="border" />
+							<h3 class="city">Sydney, <br class="show-br">AUSTRALIA</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card bangalore">
+						<div class="location-bangalore-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Bangalore, <br class="show-br">INDIA</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row grid-container convert-result">
+				<div class="col ">
+					<div class="card plano">
+						<div class="location-plano-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+							<hr class="border" />
+							<h3 class="city">Plano, TX, <br class="show-br">USA</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card sanjose">
+						<div class="location-sanjose-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">San Jose, <br class="show-br">CA, USA </h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card madrid">
+						<div class="location-madrid-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+							<hr class="border" />
+							<h3 class="city">Madrid, <br class="show-br">SPAIN</h3>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- <div>
         <img src="./image/footer.png" alt="foot" style="width: 100%;">
@@ -766,14 +856,48 @@
 				// if (document.getElementById("tzdst-left").checked) {
 				// 	fromtime = DSTadjustment(fromtime, false);
 				// }
-				var totime = ConvertToFromGMT(fromtime, fromdrop, true);
-				totime = ConvertToFromGMT(totime, fromdrop, false);
+				fromtime = ConvertToFromGMT(fromtime, fromdrop, true);
+				var totime = ConvertTargetGMT(fromtime);
 				// if (document.getElementById("tzdst-right").checked) {
 				// 	totime = DSTadjustment(totime, true);
 				// }
-				totime = ConvertTo12hourClock(totime);
-				document.getElementById("tzinput-right").innerHTML = totime;
+<!--				totime = ConvertTo12hourClock(totime);-->
+<!--				document.getElementById("tzinput-right").innerHTML = totime;-->
+				$('.location-tokyo-result .time-24 .hour').html(String(totime[0].getHours()).padStart(2, '0'));
+				$('.location-tokyo-result .time-24 .minute').html(String(totime[0].getMinutes()).padStart(2, '0'));
+				$('.location-sydney-result .time-24 .hour').html(String(totime[1].getHours()).padStart(2, '0'));
+				$('.location-sydney-result .time-24 .minute').html(String(totime[1].getMinutes()).padStart(2, '0'));
+				$('.location-bangalore-result .time-24 .hour').html(String(totime[2].getHours()).padStart(2, '0'));
+				$('.location-bangalore-result .time-24 .minute').html(String(totime[2].getMinutes()).padStart(2, '0'));
+				$('.location-plano-result .time-24 .hour').html(String(totime[3].getHours()).padStart(2, '0'));
+				$('.location-plano-result .time-24 .minute').html(String(totime[3].getMinutes()).padStart(2, '0'));
+				$('.location-sanjose-result .time-24 .hour').html(String(totime[4].getHours()).padStart(2, '0'));
+				$('.location-sanjose-result .time-24 .minute').html(String(totime[4].getMinutes()).padStart(2, '0'));
+				$('.location-madrid-result .time-24 .hour').html(String(totime[5].getHours()).padStart(2, '0'));
+				$('.location-madrid-result .time-24 .minute').html(String(totime[5].getMinutes()).padStart(2, '0'));
+				$('.convert-result').css("display","grid");
 			} // function UpdateTimezoneFields()
+			function convertTZ(date, tzString) {
+				return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));
+			}
+			function ConvertTargetGMT(time) {
+				var ct = '',
+				result = [];
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "Japan") ;
+				result.push(ct);
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "Australia/NSW") ;
+				result.push(ct);
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "Asia/Kolkata") ;
+				result.push(ct);
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "US/Central") ;
+				result.push(ct);
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "US/Pacific") ;
+				result.push(ct);
+				ct=convertTZ("2012/04/20 "+time+":00 +0000", "Europe/Madrid") ;
+				result.push(ct);
+				return result;
+			}
+
 
 			function ConvertTo24hourClock(tm) {
 				if (!APM.length) {
