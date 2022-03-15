@@ -10,6 +10,7 @@
 		<script src="jquery-3.6.0.min.js"></script>
 		<script src="moment-2.16.0.min.js"></script>
 		<script src="moment-timezone-0.5.9.min.js"></script>
+		<script src="moment-timezone-with-data-10-year-range.js"></script>
 		<link rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style>
@@ -722,35 +723,40 @@
 				$('.location-tokyo .time-24 .minute').html(tokyoTime.format('mm'));
 <!--				$('.location-tokyo .time-12').html(tokyoTime.format('LT'));-->
 				$('.location-tokyo .day').html(tokyoTime.format('ddd.'));
-				$('.location-tokyo .date').html(tokyoTime.format('Do'))
+				$('.location-tokyo .date').html(tokyoTime.format('Do'));
+				$('.location-tokyo .local-time').html(tokyoTime.format("z") + ' (GMT/UTC' + tokyoTime.format("Z") +')');
 
 				// sydney
 				$('.location-sydney .time-24 .hour').html(sydneyTime.format('HH'));
 				$('.location-sydney .time-24 .minute').html(sydneyTime.format('mm'));
 <!--				$('.location-sydney .time-12').html(sydneyTime.format('LT'));-->
 				$('.location-sydney .day').html(sydneyTime.format('ddd.'));
-				$('.location-sydney .date').html(sydneyTime.format('Do'))
+				$('.location-sydney .date').html(sydneyTime.format('Do'));
+				$('.location-sydney .local-time').html(sydneyTime.format("z") + ' (GMT/UTC' + sydneyTime.format("Z") +')');
 
 				// bangalore
 				$('.location-bangalore .time-24 .hour').html(bangaloreTime.format('HH'));
 				$('.location-bangalore .time-24 .minute').html(bangaloreTime.format('mm'));
 <!--				$('.location-bangalore .time-12').html(bangaloreTime.format('LT'));-->
 				$('.location-bangalore .day').html(bangaloreTime.format('ddd.'));
-				$('.location-bangalore .date').html(bangaloreTime.format('Do'))
+				$('.location-bangalore .date').html(bangaloreTime.format('Do'));
+				$('.location-bangalore .local-time').html(bangaloreTime.format("z") + ' (GMT/UTC' + bangaloreTime.format("Z") +')');
 
 				// plano
 				$('.location-plano .time-24 .hour').html(planoTime.format('HH'));
 				$('.location-plano .time-24 .minute').html(planoTime.format('mm'));
 <!--				$('.location-plano .time-12').html(planoTime.format('LT'));-->
 				$('.location-plano .day').html(planoTime.format('ddd.'));
-				$('.location-plano .date').html(planoTime.format('Do'))
+				$('.location-plano .date').html(planoTime.format('Do'));
+				$('.location-plano .local-time').html(planoTime.format("z") + ' (GMT/UTC' + planoTime.format("Z") +')');
 
 				// sanjose
 				$('.location-sanjose .time-24 .hour').html(sanjoseTime.format('HH'));
 				$('.location-sanjose .time-24 .minute').html(sanjoseTime.format('mm'));
 <!--				$('.location-sanjose .time-12').html(sanjoseTime.format('LT'));-->
 				$('.location-sanjose .day').html(sanjoseTime.format('ddd.'));
-				$('.location-sanjose .date').html(sanjoseTime.format('Do'))
+				$('.location-sanjose .date').html(sanjoseTime.format('Do'));
+				$('.location-sanjose .local-time').html(sanjoseTime.format("z") + ' (GMT/UTC' + sanjoseTime.format("Z") +')');
 
 				// madrid
 				$('.location-madrid .time-24 .hour').html(madridTime.format('HH'));
@@ -758,6 +764,7 @@
 <!--				$('.location-madrid .time-12').html(madridTime.format('LT'));-->
 				$('.location-madrid .day').html(madridTime.format('ddd.'));
 				$('.location-madrid .date').html(madridTime.format('Do'));
+				$('.location-madrid .local-time').html(madridTime.format("z") + ' (GMT/UTC' + madridTime.format("Z") +')');
 
 			};
 
