@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>world-time-converter</title>
+		<!-- <script src="js/bootstrap-5.1.3.min.js"></script> -->
+		<script src="jquery-3.6.0.min.js"></script>
+		<script src="moment-2.16.0.min.js"></script>
+		<script src="moment-timezone-0.5.9.min.js"></script>
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			/*css1*/
+
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&family=Source+Sans+Pro:wght@200;300;400;600;900&display=swap');
+
+			html,
+			body {
+				height: 100%;
+			}
+
+			html,
+			body,
+			div,
+			span,
+			p,
+			blockquote,
+			a,
+			table,
+			tbody,
+			thead,
+			tr,
+			th,
+			td,
+			h2,
+			h3,
+			h4,
+			li {
+				font-family: 'Poppins', sans-serif;
+				padding: 0;
+				margin: 0;
+			}
+
+			h2 {
+				font-size: 3em;
+			}
+
+			h3 {
+				font-size: 1.5em;
+			}
+
+			h4 {
+				font-size: 1.25em;
+			}
+
+			.location {
+				min-width: 300px;
+				min-height: 300px;
+				/* max-width: 315px;
+      height: 33.333%; */
+			}
+
+			hr {
+				max-width: 70%;
+				margin: 10px auto;
+			}
+
+			.time-24 {
+				font-weight: 600;
+				font-size: 48px;
+				padding-bottom: 5px;
+			}
+
+			.city {
+				font-size: 26px;
+				font-weight: 600;
+				margin: 0;
+				padding-bottom: 5px;
+			}
+
+			.local-time {
+				margin: 0;
+				font-weight: normal;
+				font-size: 20px;
+			}
+
+<!--			.time-12 {-->
+<!--				font-weight: 100;-->
+<!--			}-->
+
+			.day,
+			.date {
+				font-weight: 600;
+			}
+
+			.tokyo {
+				color: #fff;
+				background: #323280;
+			}
+
+			.sydney {
+				color: #2d2d2d;
+				background: #ffdbb1;
+			}
+
+			.bangalore {
+				color: #fff;
+				background: #660045;
+			}
+
+			.plano {
+				color: #2d2d2d;
+				background: #4edfbc;
+			}
+
+			.sanjose {
+				color: #fff;
+				background: #f74326;
+			}
+
+			.madrid {
+				color: #2d2d2d;
+				background: #fcd9ed;
+			}
+
+			/* Timing */
+
+			.colon {
+				animation: timing 1.75s infinite;
+				margin-bottom: 5px;
+			}
+
+			@keyframes timing {
+				0% {
+					opacity: 1;
+				}
+
+				45% {
+					opacity: 0;
+				}
+
+				55% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			/*css2*/
+
+			.tzContainer {
+
+				/* background-color: #e6e6e6; */
+				padding: 70px;
+				margin: auto;
+                                padding-bottom:40px;
+			}
+
+			.tzContainer h3 {
+				font-size: 32px;
+				font-weight: 500;
+			}
+
+			/*css*/
+
+			.card {
+				padding: 20px;
+				text-align: center;
+				border-radius: 10px;
+			}
+
+			/* .row {
+      display: flex;
+    }
+    
+    .col {
+      flex-basis: 200px;
+      flex-shrink: 1;
+      flex-grow: 1;
+      margin: 0.5em;
+      text-align: center;
+      padding: 20px;
+    } */
+
+			.border {
+				border-color: #58535385;
+			}
+
+			.earlier {
+				display: flex;
+			}
+
+			.flex {
+				display: flex;
+			}
+
+			.wrap {
+				flex-wrap: wrap;
+			}
+
+			.container {
+				padding: 40px;
+				padding-top: 60px;
+				text-align: center;
+				background-image: url("timezone-bg.jpg");
+				background-position: center;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+
+			.row {
+				margin: auto;
+				/* padding: 10px 20px; */
+			}
+
+			.row>.col {
+
+				padding: 10px 0;
+			}
+
+			.grid-container {
+				width: 80%;
+				margin: 0 auto;
+				display: grid;
+				gap: 0 20px;
+				grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+			}
+<!--			.convert-result {-->
+<!--				display:none;-->
+<!--			}-->
+
+			.bright {
+				color: #000;
+  				background: #fff;
+			}
+			.night {
+				color: #fff;
+  				background: #000;
+			}
+
+			@media screen and (min-width: 781px) {
+				.show-br {
+					display: none;
+				}
+
+			}
+
+			@media screen and (max-width: 600px) {
+				.col {
+					width: 100%;
+					padding: 20px;
+				}
+
+				.grid-container {
+					width: 100%;
+					display: block;
+				}
+<!--				.convert-result {-->
+<!--					display:none;-->
+<!--				}-->
+
+				.tzContainer {
+					padding: 0;
+				}
+
+				.table-timezones {
+					width: 100% !important;
+					margin-top: 20px !important;
+				}
+
+				.table-timezones td {
+					width: 100% !important;
+
+				}
+
+				.td-timezones #tzinput-right {
+					font-size: 16px;
+
+				}
+
+				.td-timezones #tzinput-right div {
+					font-size: 16px !important;
+				}
+				.tzinput-left-div .text{
+					font-size: 13px !important;
+				}
+			}
+
+			@media screen and (max-width: 780px) {
+				.show-br {
+					display: block;
+				}
+			}
+
+			.table-timezones {
+				width: 80%;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			.table-timezones td {
+				display: block;
+				width: 600px;
+				margin: 0 auto;
+				margin-bottom: 20px;
+			}
+
+			#tzlist-left {
+				-webkit-appearance: none;
+				appearance: none;
+			}
+
+			#tzlist-right {
+				-webkit-appearance: none;
+				appearance: none;
+			}
+
+			.td-timezones {
+				position: relative;
+
+			}
+
+			.td-timezones i {
+				position: absolute;
+				left: 16px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 16px;
+			}
+
+			.td-timezones #tzlist-left {
+				width: 100%;
+				background-color: #2D2D2D;
+				color: #FFFFFF;
+				text-indent: 40px;
+				height: 50px;
+				border: none;
+				border-radius: 5px;
+				font-size: 16px;
+
+			}
+
+			.td-timezones #tzinput-left {
+				width: 99%;
+				background-color: #2D2D2D;
+				color: #FFFFFF;
+				text-indent: 40px;
+				height: 50px;
+				border: none;
+				border-radius: 5px;
+				font-size: 16px;
+
+			}
+
+			.td-timezones #tzlist-right {
+				width: 100%;
+				background-color: #2D2D2D;
+				color: #FFFFFF;
+				text-indent: 40px;
+				height: 50px;
+				border: none;
+				border-radius: 5px;
+				font-size: 16px;
+
+			}
+
+			.td-timezones #tzinput-right {
+				width: 100%;
+				background-color: #2D2D2D;
+				color: #FFFFFF;
+				height: 50px;
+				border: none;
+				border-radius: 5px;
+				font-size: 25px;
+				text-align: center;
+				line-height: 50px;
+			}
+
+			.tzinput-left-div .text{
+				position: absolute;
+				right: 16px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 16px;
+				color: #d8d8d8;
+			}
+				.tzinput-left-div .line{
+					font-size: 15.6px;
+					height: 1px;
+					overflow: hidden;
+					border-bottom: 1px solid #FFFFFF;
+					position: absolute;
+					left: 44px;
+					top: 80%;
+				}
+			.Click-p{
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div>
+
+		</div>
+
+		<div class="container">
+			<!-- First Section -->
+
+			<h3 style="font-weight: 600;
+        color: #2d2d2d;
+        font-size: 40px; padding-bottom: 40px; color: #FFFFFF;">Time Difference Calculator</h3>
+
+			<div class="row grid-container">
+				<div class="col">
+					<div class="card tokyo">
+						<div class="location-tokyo text-center ">
+							<h2 class="time-24 ">
+								<span class="hour"></span>
+								<span class="colon">:</span>
+								<span class="minute"></span>
+							</h2>
+<!--							<span class="time-12 "></span>-->
+							<h4 class="">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="" />
+							<h3 class="city">Tokyo, <br class="show-br">JAPAN</h3>
+							<p class="local-time">JST (GMT/UTC+9)</p>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card sydney">
+						<div class="location-sydney text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+<!--							<span class="time-12  d-block mb-2"></span>-->
+							<h4 class="fw-bold">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="border" />
+							<h3 class="city">Sydney, <br class="show-br">AUSTRALIA</h3>
+							<p class="local-time">AEDT (GMT/UTC+11)</p>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card bangalore">
+						<div class="location-bangalore text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+<!--							<span class="time-12  d-block mb-2"></span>-->
+							<h4 class="fw-bold">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="" />
+							<h3 class="city">Bangalore, <br class="show-br">INDIA</h3>
+							<p class="local-time">IST (GMT/UTC+5:30)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row grid-container">
+				<div class="col ">
+					<div class="card plano">
+						<div class="location-plano text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+<!--							<span class="time-12  d-block mb-2"></span>-->
+							<h4 class="fw-bold">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="border" />
+							<h3 class="city">Plano, TX, <br class="show-br">USA</h3>
+							<p class="local-time">CST (GMT/UTC-6)</p>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card sanjose">
+						<div class="location-sanjose text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+<!--							<span class="time-12  d-block mb-2"></span>-->
+							<h4 class="fw-bold">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="" />
+							<h3 class="city">San Jose, <br class="show-br">CA, USA </h3>
+							<p class="local-time">PST (GMT/UTC-8)</p>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card madrid">
+						<div class="location-madrid text-center ">
+							<h2 class="time-24 ">
+								<span class="hour "></span>
+								<span class="colon">:</span>
+								<span class="minute "></span>
+							</h2>
+<!--							<span class="time-12  d-block mb-2"></span>-->
+							<h4 class="fw-bold">
+								<span class="day "></span>
+								<span class="date"></span>
+							</h4>
+							<hr class="border" />
+							<h3 class="city">Madrid, <br class="show-br">SPAIN</h3>
+							<p class="local-time">CET (GMT/UTC+1)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Section1 -->
+
+			<div id="tzContainer" class="tzContainer">
+
+
+				<div style="display:none;">
+					<select id="master-dropdown-list">
+						<option value="">Add a city</option>
+						<option value="+11:00">Sydney, Australia - AEDT (UTC+11:00)</option>
+						<option value="+9:00">Tokyo, Japan- JST (UTC+09:00)</option>
+						<option value="+05:30">Bangalore, India - IST (UTC+05:30)</option>
+						<option value="-6:00">Plano, TX, CA, USA - CST (UTC−06:00)</option>
+						<option value="-8:00">San Jose, USA - PST (UTC−08:00)</option>
+						<option value="+01:00">Madrid, Spain- CET (UTC+01:00)</option>
+					</select>
+				</div>
+				<div style="display:none;">
+					<select id="master-dropdown-list1">
+						<option value="">Add a city or time zone</option>
+						<option value="+11:00">Sydney, Australia - AEDT (UTC+11:00)</option>
+						<option value="+9:00">Tokyo, Japan- JST (UTC+09:00)</option>
+						<option value="+05:30">Bangalore, India - IST (UTC+05:30)</option>
+						<option value="-6:00">Plano, TX, CA, USA - CST (UTC−06:00)</option>
+						<option value="-8:00">San Jose, USA - PST (UTC−08:00)</option>
+						<option value="+01:00">Madrid, Spain- CET (UTC+01:00)</option>
+					</select>
+				</div>
+
+				<div>
+					<form style="margin:0px;" onsubmit="return false;">
+						<table class="table-timezones">
+
+							<tr>
+								<td class="td-timezones">
+									<i class="fa fa-plus-circle" style="color: #FFFFFF;"></i> <select id="tzlist-left">
+									</select>
+								</td>
+								<td class="td-timezones tzinput-left-div">
+									<i class="fa fa-plus-circle" style="color: #FFFFFF;"></i>
+<!--									<input id="tzinput-left" value="12:00 am">-->
+									<input id="tzinput-left" value="14:00">
+									<p class="text">- Please follow this format</p>
+									<p class="line">14:00</p>
+								</td>
+<!--								<td class="td-timezones">-->
+<!--									<i class="fa fa-plus-circle" style="color: #FFFFFF;"></i> <select-->
+<!--										id="tzlist-right"></select>-->
+<!--								</td>-->
+								<td rowspan="3">
+									<p class="Click-p">Click the arrow to calculate</p>
+									<span onclick="UpdateTimezoneFields()" style="cursor:pointer;">
+										<i class="fa fa-arrow-right" style="
+                              font-size: 50px; color: #FFFFFF; transform: rotate(90deg);
+                          "></i>
+									</span>
+								</td>
+
+								<td class="td-timezones" colspan="3" align="right">
+									<div id="tzinput-right">
+										<div
+											style=" font-size: 25px; width: 100%;height: 100%;text-align: center; line-height: 50px;">
+											Click arrow to convert.</div>
+									</div>
+								</td>
+							</tr>
+
+							<tr>
+
+
+							</tr>
+
+						</table>
+					</form>
+				</div>
+			</div>
+
+			<div class="row grid-container convert-result">
+				<div class="col">
+					<div class="card night">
+						<div class="location-tokyo-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour">00</span>
+								<span class="colon">:</span>
+								<span class="minute">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Tokyo, <br class="show-br">JAPAN</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card night">
+						<div class="location-sydney-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour ">00</span>
+								<span class="colon">:</span>
+								<span class="minute ">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Sydney, <br class="show-br">AUSTRALIA</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card night">
+						<div class="location-bangalore-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour ">00</span>
+								<span class="colon">:</span>
+								<span class="minute ">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Bangalore, <br class="show-br">INDIA</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row grid-container convert-result">
+				<div class="col ">
+					<div class="card night">
+						<div class="location-plano-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour ">00</span>
+								<span class="colon">:</span>
+								<span class="minute ">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Plano, TX, <br class="show-br">USA</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card night">
+						<div class="location-sanjose-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour ">00</span>
+								<span class="colon">:</span>
+								<span class="minute ">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">San Jose, <br class="show-br">CA, USA </h3>
+						</div>
+					</div>
+				</div>
+				<div class="col ">
+					<div class="card night">
+						<div class="location-madrid-result text-center ">
+							<h2 class="time-24 ">
+								<span class="hour ">00</span>
+								<span class="colon">:</span>
+								<span class="minute ">00</span>
+							</h2>
+							<hr class="" />
+							<h3 class="city">Madrid, <br class="show-br">SPAIN</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div>
+        <img src="./image/footer.png" alt="foot" style="width: 100%;">
+    </div> -->
+
+
+		<script>
+			var update = function() {
+				// Set Timezones
+				currentTime = moment(new Date());
+				tokyoTime = moment.tz("Japan");
+				sydneyTime = tokyoTime.clone().tz("Australia/NSW");
+				bangaloreTime = tokyoTime.clone().tz("Asia/Kolkata");
+				planoTime = tokyoTime.clone().tz("US/Central");
+				sanjoseTime = tokyoTime.clone().tz("US/Pacific");
+				madridTime = tokyoTime.clone().tz("Europe/Madrid");
+
+				// tokyo
+				$('.location-tokyo .time-24 .hour').html(tokyoTime.format('HH'));
+				$('.location-tokyo .time-24 .minute').html(tokyoTime.format('mm'));
+<!--				$('.location-tokyo .time-12').html(tokyoTime.format('LT'));-->
+				$('.location-tokyo .day').html(tokyoTime.format('ddd.'));
+				$('.location-tokyo .date').html(tokyoTime.format('Do'))
+
+				// sydney
+				$('.location-sydney .time-24 .hour').html(sydneyTime.format('HH'));
+				$('.location-sydney .time-24 .minute').html(sydneyTime.format('mm'));
+<!--				$('.location-sydney .time-12').html(sydneyTime.format('LT'));-->
+				$('.location-sydney .day').html(sydneyTime.format('ddd.'));
+				$('.location-sydney .date').html(sydneyTime.format('Do'))
+
+				// bangalore
+				$('.location-bangalore .time-24 .hour').html(bangaloreTime.format('HH'));
+				$('.location-bangalore .time-24 .minute').html(bangaloreTime.format('mm'));
+<!--				$('.location-bangalore .time-12').html(bangaloreTime.format('LT'));-->
+				$('.location-bangalore .day').html(bangaloreTime.format('ddd.'));
+				$('.location-bangalore .date').html(bangaloreTime.format('Do'))
+
+				// plano
+				$('.location-plano .time-24 .hour').html(planoTime.format('HH'));
+				$('.location-plano .time-24 .minute').html(planoTime.format('mm'));
+<!--				$('.location-plano .time-12').html(planoTime.format('LT'));-->
+				$('.location-plano .day').html(planoTime.format('ddd.'));
+				$('.location-plano .date').html(planoTime.format('Do'))
+
+				// sanjose
+				$('.location-sanjose .time-24 .hour').html(sanjoseTime.format('HH'));
+				$('.location-sanjose .time-24 .minute').html(sanjoseTime.format('mm'));
+<!--				$('.location-sanjose .time-12').html(sanjoseTime.format('LT'));-->
+				$('.location-sanjose .day').html(sanjoseTime.format('ddd.'));
+				$('.location-sanjose .date').html(sanjoseTime.format('Do'))
+
+				// madrid
+				$('.location-madrid .time-24 .hour').html(madridTime.format('HH'));
+				$('.location-madrid .time-24 .minute').html(madridTime.format('mm'));
+<!--				$('.location-madrid .time-12').html(madridTime.format('LT'));-->
+				$('.location-madrid .day').html(madridTime.format('ddd.'));
+				$('.location-madrid .date').html(madridTime.format('Do'));
+
+			};
+
+			// Update Time
+			$(function() {
+				update();
+				setInterval(update, 1000);
+			});
+		</script>
+
+
+		<script>
+			let tzSelection = document.getElementById("tzSelection");
+			let container = document.getElementById("tzContainer");
+			if (tzSelection) {
+				const btns = tzSelection.getElementsByTagName("button");
+				for (const btn in btns) {
+					btns[btn].onclick = function(event) {
+						setTimes(this.dataset.val);
+						container.className = "tzContainer " + this.id;
+					}
+				}
+			}
+
+			function setTimes(localtime) {
+				let today = new Date();
+				let dd = String(today.getDate()).padStart(2, '0');
+				let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+				let yyyy = today.getFullYear();
+				today = yyyy + "-" + mm + "-" + dd;
+
+				var lt = localtime || "11:00";
+				let tokyo = moment.tz(today + " " + lt, "Japan");
+				let sydney = tokyo.clone().tz("Australia/NSW");
+				let bangalore = tokyo.clone().tz("Asia/Kolkata");
+				let plano = tokyo.clone().tz("US/Central");
+				let sanjose = tokyo.clone().tz("US/Pacific");
+				let madrid = tokyo.clone().tz("Europe/Madrid");
+				const timeElements = {
+					"tokyo": {
+						"short": "TOK",
+						"val": tokyo
+					},
+					"sydney": {
+						"short": "SYD",
+						"val": sydney
+					},
+					"bangalore": {
+						"short": "BAN",
+						"val": bangalore
+					},
+					"plano": {
+						"short": "PLA",
+						"val": plano
+					},
+					"sanjose": {
+						"short": "SAN",
+						"val": sanjose
+					},
+					"madrid": {
+						"short": "MAD",
+						"val": madrid
+					}
+				};
+
+				let local = document.getElementById("LOCAL");
+				if (local) {
+					local.textContent = sydney.format('HH:mm');
+				}
+				for (const emt in timeElements) {
+					let timevalueElement = document.getElementById(timeElements[emt].short);
+					if (timevalueElement) {
+						timevalueElement.textContent = timeElements[emt].val.format('HH:mm z');
+					}
+				}
+			};
+			var localtime = localtime || "11:00";
+			setTimes(localtime);
+		</script>
+
+		<script type="text/javascript">
+			var mastersel = document.getElementById("master-dropdown-list");
+			var mastersel1 = document.getElementById("master-dropdown-list1");
+<!--			var rightselopt = document.getElementById("tzlist-right").options;-->
+			var leftselopt = document.getElementById("tzlist-left").options;
+			for (i = 0; i < mastersel.options.length; i++) {
+<!--				rightselopt[rightselopt.length] = new Option(mastersel1.options[i].text, mastersel.options[i].value);-->
+				leftselopt[leftselopt.length] = new Option(mastersel.options[i].text, mastersel.options[i].value);
+			}
+			var APM = '';
+
+			function UpdateTimezoneFields() {
+				APM = '';
+				var fromtime = document.getElementById("tzinput-left").value;
+				var fromdrop = document.getElementById("tzlist-left").options[document.getElementById("tzlist-left")
+					.selectedIndex].value;
+<!--				var todrop = document.getElementById("tzlist-right").options[document.getElementById("tzlist-right")-->
+<!--					.selectedIndex].value;-->
+<!--				if (!(fromtime.length && fromdrop.length && todrop.length)) {-->
+				if (!(fromtime.length && fromdrop.length )) {
+					alert('The time to convert from and both dropdowns all need to be specified.');
+					return;
+				}
+				fromtime = ConformTime(fromtime);
+<!--				fromtime = ConvertTo24hourClock(fromtime);-->
+				// if (document.getElementById("tzdst-left").checked) {
+				// 	fromtime = DSTadjustment(fromtime, false);
+				// }
+				fromtime = ConvertToFromGMT(fromtime, fromdrop, true);
+				var totime = ConvertTargetGMT(fromtime);
+				// if (document.getElementById("tzdst-right").checked) {
+				// 	totime = DSTadjustment(totime, true);
+				// }
+<!--				totime = ConvertTo12hourClock(totime);-->
+<!--				document.getElementById("tzinput-right").innerHTML = totime;-->
+				$('.location-tokyo-result .time-24 .hour').html(totime[0].format('HH'));
+				$('.location-tokyo-result .time-24 .minute').html(totime[0].format('mm'));
+				$('.location-sydney-result .time-24 .hour').html(totime[1].format('HH'));
+				$('.location-sydney-result .time-24 .minute').html(totime[1].format('mm'));
+				$('.location-bangalore-result .time-24 .hour').html(totime[2].format('HH'));
+				$('.location-bangalore-result .time-24 .minute').html(totime[2].format('mm'));
+				$('.location-plano-result .time-24 .hour').html(totime[3].format('HH'));
+				$('.location-plano-result .time-24 .minute').html(totime[3].format('mm'));
+				$('.location-sanjose-result .time-24 .hour').html(totime[4].format('HH'));
+				$('.location-sanjose-result .time-24 .minute').html(totime[4].format('mm'));
+				$('.location-madrid-result .time-24 .hour').html(totime[5].format('HH'));
+				$('.location-madrid-result .time-24 .minute').html(totime[5].format('mm'));
+<!--				$('.convert-result').css("display","grid");-->
+				if(totime[0].format('HH')>='08' && totime[0].format('HH')<'20') {
+					$('.location-tokyo-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-tokyo-result').parent().removeClass('bright').addClass('night');
+				};
+				if(totime[1].format('HH')>='08' && totime[1].format('HH')<'20') {
+					$('.location-sydney-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-sydney-result').parent().removeClass('bright').addClass('night');
+				};
+				if(totime[2].format('HH')>='08' && totime[2].format('HH')<'20') {
+					$('.location-bangalore-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-bangalore-result').parent().removeClass('bright').addClass('night');
+				};
+				if(totime[3].format('HH')>='08' && totime[3].format('HH')<'20') {
+					$('.location-plano-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-plano-result').parent().removeClass('bright').addClass('night');
+				};
+				if(totime[4].format('HH')>='08' && totime[4].format('HH')<'20') {
+					$('.location-sanjose-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-sanjose-result').parent().removeClass('bright').addClass('night');
+				};
+				if(totime[5].format('HH')>='08' && totime[5].format('HH')<'20') {
+					$('.location-madrid-result').parent().removeClass('night').addClass('bright');
+				}
+				else {
+					$('.location-madrid-result').parent().removeClass('bright').addClass('night');
+				};
+			} // function UpdateTimezoneFields()
+			function convertTZ(date, tzString) {
+<!--				return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));-->
+				return moment((typeof date === "string" ? new Date(date) : date)).tz(tzString);
+
+			}
+			function ConvertTargetGMT(time) {
+				var ct = '',
+				currentDate = new Date(),
+				result = [];
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "Japan") ;
+				result.push(ct);
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "Australia/NSW") ;
+				result.push(ct);
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "Asia/Kolkata") ;
+				result.push(ct);
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "US/Central") ;
+				result.push(ct);
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "US/Pacific") ;
+				result.push(ct);
+				ct=convertTZ(currentDate.toLocaleDateString()+' '+time+":00 +0000", "Europe/Madrid") ;
+				result.push(ct);
+				return result;
+			}
+
+
+<!--			function ConvertTo24hourClock(tm) {-->
+<!--				if (!APM.length) {-->
+<!--					return tm;-->
+<!--				}-->
+<!--				var ta = tm.split(":", 2);-->
+<!--				var h = Math.abs(parseInt(ta[0].replace(/\D/g, "")));-->
+<!--				var m = Math.abs(parseInt(ta[1].replace(/\D/g, "")));-->
+<!--				if ((APM.substr(-2) == "AM") && h == 12) {-->
+<!--					h = 0;-->
+<!--				} else if ((APM.substr(-2) == "PM") && h < 12) {-->
+<!--					h += 12;-->
+<!--				}-->
+<!--				return h + ":" + MinimumTwoDigits(m);-->
+<!--			} // function ConvertTo24hourClock()-->
+
+			function ConvertTo12hourClock(tm) {
+				if (!APM.length) {
+					return tm;
+				}
+				var ta = tm.split(":", 2);
+				var h = Math.abs(parseInt(ta[0].replace(/\D/g, "")));
+				var m = Math.abs(parseInt(ta[1].replace(/\D/g, "")));
+				var localapm = " AM";
+				if (h == 0) {
+					h = 12;
+				} else if (h >= 12) {
+					localapm = " PM";
+					if (h > 12) {
+						h -= 12;
+					}
+				}
+				return h + ":" + MinimumTwoDigits(m) + localapm;
+			} // function ConvertTo12hourClock()
+
+			function ConformTime(tm) {
+				var ta = tm.split(":", 2);
+				var am = /am/i.test(ta[1]) ? true : false;
+				var pm = /pm/i.test(ta[1]) ? true : false;
+				if (am && pm) {
+					am = false;
+				}
+				if (am) {
+					APM = " AM";
+				} else if (pm) {
+					APM = " PM";
+				}
+				var h = Math.abs(parseInt(ta[0].replace(/\D/g, "")));
+				var m = Math.abs(parseInt(ta[1].replace(/\D/g, "")));
+				if (am || pm) {
+					if (h == 0) {
+						h = 12;
+					} else if (h > 12) {
+						return MessageNow("Hour number for 12-hour clock can't be more than 12");
+					}
+				} else if (h > 23) {
+					return MessageNow("Hour number can't be more than 23. Use 0 for beginning of day.");
+				}
+				return h + ":" + MinimumTwoDigits(m) + APM;
+			} // function ConformTime()
+
+			function DSTadjustment(tm, add) {
+				var ta = tm.split(":", 2);
+				var h = parseInt(ta[0]);
+				var m = parseInt(ta[1]);
+				if (add) {
+					h++;
+				} else {
+					h--;
+				}
+				if (h < 1) {
+					h = 23;
+				} else if (h > 23) {
+					h = 0;
+				}
+				return h + ":" + MinimumTwoDigits(m);
+			} // function DSTadjustment()
+
+			function ConvertToFromGMT(tm, val, from) {
+				var plus = (val.substr(0, 1) == "+") ? true : false;
+				if (from) {
+					plus = (!plus);
+				}
+				var ta = val.split(":", 2);
+				var fh = Math.abs(parseInt(ta[0].replace(/\D/g, "")));
+				var fm = Math.abs(parseInt(ta[1].replace(/\D/g, "")));
+				ta = tm.split(":", 2);
+				var h = Math.abs(parseInt(ta[0].replace(/\D/g, "")));
+				var m = Math.abs(parseInt(ta[1].replace(/\D/g, "")));
+				if (plus) {
+					h += fh;
+					m += fm;
+				} else {
+					h -= fh;
+					m -= fm;
+				}
+				if (m > 59) {
+					h++;
+					m -= 60;
+				}
+				if (m < 0) {
+					h--;
+					m += 60;
+				}
+				if (h > 23) {
+					h -= 24;
+				}
+				if (h < 0) {
+					h += 24;
+				}
+				return h + ":" + MinimumTwoDigits(m);
+			} // function ConvertToGMT()
+
+			function MinimumTwoDigits(n) {
+				var s = new String(n);
+				while (s.length < 2) {
+					s = "0" + s;
+				}
+				return s;
+			} // function MinimumTwoDigits()
+
+			function MessageNow(s) {
+				alert(s);
+				return '';
+			} // function MessageNow()
+		</script>
+	</body>
+
+</html>
