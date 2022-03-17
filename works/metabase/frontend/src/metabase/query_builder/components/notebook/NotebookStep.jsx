@@ -26,6 +26,8 @@ import BreakoutStep from "./steps/BreakoutStep";
 import SummarizeStep from "./steps/SummarizeStep";
 import SortStep from "./steps/SortStep";
 import LimitStep from "./steps/LimitStep";
+import { processSource } from "metabase/lib/expressions/process";
+import Filter from "metabase-lib/lib/queries/structured/Filter";
 
 const STEP_UI = {
   data: {
@@ -102,6 +104,60 @@ export default class NotebookStep extends React.Component {
     showPreview: false,
   };
 
+  closeStep = (step,updateQuery) => {
+    console.log('start',this.props.step.query.expressions());
+    //start custom column
+    let source = `case(between([${step.query.tableDimensions()[7].displayName()}], "2019-04-01", "2019-05-01"), "1", between([${step.query.tableDimensions()[7].displayName()}], "2019-03-01", "2019-04-01"), "0", between([${step.query.tableDimensions()[7].displayName()}], "2019-02-01", "2019-03-01"), "-1", "-99")`;
+    let targetOffset = 0;
+    function getParserOptions() {
+      return {
+        query: step.query,
+        startRule: 'expression',
+      };
+    }
+    const {
+      expression,
+      compileError,
+      suggestions,
+      helpText,
+      syntaxTree,
+    } = 
+    processSource({
+      source,
+          targetOffset,
+          ...getParserOptions(),
+        });
+    step.query.addExpression('距离（周）', expression).update(updateQuery)
+    //custom column added
+    .then(()=>{
+      //start add filter using newly added custom column
+      let section=this.props.step.query.filterFieldOptionSections(null, {includeSegments: true,});
+      console.log('end',this.props.step.query.expressions());
+      console.log('end',section[0].items);
+      
+      let filter = new Filter(
+        [],
+        null,
+        section[0].items[0].dimension.query(),
+      );
+      filter=filter.setDimension(section[0].items[0].dimension.mbql(), { useDefaultOperator: true });
+      filter=filter.setOperator("!=");
+      filter=filter.setArguments(['-99']);
+      //filter added
+      let aggregationOperator = this.props.step.query.table().aggregationOperators();
+      console.log('this.props.step.query.table().aggregationOperators()',aggregationOperator);
+      let newBreakout = filter.dimension().mbql();
+      //aggregator added
+      this.props.step.query.filter(filter).aggregate([aggregationOperator[1].short]).breakout(newBreakout).update(updateQuery)
+      .then(()=>{
+        let filter1 = this.props.step.query.filters()[0];
+        console.log('this.props.step.query.filters().filterOperators()',filter1.filterOperators());
+        console.log('this.props.step.query.filters().operatorName()',filter1.operatorName());
+      })
+
+    });
+  };
+
   render() {
     const {
       step,
@@ -110,6 +166,7 @@ export default class NotebookStep extends React.Component {
       isLastOpened,
       updateQuery,
     } = this.props;
+    console.log('notebookstep render',step.query.expressions());
     const { showPreview } = this.state;
 
     const { title, color, component: NotebookStepComponent } =
@@ -157,6 +214,14 @@ export default class NotebookStep extends React.Component {
             style={{ color }}
           >
             {title}
+            {step.type=='data' && <Icon
+              name="play"
+              className="ml-auto cursor-pointer text-light text-medium-hover hover-child"
+              tooltip="add expression"
+              // onClick={() => step.revert(step.query).update(updateQuery)}
+              onClick = {() => this.closeStep(step,updateQuery)}
+              data-testid="remove-step"
+            />}
             <Icon
               name="close"
               className="ml-auto cursor-pointer text-light text-medium-hover hover-child"

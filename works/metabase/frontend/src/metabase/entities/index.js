@@ -22,3 +22,4 @@ export groups from "./groups";
 export search from "./search";
 export recents from "./recents";
 export snippets from "./snippets";
+export events from "./events";

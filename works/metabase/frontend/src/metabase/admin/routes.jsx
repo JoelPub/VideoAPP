@@ -33,6 +33,7 @@ import SegmentListApp from "metabase/admin/datamodel/containers/SegmentListApp";
 import SegmentApp from "metabase/admin/datamodel/containers/SegmentApp";
 import RevisionHistoryApp from "metabase/admin/datamodel/containers/RevisionHistoryApp";
 import AdminPeopleApp from "metabase/admin/people/containers/AdminPeopleApp";
+import AdminEventApp from "metabase/admin/people/containers/AdminEventApp";
 import FieldApp from "metabase/admin/datamodel/containers/FieldApp";
 import TableSettingsApp from "metabase/admin/datamodel/containers/TableSettingsApp";
 
@@ -46,6 +47,7 @@ import Help from "metabase/admin/tasks/containers/Help";
 
 // People
 import PeopleListingApp from "metabase/admin/people/containers/PeopleListingApp";
+import EventListingApp from "metabase/admin/people/containers/EventListingApp";
 import GroupsListingApp from "metabase/admin/people/containers/GroupsListingApp";
 import GroupDetailApp from "metabase/admin/people/containers/GroupDetailApp";
 
@@ -114,6 +116,11 @@ const getRoutes = (store, IsAdmin) => (
         <ModalRoute path="reactivate" modal={UserActivationModal} />
         {PLUGIN_ADMIN_USER_MENU_ROUTES.map(getRoutes => getRoutes(store))}
       </Route>
+    </Route>
+
+    {/* EVENT */}
+    <Route path="event" title='事件' component={AdminEventApp}>
+      <IndexRoute component={EventListingApp} />
     </Route>
 
     {/* Troubleshooting */}

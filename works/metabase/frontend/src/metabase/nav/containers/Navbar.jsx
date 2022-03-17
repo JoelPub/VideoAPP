@@ -139,6 +139,12 @@ export default class Navbar extends Component {
               currentPath={this.props.path}
               key="admin-nav-permissions"
             />
+            <AdminNavItem
+              name='事件'
+              path="/admin/event"
+              currentPath={this.props.path}
+              key="admin-nav-event"
+            />
             {PLUGIN_ADMIN_NAV_ITEMS.map(({ name, path }) => (
               <AdminNavItem
                 name={name}
