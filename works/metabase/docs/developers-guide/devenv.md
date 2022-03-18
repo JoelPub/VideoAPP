@@ -18,6 +18,8 @@ Metabase depends on lots of third-party libraries to run, so you'll need to keep
 ```sh
 # javascript dependencies
 $ yarn
+如果yarn一直不动或者出错，试着清理yarn cache
+$ yarn cache clean && yarn
 ```
 
 ## Development server (quick start)
@@ -25,6 +27,9 @@ $ yarn
 Run your backend development server with
 
     clojure -M:run
+
+【报错]:Error building classpath. The following libs must be prepared before use: [metabase/java-deps]
+ 解决方法：clj -X:deps prep
 
 Start the frontend build process with
 
@@ -51,7 +56,21 @@ If you're working on the frontend directly, you'll most likely want to reload ch
 ```sh
 $ yarn build-hot
 ```
-
+如果想使用mock api，用apache的反向代理把域名转发到80端口并把请求转发到json-server的mock api去，访问localhost
+https://joelpub.github.io/2018/03/22/MAC-APACHE-REVERSE-PROXY/
+```sh
+sudo apachectl stop
+#全部转发
+ProxyPass /api/ http://127.0.0.1:3001/
+ProxyPassReverse /api/ http://127.0.0.1:3001/
+#只转发event下的
+#ProxyPass /api/event/ http://127.0.0.1:3001/
+#ProxyPassReverse /api/event/ http://127.0.0.1:3001/
+ProxyPass / http://127.0.0.1:3000/
+ProxyPassReverse / http://127.0.0.1:3000/
+sudo apachectl start
+node json-server.js
+```
 Note that at this time if you change CSS variables, those changes will only be picked up when a build is restarted.
 
 There is also an option to reload changes on save without hot reloading if you prefer that.
