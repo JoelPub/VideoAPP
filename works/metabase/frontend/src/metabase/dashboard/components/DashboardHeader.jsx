@@ -5,7 +5,7 @@ import { t } from "ttag";
 import ActionButton from "metabase/components/ActionButton";
 import Button from "metabase/components/Button";
 import Header from "metabase/components/Header";
-import Icon from "metabase/components/Icon";
+import Icon, { IconWrapper } from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";
 
 import { getDashboardActions } from "./DashboardActions";
@@ -30,6 +30,12 @@ import type {
   DashCardId,
 } from "metabase-types/types/Dashboard";
 import { Link } from "react-router";
+import { connect } from "react-redux";
+import Dashboards from "metabase/entities/dashboards";
+import { dissoc } from "icepick";
+import { replace } from "react-router-redux";
+import * as Urls from "metabase/lib/urls";
+import { color } from "metabase/lib/colors";
 
 type Props = {
   location: LocationDescriptor,
@@ -74,6 +80,12 @@ type State = {
   modal: null | "parameters",
 };
 
+const mapDispatchToProps = {
+  copyDashboard: Dashboards.actions.copy,
+  onReplaceLocation: replace,
+};
+
+@connect(null, mapDispatchToProps)
 export default class DashboardHeader extends Component {
   constructor(props: Props) {
     super(props);
@@ -189,6 +201,8 @@ export default class DashboardHeader extends Component {
       location,
       onToggleAddQuestionSidebar,
       showAddQuestionSidebar,
+      copyDashboard,
+      onReplaceLocation,
     } = this.props;
     const canEdit = dashboard.can_write && isEditable && !!dashboard;
 
@@ -280,6 +294,36 @@ export default class DashboardHeader extends Component {
 
     if (!isFullscreen && !isEditing && canEdit) {
       buttons.push(
+         <Tooltip tooltip='自动创建'>
+           <Link
+             // to={location.pathname + "/copy"}
+             onClick={() =>
+               copyDashboard(
+                 { id: dashboard.id },
+                 dissoc(
+                   {
+                     name: new Date().toJSON().slice(0, 10),
+                     description: null,
+                     collection_id: dashboard.collection_id,
+                   },
+                   "id",
+                 ),
+               ).then(
+                 action => {
+                   onReplaceLocation(Urls.dashboard(action.payload.object))
+                 },
+                 error => {
+                   console.log('error',error)
+                 },
+               )
+             }
+             data-metabase-event={"Dashboard;Copy"}
+           >
+             <IconWrapper hover={{backgroundColor: color("bg-red-1"),color: color("text-red-1"),}}>
+               <Icon name="union" />
+             </IconWrapper>
+           </Link>
+         </Tooltip>,
         <Tooltip key="edit-dashboard" tooltip={t`Edit dashboard`}>
           <a
             data-metabase-event="Dashboard;Edit"

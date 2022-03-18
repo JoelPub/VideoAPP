@@ -19,6 +19,11 @@ import {
   MenuContainer,
   ToggleMobileSidebarIcon,
 } from "./CollectionHeader.styled";
+import { connect } from "react-redux";
+import Dashboards from "metabase/entities/dashboards";
+import { dissoc } from "icepick";
+import Search from "metabase/entities/search";
+import { color } from "metabase/lib/colors";
 
 function Title({ collection, handleToggleMobileSidebar }) {
   return (
@@ -83,6 +88,30 @@ function EditMenu({
   ) : null;
 }
 
+const mapDispatchToProps = {
+  copyDashboard: Dashboards.actions.copy,
+};
+function CreateDashboardAuto({
+  collection,
+  collectionId,
+  hasWritePermission,
+  copyDashboard,
+  dashboard,
+}) {
+  const tooltip = '自动创建';
+  const link = Urls.newCollection(collectionId);
+
+  return hasWritePermission ? (
+    <Tooltip tooltip={tooltip}>
+      <Link onClick={() => dashboard?copyDashboard({ id: dashboard.id }, dissoc({ "name": new Date().toJSON().slice(0,10), "description": null, "collection_id": collectionId }, "id")):null}>
+        <IconWrapper hover={{backgroundColor: color("bg-red-1"),color: color("text-red-1"),}}>
+          <Icon name="union" />
+        </IconWrapper>
+      </Link>
+    </Tooltip>
+  ) : null;
+}
+
 function CreateCollectionLink({
   collection,
   collectionId,
@@ -106,16 +135,41 @@ function Menu(props) {
   return (
     <MenuContainer>
       <EditMenu {...props} />
+      <CreateDashboardAuto {...props} />
       <CreateCollectionLink {...props} />
       <PermissionsLink {...props} />
     </MenuContainer>
   );
 }
 
-export default function CollectionHeader(props) {
+function CollectionHeader(props) {
   const { collection } = props;
   const isPersonal = isPersonalCollection(collection);
   const hasWritePermission = collection && collection.can_write;
+  const unpinnedItemsSorting = {
+    sort_column: "last_edited_at",
+    sort_direction: "desc",
+  };
+  const unpinnedQuery = {
+    collection: props.collectionId,
+    models: ["dashboard"],
+    limit: 1,
+    ...unpinnedItemsSorting,
+  };
+
+  return (
+    <Search.ListLoader
+      query={unpinnedQuery}
+      loadingAndErrorWrapper={false}
+      keepListWhileLoading
+      wrapped
+    >
+      {({
+        list: unpinnedItems = [],
+        metadata = {},
+      }) => {
+        // console.log('metadata.total',metadata.total);
+        // console.log('unpinnedItems',unpinnedItems);
 
   return (
     <Container>
@@ -124,7 +178,14 @@ export default function CollectionHeader(props) {
         {...props}
         isPersonal={isPersonal}
         hasWritePermission={hasWritePermission}
+        dashboard={unpinnedItems&&unpinnedItems.length>0?unpinnedItems[0]:null}
       />
     </Container>
+        
+        );
+      }}
+    </Search.ListLoader>
   );
 }
+
+export default connect(null, mapDispatchToProps)(CollectionHeader)
