@@ -1,8 +1,0 @@
-<!-- Start Footer -->
-${properties.footerScript @context='unsafe'}
-${properties.analyticsScript @context='unsafe'}
-<!-- End Footer -->
-
-<!--/* Include the site client libraries (loading only the JS in the footer, CSS was loaded in the header) */-->
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='ampcss.site'}" data-sly-unwrap/>
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='ampcss.all'}" data-sly-unwrap/>
