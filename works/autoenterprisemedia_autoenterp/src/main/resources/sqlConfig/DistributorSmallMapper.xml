@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
-<mapper namespace="com.shj.code.mapper.DistributorSmallMapper">
-	 <select id="getList" resultType="com.shj.code.entity.DistributorSmall">  
-	            select * from distributor_small where mainId = #{mainId,jdbcType=INTEGER} order by sort asc
-	</select>
-</mapper>
